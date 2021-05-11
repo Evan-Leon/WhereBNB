@@ -1,5 +1,5 @@
 {
-  "name": "WhereBNB",
+  "name": "wherebnb",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.14.0",
