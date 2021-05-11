@@ -5,7 +5,8 @@ import SignupContainer from './session/signup_container';
 const App = () => (
   <div>
       <h1>App Component</h1>
-    <Route path="/signup" component={SignupContainer} />
+      <Route path="/" component={NavBarContainer}/>
+      <Route path="/signup" component={SignupContainer} />
   </div>
 )
 
