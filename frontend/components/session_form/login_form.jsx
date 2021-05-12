@@ -1,11 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class LoginSessionForm extends React.Component {
+class LoginForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
+            email: '',
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,6 +19,7 @@ class LoginSessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        debugger
         const user = Object.assign({}, this.state);
         this.props.processForm(user).then(this.props.closeModal);
     }
@@ -39,8 +40,7 @@ class LoginSessionForm extends React.Component {
         return(
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    <h2 className="welcome-h2">Welcome to WhereBNB!</h2>
-                    <p className="login-header-text">Please Login</p> or SignUP!
+                    <p className="login-header-text">Please Login</p> 
                     <div onClick={this.props.closeModal} className="close-x">X</div>
                     {this.renderErrors()}
                     <div className="login-form">
@@ -58,5 +58,5 @@ class LoginSessionForm extends React.Component {
     }
 }
 
-export default withRouter(LoginSessionForm);
+export default withRouter(LoginForm);
 

@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
   def show 
     @user = User.find(params[:id])
 
-    render :show 
+    render "api/users/show" 
   end
 
   def create 
@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save 
       login!(@user)
-      render :show
+      render "api/users/show"
     else  
       render json: @user.errors.full_messages, status: 422
     end
@@ -25,7 +25,7 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user == current_user.id 
       if @user.update_attributes(user_params)
-        redirect_to users_url
+        render "api/users/show"
       else  
         render json: ["Could not update user, try again!"], status: 404
       end

@@ -46,6 +46,7 @@ group :development, :test do
   gem 'faker'
   gem 'factory_bot_rails' 
   gem 'rails-controller-testing' 
+  gem 'jquery-rails'
   
 end
 

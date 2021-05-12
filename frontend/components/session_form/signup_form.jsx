@@ -1,12 +1,12 @@
 import React from 'react';
 
-class Signup extends React.Component {
+class SignupForm extends React.Component {
   constructor(props){
     super(props);
     this.state ={
         email: '',
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         birthdate: '',
         password: '',
     }
@@ -15,14 +15,14 @@ class Signup extends React.Component {
 
   handleInput(type) {
     return (e) => {
-        this.setState({ [type]: e.target.value})
+        this.setState({ [type]: e.currentTarget.value})
     }
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createNewUser(this.state)
-    .then(() => this.props.history.push('/'))
+    debugger
+    this.props.createNewUser(this.state).then(this.props.closeModal)
   }
 
   renderErrors() {
@@ -39,7 +39,7 @@ class Signup extends React.Component {
 
   render() {  
     return(
-      <div className="session-form">
+      <div className="signup-form">
           <h2>Sign up!</h2>
           <div onClick={this.props.closeModal} className="close-x">X</div>
           {this.renderErrors()}
@@ -48,10 +48,10 @@ class Signup extends React.Component {
                 <input type="text" value={this.state.email} onChange={this.handleInput('email')} />
             </label>
             <label htmlFor="">First Name:
-                <input type="text" value={this.state.firstName} onChange={this.handleInput('firstName')} />
+                <input type="text" value={this.state.first_name} onChange={this.handleInput('first_name')} />
             </label>
             <label htmlFor="">Last Name:
-                <input type="text" value={this.state.lastName} onChange={this.handleInput('lastName')} />
+                <input type="text" value={this.state.last_name} onChange={this.handleInput('last_name')} />
             </label>
             <label htmlFor="">Birthdate:
                 <input type="date" value={this.state.birthdate} onChange={this.handleInput('birthdate')} />
@@ -66,4 +66,4 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+export default SignupForm;

@@ -1,8 +1,9 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import LoginSessionFormContainer from '../sesion_form/login_form_container';
-import SignupFormContainer from '../session_form/signup_container';
+import LoginFormContainer from '../session_form/login_form_container';
+import SignupFormContainer from '../session_form/signup_form_container';
+
 
 function Modal({modal, closeModal}) {
     if (!modal){
@@ -11,10 +12,10 @@ function Modal({modal, closeModal}) {
     let component;
     switch (modal) {
         case 'login':
-            component = <LoginSessionFormContainer />
+            component = < LoginFormContainer/>;
             break;
         case 'signup':
-            component = <SignupFormContainer />
+            component = <SignupFormContainer/>;
             break;
         default:
             return null;
@@ -34,7 +35,7 @@ const mSTP = state => ({
 })
 
 const mDTP = dispatch => ({
-    closeModal: dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
 })
 
-export default connect(mSTP, mDTP)(modal);
+export default connect(mSTP, mDTP)(Modal);
