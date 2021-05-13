@@ -8,6 +8,7 @@ export const fetchListings = listings => (
 
 export const fetchListing = id =>(
     $.ajax({
-        
+        method: "GET",
+        url: `/api/listings/${id}`
     })
 )
