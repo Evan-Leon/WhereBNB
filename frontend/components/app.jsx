@@ -1,8 +1,10 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import Modal from './modal/modal';
 import Home from './home/home';
 import Footer from './footer/footer';
+import ListingShowContainer from './listings_show/listings_show_container';
+import ListingsIndexContainer from './listings_index/listing_index_container';
 
 
 import { AuthRoute, ProtectedRoute } from '../utils/route_utils';
@@ -12,7 +14,11 @@ const App = () => (
     <div className="app-box">
       <Modal />
       < Header />
-      < Home />
+      <Switch>
+        <Route path="/listings/:listingId" component={ListingShowContainer} />
+        <Route path="/listings" component={ListingsIndexContainer} />
+        <Route path="/" component={Home}/>
+      </Switch>
       < Footer />
     </div>
   
