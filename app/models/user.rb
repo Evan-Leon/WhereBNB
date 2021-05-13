@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
+#  id              :bigint           not null, primary key
 #  email           :string           not null
 #  first_name      :string           not null
 #  last_name       :string           not null
@@ -17,6 +17,11 @@ class User < ApplicationRecord
   validates :email, :first_name, :last_name, :birthdate, :password_digest, :session_token, presence: true
   validates :email, :session_token, uniqueness: true 
   validates :password, length: { minimum: 6, allow_nil: true}
+
+  has_many :listings,
+    primary_key: :id,
+    foreign_key: :host_id,
+    class_name: :Listing
 
   after_initialize :ensure_session_token
 

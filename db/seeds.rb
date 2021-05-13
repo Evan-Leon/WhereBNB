@@ -7,9 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Listing.destroy_all
 
 
 #Users
 
 demo= User.create!(email: "DemoUser@wherebnb.com", password: "123456", first_name: 'Demo', last_name: 'User', birthdate: "1990-10-10")
 bob= User.create!(email: "bob", password: "123456", first_name: 'Bob', last_name: 'Bobson', birthdate: "1990-10-10")
+
+
+listing1 = Listing.create!(title: "my house!", price: 100, guest_num: 5, description: "My awesome lounge pad!",
+    num_beds: 3, longitude: 40.730610, latitude: -73.935242, host_id: bob.id)
+
+
+ 
