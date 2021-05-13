@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Search from './search'
 
-const NavBar = ({currentUser, logout, openModal, closeModal }) => {
+const NavBar = ({currentUser, demoUser, logout, openModal, closeModal, login }) => {
     
     const navSessionLinks = () =>(
         <nav className="login-signup">
             <button onClick={() => openModal('login')}>Login</button>
             <button onClick={() => openModal('signup')}>Signup</button>
+            <button onClick={() => login(demoUser)}>Demo User</button>
         </nav>
     )
     
