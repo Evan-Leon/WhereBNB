@@ -19,11 +19,10 @@ class LoginForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         const user = Object.assign({}, this.state);
+        debugger
         this.props.processForm(user).then(this.props.closeModal);
     }
-
     renderErrors() {
         return(
             <ul>
@@ -39,7 +38,7 @@ class LoginForm extends React.Component {
     render() {
         return(
             <div className="login-form-container">
-                <form onSubmit={this.handleSubmit} className="login-form-box">
+                <form  className="login-form-box" onSubmit={this.handleSubmit} >
                     <p className="login-header-text">Please Login</p> 
                     <div onClick={this.props.closeModal} className="close-x">X</div>
                     {this.renderErrors()}
@@ -50,7 +49,7 @@ class LoginForm extends React.Component {
                         <label htmlFor="">Password:
                             <input type="password" value={this.state.password} onChange={this.update('password')} className="login-input" />
                         </label>
-                        <input type="submit" className="login-submit" value="Login" />
+                        <button  className="login-submit" value="Login"  >Login </button>
                     </div>
                 </form>
             </div>

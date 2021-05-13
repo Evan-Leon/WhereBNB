@@ -21,7 +21,7 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
+    
     this.props.createNewUser(this.state).then(this.props.closeModal)
   }
 
@@ -43,7 +43,7 @@ class SignupForm extends React.Component {
           <h2>Sign up!</h2>
           <div onClick={this.props.closeModal} className="close-x">X</div>
           {this.renderErrors()}
-          <form onSubmit={this.handleSubmit} className="signup-form-box">
+          <form className="signup-form-box"  >
             <label htmlFor="">Email:
                 <input type="text" value={this.state.email} onChange={this.handleInput('email')} />
             </label>
@@ -59,7 +59,7 @@ class SignupForm extends React.Component {
             <label htmlFor="">Password:
                 <input type="password" value={this.state.password} onChange={this.handleInput('password')} />
             </label>
-            <button onClick={this.handleSubmit}>Sign up</button>
+            <button type="submit" onClick={this.handleSubmit} > Signup </button>
           </form>  
       </div>
     )
