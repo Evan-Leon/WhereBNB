@@ -19,5 +19,7 @@ bob= User.create!(email: "bob", password: "123456", first_name: 'Bob', last_name
 listing1 = Listing.create!(title: "my house!", price: 100, guest_num: 5, description: "My awesome lounge pad!",
     num_beds: 3, longitude: 40.730610, latitude: -73.935242, host_id: bob.id)
 
+listing2 = Listing.create!(title: "Beautiful cottage", price: 200, guest_num: 3, description: "Beautiful cottage in the water",
+    num_beds: 2, longitude: 20.730410, latitude: -71.235242, host_id: demo.id)
 
  

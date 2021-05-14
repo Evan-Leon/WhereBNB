@@ -3,20 +3,23 @@ import * as APIListingUtils from '../utils/listing_utils';
 export const RECEIVE_LISTINGS = "RECEIVE_LISTINGS";
 export const RECEIVE_LISTING = "RECEIVE_LISTING";
 
-const receiveListings = listings => ({
+export const receiveListings = listings => {
+    debugger
+    return({
     type: RECEIVE_LISTINGS,
     listings
-})
+})}
 
-const receiveListing = listing => ({
+export const receiveListing = listing => ({
     type: RECEIVE_LISTING,
     listing 
 })
 
-export const fetchListings = () => dispatch => (
+export const fetchListings = () => dispatch => {
+    return(
     APIListingUtils.fetchListings()
-    .then(listings => dispatch(receiveListings(listings)))
-);
+    .then(listings => dispatch(receiveListings(listings))))
+};
 
 export const fetchListing = id => dispatch => (
     APIListingUtils.fetchListing(id)

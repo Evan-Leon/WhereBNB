@@ -1,10 +1,10 @@
-export const fetchListings = listings => (
-    $.ajax({
+export const fetchListings = ()  => {
+  return(  $.ajax({
         method: 'GET',
         url: '/api/listings',
-        listings 
-    })
-);
+        
+    }))
+};
 
 export const fetchListing = id =>(
     $.ajax({
