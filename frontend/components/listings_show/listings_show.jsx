@@ -5,14 +5,24 @@ class ListingShow extends React.Component {
         super(props);
     }
 
+    componentDidMount(){
+        this.props.fetchListing(this.props.match.params.listingId);
+    }
+
 
 
     render(){
-
-
+        const { listing } = this.props;
+        if (!listing) return null;
         return(
             <div className= "listing-show-box">
-                <h3>[I AM A SINGLE LISTING]</h3>
+                <p>[PlaceHolderPhoto]</p>
+                <h3 className="listing-title">{listing.title}</h3>
+                <p>Number of beds: {listing.numBeds}</p>
+                <p>Number of guests: {listing.guestNum}</p>
+                <p>[REVIEWS]</p>
+                <p>${listing.price}/night</p>
+
             </div>
         )
     }

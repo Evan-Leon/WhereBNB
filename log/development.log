@@ -6863,3 +6863,4 @@ Processing by Api::ListingsController#index as JSON
 Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.5ms)
 
 
+  [1m[36mListing Load (0.6ms)[0m  [1m[34mSELECT  "listings".* FROM "listings" ORDER BY "listings"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
