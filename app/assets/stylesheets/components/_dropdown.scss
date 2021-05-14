@@ -1,0 +1,26 @@
+
+.users-dropdown-btn {
+    position: relative;
+    padding: 7px 9px;
+}
+
+.users-dropdown-btn:hover .login-buttons {
+    display: block;
+}
+
+.login-buttons {
+    position: absolute;
+    display: none;
+    top: 30px;
+    right: 0;
+    background-color: rebeccapurple;
+    border: 2px solid orange;
+    border-radius: 3px;
+    padding: 10px;
+    width: 300px;
+    z-index: 1;
+    font-family: $font;
+    text-align: left;
+    box-shadow: -1px 4px 6px 1px black;
+}
+

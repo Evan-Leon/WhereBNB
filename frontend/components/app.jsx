@@ -13,7 +13,11 @@ import Header from './nav_bar/header';
 const App = () => (
     <div className="app-box">
       <Modal />
-      < Header />
+      <div className="header-nav">
+        {/* <img src={window.logoUrl} alt="wherebnb-logo" className="logo" /> */}
+        < Header />
+      </div>
+      
       <Switch>
         <Route path="/listings/:listingId" component={ListingShowContainer} />
         <Route path="/listings" component={ListingsIndexContainer} />

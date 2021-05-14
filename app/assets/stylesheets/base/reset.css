@@ -32,7 +32,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
+ol, ul, li {
 	list-style: none;
 }
 blockquote, q {
@@ -48,7 +48,3 @@ table {
 	border-spacing: 0;
 }
 
-.logo {
-    height: 200px;
-    width: 200px;
-  }
