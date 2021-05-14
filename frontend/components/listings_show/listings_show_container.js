@@ -1,14 +1,12 @@
 import { connect } from 'react-redux';
 
 import ListingShow from './listings_show';
-import { fetchListing } from '../../actions/listing_actions'
+import { fetchListing } from '../../actions/listing_actions';
 
-const mSTP = (state, ownProps) => {
-    debugger
-    return(
-{
+const mSTP = (state, ownProps) => (
+    {
     listing: state.entities.listings[ownProps.match.params.listingId]
-})}
+});
 
 const mDTP = dispatch => ({
     fetchListing: listingId => dispatch(fetchListing(listingId))
