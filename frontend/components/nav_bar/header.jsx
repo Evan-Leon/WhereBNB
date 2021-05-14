@@ -12,12 +12,9 @@ class Header extends React.Component {
 
         return(
             <header className="nav-header">
-                <div className="logo-title-box">
-                    <img src={window.logoUrl} alt="wherebnb-logo" className="logo" />
-                </div>
+                <img src={window.logoUrl} alt="wherebnb-logo" className="logo" />
                 < Search />
                 < NavBarContainer />
-
             </header>
         )
     }

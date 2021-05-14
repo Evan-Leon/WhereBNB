@@ -6,11 +6,14 @@ import Dropdown from './dropdown'
 const NavBar = ({currentUser, demoUser, logout, openModal, closeModal, login }) => {
     
     const navSessionLinks = () =>(
-        <nav className="login-signup">
-            {/* <Dropdown className="dropdown" /> */}
-            <button onClick={() => openModal('login')}>Login</button>
-            <button onClick={() => openModal('signup')}>Signup</button>
-            <button onClick={() => login(demoUser)}>Demo User</button>
+        <nav className="login-signup-dropdown">
+            <li>
+                <ul className="login-buttons">
+                    <button onClick={() => openModal('login')}>Login</button>
+                    <button onClick={() => openModal('signup')}>Signup</button>
+                    <button onClick={() => login(demoUser)}>Demo User</button>
+                </ul>
+            </li>
         </nav>
     )
     

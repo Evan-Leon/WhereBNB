@@ -2,15 +2,14 @@
     background-color: pink;
     display: flex;
     justify-content: space-between;
-}
-
-.logo-title-box {
-    background-color: burlywood;
+    border: 2px solid purple;
 }
 
 .logo {
   height: 50px;
   width: 50px;
+  
+  border: 2px solid red;
 }
 
 // .dropdown {
@@ -19,4 +18,9 @@
 
 .reveal {
   background-color: darkorange;
+  
+}
+
+.search-bar-box {
+  background-color: greenyellow;
 }
