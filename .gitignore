@@ -16,7 +16,7 @@ master.key
 /public/assets
 .byebug_history
 
-/config/master.key
+config/master.key
 
 node_modules/
 tmp/
