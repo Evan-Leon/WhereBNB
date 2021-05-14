@@ -1,16 +1,22 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const ListingIndexItem = props => (
-    <li>
-        <p>[Placeholder Image]</p>
-        <h3>{props.listing.title}</h3>
-        <p>Number of beds: {props.listing.num_beds}</p>
-        <p>Number of guests: {props.listing.num_beds}</p>
-        <br />
-        <p>[review #]</p>
-        <p>${props.listing.price}/night</p>
-    </li>
-)
+class ListingIndexItem extends React.Component {
+   
+
+    render(){
+        const {listing} = this.props;
+    return(
+        <li>
+            <p>[Placeholder Image]</p>
+            <h3>{listing.title}</h3>
+            <p>Number of beds: {listing.num_beds}</p>
+            <p>Number of guests: {listing.num_beds}</p>
+            <br />
+            <p>[review #]</p>
+            <p>${listing.price}/night</p>
+        </li>
+    )}
+}
 
 export default ListingIndexItem;

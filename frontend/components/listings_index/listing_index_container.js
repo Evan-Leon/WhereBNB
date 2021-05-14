@@ -5,11 +5,11 @@ import { fetchListings } from '../../actions/listing_actions'
 
 const mSTP = (state = {}) =>({
     
-    listings: Object.values(state.listings)
+    listings: Object.values(state.entities.listings)
 })
 
 const mDTP = dispatch => ({
-    fetchListings: () => dispatch(fetchListings)
+    fetchListings: () => dispatch(fetchListings())
 })
 
-export default connect(null, mDTP)(ListingsIndex);
+export default connect(mSTP, mDTP)(ListingsIndex);

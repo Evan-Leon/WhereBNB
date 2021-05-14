@@ -3,8 +3,8 @@ import * as APIListingUtils from '../utils/listing_utils';
 export const RECEIVE_LISTINGS = "RECEIVE_LISTINGS";
 export const RECEIVE_LISTING = "RECEIVE_LISTING";
 
-export const receiveListings = listings => {
-    debugger
+const receiveListings = listings => {
+    
     return({
     type: RECEIVE_LISTINGS,
     listings
