@@ -1,8 +1,26 @@
 .main-body{
     display: flex;
     background-color: cyan;
+    flex-direction: column;
+}
+
+.main-body>li{
+    height: 100px;
+    width: 100px;
 }
 
 .app-box {
     background-color:deeppink;
+}
+
+.explore-container {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.visit-container {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
 }
