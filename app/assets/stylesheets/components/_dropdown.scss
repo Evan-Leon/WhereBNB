@@ -6,12 +6,21 @@
     align-self: center;
     border-radius: 40%;
     margin: 5px;
+
+    // :hover{
+    //     box-shadow: -1px 4px 6px 1px black;
+    // }
     
 }
 
 .users-dropdown-btn:hover .login-buttons {
     display: block;
+    // box-shadow: -1px 4px 6px 1px black;
 }
+
+// .users-dropdown-btn:active .login-buttons {
+//     display: block;
+// }
 
 .login-buttons {
     position: absolute;
@@ -31,12 +40,16 @@
 
 
 .bars {
-    padding: 3px;
+    padding: 5px 5px 5px 5px;
+    // height: 50px;
+    // width: 50px;
 }
 
 
 .user-icon{
-    padding: 3px;
+    padding: 5px 5px 5px 5px;
+    // height: 50px;
+    // width: 50px;
 }
 
 

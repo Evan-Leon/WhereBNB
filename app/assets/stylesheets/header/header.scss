@@ -24,5 +24,13 @@
 .search-bar-box {
   background-color: greenyellow;
   align-self: center;
+  box-shadow: -1px 4px 6px 1px rgb(92, 90, 90);
+  // border-radius: 50%;
+}
+
+.search-text {
+  border-radius: 20%;
+  height: 30px;
+  width: 300px;
 }
 
