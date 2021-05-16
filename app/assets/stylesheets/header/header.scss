@@ -1,15 +1,20 @@
 .nav-header {
-    background-color: pink;
+    background-color:white;
     display: flex;
     justify-content: space-between;
-    border: 2px solid purple;
+    // border: 2px solid purple;
+    box-shadow: -1px 4px 6px 1px rgb(92, 90, 90);
+    position: fixed;
+    width: 100vw;
+    height: 80px;
 }
 
 .logo {
   height: 50px;
   width: 50px;
-  
+  align-self: center;
   border: 2px solid red;
+  margin-left: 100px;
 }
 
 // .dropdown {
@@ -22,15 +27,17 @@
 }
 
 .search-bar-box {
-  background-color: greenyellow;
+  // background-color: greenyellow;
   align-self: center;
-  box-shadow: -1px 4px 6px 1px rgb(92, 90, 90);
+  // box-shadow: -1px 4px 6px 1px rgb(92, 90, 90);
   // border-radius: 50%;
 }
 
 .search-text {
-  border-radius: 20%;
+  border-radius: 30%;
   height: 30px;
   width: 300px;
+  border: 1px solid rgb(202, 199, 199);
+  box-shadow: -1px 4px 6px 1px rgb(187, 184, 184);
 }
 

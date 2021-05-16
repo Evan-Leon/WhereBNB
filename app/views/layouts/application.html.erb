@@ -4,6 +4,8 @@
     <title>WhereBNB</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+
     
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application' %>
@@ -11,9 +13,23 @@
      <% if current_user %>
       
      <% end %>
+     <script type="text/javascript">
+        window.googleAPIKey = "<%= Rails.application.credentials.google[:api_key] %>"
+      </script>
 
      <script>
       window.logoUrl = '<%= image_url('logo.png') %>'
+      window.cartoonLakeUrl = '<%= image_url('cartoon_lake.jpg') %>'
+      window.springsUrl = '<%= image_url('springs.jpg') %>'
+      window.soundsUrl = '<%= image_url('sounds.jpg') %>'
+      window.riverUrl = '<%= image_url('river.jpg') %>'
+      window.forestRiverUrl = '<%= image_url('forest_river.jpg') %>'
+      window.watersideUrl = '<%= image_url('waterside.jpg') %>'
+      window.barnUrl = '<%= image_url('barn.jpg') %>'
+      window.waterHouseUrl = '<%= image_url('water_house.jpg') %>'
+      window.triangleHouseUrl = '<%= image_url('triangle_house.jpg') %>'
+      window.pugUrl = '<%= image_url('pug.jpg') %>'
+      window.hutsUrl = '<%= image_url('luca-bravo-lake.jpg') %>'
      </script>
      
   </head>

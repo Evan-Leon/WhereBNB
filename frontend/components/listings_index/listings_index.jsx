@@ -1,5 +1,6 @@
 import React from 'react';
 import ListingIndexItem from './listing_index_item';
+import ListingMap from '../listings_map/listing_map';
 
 class ListingsIndex extends React.Component {
     constructor(props){
@@ -7,7 +8,7 @@ class ListingsIndex extends React.Component {
     }
 
     componentDidMount() {
-        
+        debugger
         this.props.fetchListings();
     }
 
@@ -28,6 +29,7 @@ class ListingsIndex extends React.Component {
                         ))
                     }
                 </ul>
+                {/* <ListingMap /> */}
             </div>
         )
     }

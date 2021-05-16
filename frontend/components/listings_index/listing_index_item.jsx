@@ -7,14 +7,15 @@ class ListingIndexItem extends React.Component {
     render(){
         const {listing} = this.props;
     return(
-        <li>
-            <p>[Placeholder Image]</p>
-            <h3>{listing.title}</h3>
-            <p>Number of beds: {listing.num_beds}</p>
-            <p>Number of guests: {listing.guest_num}</p>
-            <br />
+        <li className="index-item-box">
+            {/* <img src={listing.photoUrl}>[Placeholder Image]</img> */}
+            <h3 className="index-title">{listing.title}</h3>
+            <p>Number of beds: {listing.numBeds}</p>
+            <p>Number of guests: {listing.guestNum}</p>
+            
             <p>[review #]</p>
             <p>${listing.price}/night</p>
+            <br />
         </li>
     )}
 }

@@ -6,6 +6,7 @@
     align-self: center;
     border-radius: 40%;
     margin: 5px;
+    margin-right: 100px;
 
     // :hover{
     //     box-shadow: -1px 4px 6px 1px black;
@@ -15,6 +16,9 @@
 
 .users-dropdown-btn:hover .login-buttons {
     display: block;
+    box-shadow: -1px 4px 6px 1px rgb(92, 90, 90);
+    border-radius: 25%;
+    height: 200px;
     // box-shadow: -1px 4px 6px 1px black;
 }
 
@@ -25,16 +29,17 @@
 .login-buttons {
     position: absolute;
     display: none;
-    top: 30px;
+    top: 35px;
     right: 0;
-    background-color: rebeccapurple;
-    border: 2px solid orange;
+    background-color: white;
+    // border: 2px solid orange;
     border-radius: 3px;
     padding: 10px;
     width: 250px;
+    // margin:20px;
     z-index: 1;
     font-family: $font;
-    text-align: left;
+    text-align: center;
     box-shadow: -1px 4px 6px 1px black;
 }
 

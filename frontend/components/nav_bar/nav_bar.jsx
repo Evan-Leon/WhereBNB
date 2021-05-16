@@ -8,9 +8,9 @@ const NavBar = ({currentUser, demoUser, logout, openModal, closeModal, login }) 
     const navSessionLinks = () =>(
         <div className="login-signup-dropdown">
                 <ul className="login-buttons">
-                    <button onClick={() => openModal('login')}>Login</button>
-                    <button onClick={() => openModal('signup')}>Signup</button>
-                    <button onClick={() => login(demoUser)}>Demo User</button>
+                    <li onClick={() => openModal('login')}>Login</li>
+                    <li onClick={() => openModal('signup')}>Signup</li>
+                    <li onClick={() => login(demoUser)}>Demo User</li>
                 </ul>
         </div>
     )
