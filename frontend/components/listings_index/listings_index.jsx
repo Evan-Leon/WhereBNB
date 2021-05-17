@@ -8,7 +8,7 @@ class ListingsIndex extends React.Component {
     }
 
     componentDidMount() {
-        debugger
+        
         this.props.fetchListings();
     }
 
