@@ -18,18 +18,25 @@ class ListingsIndex extends React.Component {
         
         if (!listings) return null;
         return(
+            
             <div className="listings-index-box">
-                <ul>
-                    {
-                        listings.map(listing => (
-                            <ListingIndexItem 
-                                listing= {listing}
-                                key={listing.id}
-                            />
-                        ))
-                    }
-                </ul>
+                <div className="listings-inner">
+                    <h2 className="main-index-title">Stays around here</h2>
+                    <ul className="list-indexes">
+                        {
+                            listings.map(listing => (
+                                <ListingIndexItem 
+                                    listing= {listing}
+                                    key={listing.id}
+                                />
+                            ))
+                        }
+                    </ul>
+                </div>
                 {/* <ListingMap /> */}
+                <div    className='map-box'>
+
+                </div>
             </div>
         )
     }

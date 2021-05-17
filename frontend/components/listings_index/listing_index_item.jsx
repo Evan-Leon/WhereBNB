@@ -8,13 +8,21 @@ class ListingIndexItem extends React.Component {
         const {listing} = this.props;
     return(
         <li className="index-item-box">
-            {/* <img src={listing.photoUrl}>[Placeholder Image]</img> */}
-            <h3 className="index-title">{listing.title}</h3>
-            <p>Number of beds: {listing.numBeds}</p>
-            <p>Number of guests: {listing.guestNum}</p>
-            
-            <p>[review #]</p>
-            <p>${listing.price}/night</p>
+            <div className="listing-picture">
+
+            </div>
+            <div className="index-info">
+                {/* {listing.id}.jpg */}
+                <h3 className="index-title">{listing.title}</h3>
+                
+                <p>{listing.guestNum} guests- {listing.numBeds} bedrooms</p>
+
+
+                <div className="review-price">
+                    <p>[review #]</p>
+                    <p>${listing.price}/night</p>
+                </div>
+            </div>
             <br />
         </li>
     )}

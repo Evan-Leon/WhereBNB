@@ -19,7 +19,7 @@ class Search extends React.Component{
         return(
             <div className="search-bar-box">
                 <form action="" onSubmit={this.handleSubmit}>
-                    <input type="text" className="search-text" placeholder="Search..." value={this.state.search} onChange={this.update} />
+                    <input type="text" className="search-text" placeholder="Start your search" value={this.state.search} onChange={this.update} />
                 </form>
             </div>
         )

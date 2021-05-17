@@ -29,6 +29,7 @@
   .logo{
     margin-right: 12px;
     margin-bottom: 25px;
+    color: red;
   }
 }
 
@@ -50,10 +51,12 @@
 }
 
 .search-text {
-  border-radius: 30%;
-  height: 30px;
-  width: 300px;
+  border-radius: 20px;
+  height: 35px;
+  width: 200px;
   border: 1px solid rgb(202, 199, 199);
   box-shadow: -1px 4px 6px 1px rgb(187, 184, 184);
+  padding-left: 25px;
+  font-weight: 500;
 }
 

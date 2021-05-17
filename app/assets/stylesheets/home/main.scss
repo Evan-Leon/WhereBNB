@@ -2,16 +2,13 @@
     display: flex;
     // background-color: cyan;
     flex-direction: column;
+    
 }
 
 .main-body>li{
     height: 100px;
     width: 100px;
 }
-
-// .app-box {
-//     // background-color:deeppink;
-// }
 
 .explore-container {
     display: flex;
@@ -68,7 +65,7 @@
     color: white;
     width: 150px;
     height: 45px;
-    border-radius: 25%;
+    border-radius: 15px;
     font-family: $font;
     font-weight: 200;
     font-size: 16px;
@@ -99,7 +96,7 @@
     
 }
 
-.new-york {
+.city-explore {
     display: flex;
 
     li {
@@ -113,75 +110,6 @@
     }
 }
 
-.chicago {
-    display: flex;
-
-    li {
-        align-self: center;
-        margin-left: 5px;
-        font-weight: 500;
-    }
-
-    img {
-        align-self: center;
-    }
-}
-
-.california {
-    display: flex;
-
-    li {
-        align-self: center;
-        margin-left: 5px;
-        font-weight: 500;
-    }
-
-    img {
-        align-self: center;
-    }
-}
-
-.miami {
-    display: flex;
-
-    li {
-        align-self: center;
-        margin-left: 5px;
-        font-weight: 500;
-    }
-
-    img {
-        align-self: center;
-    }
-}
-
-.boston {
-    display: flex;
-
-    li {
-        align-self: center;
-        margin-left: 5px;
-        font-weight: 500;
-    }
-
-    img {
-        align-self: center;
-    }
-}
-
-.seattle {
-    display: flex;
-
-    li {
-        align-self: center;
-        margin-left: 5px;
-        font-weight: 500;
-    }
-
-    img {
-        align-self: center;
-    }
-}
 
 .live-anywhere {
     font-size: 35px;
@@ -190,7 +118,7 @@
 
 }
 
-.outdoor{
+.visit-box{
 
     img {
         margin: 10px 0 10px 0;
@@ -200,38 +128,6 @@
         font-weight: 500;
     }
 }
-
-.unique {  
-    img {
-        margin: 10px 0 10px 0;
-    }
-
-    li {
-        font-weight: 500;
-    }
-}
-
-.entire-homes {
-    img {
-        margin: 10px 0 10px 0;
-    }
-
-    li {
-        font-weight: 500;
-    }
-}
-
-.pets {
-    img {
-        margin: 10px 0 10px 0;
-    }
-
-    li {
-        font-weight: 500;
-    }
-}
-
- 
 
 .visit-container{
     display: grid;

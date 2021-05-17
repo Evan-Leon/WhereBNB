@@ -1,9 +1,94 @@
 .listings-index-box {
-    width: 80vw;
-    height: 80h;
+    width: 100vw;
+    height: 100h;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 50%;
     grid-template-areas: 
-        "listings map"
-        "listings map";
+        "index map";
+    
 }
+
+// .index-title {
+//     // margin-top: 100px;
+// }
+// .listings-index-top {
+//     margin-top: 100px;
+// }
+.index-item-box {
+    // padding-top: 100px;
+    // margin-top: 100px;
+    background-color: green;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    
+    
+}
+
+// .index-item-box:first-child {
+//     margin-top: 100px;
+//     padding-top: 10px;
+// }
+
+.map-box{
+    background-color: indianred;
+    height: 100vh;
+    width: 50vw;
+    margin-top: 100px;
+    position: sticky;
+    
+}
+
+.listing-inner {
+    margin-top: 200px;
+    background-color: indigo;
+    // padding-top: 100px;
+}
+
+// .listing-inner:first-child {
+    
+// }
+
+.list-indexes:first-child {
+    margin-top: 69px;
+    padding-top: 10px;
+}
+
+.index-title{
+    padding: 10px 10px 10px 10px;
+    font-size: 24px;
+    margin-top: 30px;
+
+}
+
+.main-index-title {
+    font-size: 28px;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    padding-bottom: 50px;
+    
+}
+
+.review-price {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+}
+
+.listing-picture {
+    width: 300px ;
+    height: 200px ;
+    background-color: lightblue;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+.index-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
