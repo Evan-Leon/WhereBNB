@@ -15,14 +15,16 @@ const NavBar = ({currentUser, demoUser, logout, openModal, closeModal, login }) 
         </div>
     )
     
-//    const navGreeting = () => (
+   const navGreeting = () => (
 //        <div className="greeting-nav">
 //            <h2 className="greeting-first-name">Greetings, {currentUser.firstName}</h2>
-//            <button className="nav-logout-button" onClick={logout}>Log Out</button>
+           <div className="nav-logout-button" onClick={logout}>Log Out</div>
 //        </div>
-//    )
+   )
 
     return (
+        currentUser ?
+        navGreeting() :
        navSessionLinks()
     )
 }

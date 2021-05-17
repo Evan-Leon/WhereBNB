@@ -20,33 +20,50 @@ class Home extends React.Component {
                 <br />
                 <h2 className="explore">Explore</h2>
                 <ul className="explore-container">
-                    <img src={window.cartoonLakeUrl} alt="lake" />
-                    <li>New York</li>
-                    <img src={window.springsUrl} alt="springs" />
-                    <li>California</li>
-                    <img src={window.forestRiverUrl} alt="forest-river" />
-                    <li>Boston</li>
-                    
-                    <img src={window.soundsUrl} alt="sound" />
-                    <li>Chicago</li>
-                    
-                    <img src={window.watersideUrl} alt="waterside" />
-                    <li>Miami</li>
-                    
-                    <img src={window.riverUrl} alt="river" />
-                    <li>Seattle</li>
+                    <div className='new-york'>
+                        <img src={window.cartoonLakeUrl} alt="lake" />
+                        <li>New York</li>
+                    </div>
+                    <div className="california">
+                        <img src={window.springsUrl} alt="springs" />
+                        <li>California</li>
+                    </div>
+                    <div className="boston">
+                        <img src={window.forestRiverUrl} alt="forest-river" />
+                        <li>Boston</li>
+                    </div>
+                    <div className='chicago'>
+                        <img src={window.soundsUrl} alt="sound" />
+                        <li>Chicago</li>
+                    </div>
+                    <div className="miami">
+                        <img src={window.watersideUrl} alt="waterside" />
+                        <li>Miami</li>
+                    </div>
+                    <div className="seattle">
+                        <img src={window.riverUrl} alt="river" />
+                        <li>Seattle</li>
+                    </div>
                 </ul>
                 <br />
                 <h2 className="live-anywhere">Live Anywhere</h2>
                 <ul className="visit-container">
-                    <li>Outdoor getaways</li>
-                    <img src={window.barnUrl} alt="barn" />
-                    <li>Unique stays</li>
-                    <img src={window.waterHouseUrl} alt="water-house" />
-                    <li>Entire Homes</li>
-                    <img src={window.triangleHouseUrl} alt="triangle-house" />
-                    <li>Pets Allowed</li>
-                    <img src={window.pugUrl} alt="pug" />
+                    <div className="outdoor">
+                        <img src={window.barnUrl} alt="barn" />
+                        <li>Outdoor getaways</li>
+                    </div>
+                    <div className="unique">
+                        <img src={window.waterHouseUrl} alt="water-house" />
+                        <li>Unique stays</li>
+                    </div>
+                    <div className="entire-homes">
+                        <img src={window.triangleHouseUrl} alt="triangle-house" />
+                        <li>Entire Homes</li>
+                    </div>
+                    <div className="pets">
+                        <img src={window.pugUrl} alt="pug" />
+                        <li>Pets Allowed</li>
+                    </div>
                 </ul>
                 <br />
                 [Become Host/ Discover Experiences?]

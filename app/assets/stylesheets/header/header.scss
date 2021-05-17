@@ -7,15 +7,31 @@
     position: fixed;
     width: 100vw;
     height: 80px;
+    z-index: 1;
 }
 
-.logo {
-  height: 50px;
-  width: 50px;
+.logo-container {
+  height: 100px;
+  width: 100px;
   align-self: center;
-  border: 2px solid red;
+  // border: 2px solid red;
   margin-left: 100px;
+  display: flex;
+  margin-top: 50px;
+
+  p{
+    font-size: 26px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    align-self:flex-start;
+    margin-top: 15px;
+  }
+
+  .logo{
+    margin-right: 12px;
+    margin-bottom: 25px;
+  }
 }
+
 
 // .dropdown {
 //   background-color: darkorange;
