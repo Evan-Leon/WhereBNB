@@ -7,9 +7,24 @@ class NavBar extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            // currentUser = false
+            toggle: false,
         }
     }
+
+    // componentDidMount(){
+    //     if (!this.props.currentUser){
+    //     this.setState({currentUser: [this.props.currentUser]})}
+    // }
+
+    // componentDidUpdate(prevProps){
+    //     // debugger
+    //     if (this.props !== prevProps){
+    //         this.setState({currentUser: [this.props.currentUser]})
+    //     }
+    // }
+
+
+
     navSessionLinks = () =>(
         <div className="login-signup-dropdown">
                 <ul className="login-buttons">
@@ -35,7 +50,13 @@ class NavBar extends React.Component {
             )
         } else {
             return(
-                this.navSessionLinks()
+                <div className="login-signup-dropdown">
+                <ul className="login-buttons">
+                    <li onClick={() => this.props.openModal('login')}>Login</li>
+                    <li onClick={() => this.props.openModal('signup')}>Signup</li>
+                    <li onClick={() => this.props.login(this.props.demoUser)}>Demo User</li>
+                </ul>
+                </div>
             )
         }
     }

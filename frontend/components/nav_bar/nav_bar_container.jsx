@@ -5,7 +5,7 @@ import NavBar from "./nav_bar";
 import { logout, login } from '../../actions/session_actions';
 
 const mSTP = state => ({
-    currentUser: state.session.currentUser,
+    currentUser: state.session.id,
     demoUser: {email: "DemoUser@wherebnb.com", password: '123456'}
 })
 
