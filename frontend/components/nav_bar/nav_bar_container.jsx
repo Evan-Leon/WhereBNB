@@ -6,7 +6,8 @@ import { logout, login } from '../../actions/session_actions';
 
 const mSTP = state => ({
     currentUser: state.session.id,
-    demoUser: {email: "DemoUser@wherebnb.com", password: '123456'}
+    demoUser: {email: "DemoUser@wherebnb.com", password: '123456'},
+    currentUserFirstName: state.entities.users.firstName
 })
 
 const mDTP = dispatch => ({

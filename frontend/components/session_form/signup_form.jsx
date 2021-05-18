@@ -39,26 +39,28 @@ class SignupForm extends React.Component {
   render() {  
     return(
       <div className="signup-form">
-          <h2>Sign up!</h2>
+          <h2 className="signup-title">Sign up!</h2>
           <div onClick={this.props.closeModal} className="close-x">X</div>
           {this.renderErrors()}
           <form className="signup-form-box"  >
-            <label htmlFor="">Email:
-                <input type="text" value={this.state.email} onChange={this.handleInput('email')} />
-            </label>
-            <label htmlFor="">First Name:
-                <input type="text" value={this.state.first_name} onChange={this.handleInput('first_name')} />
-            </label>
-            <label htmlFor="">Last Name:
-                <input type="text" value={this.state.last_name} onChange={this.handleInput('last_name')} />
-            </label>
-            <label htmlFor="">Birthdate:
-                <input type="date" value={this.state.birthdate} onChange={this.handleInput('birthdate')} />
-            </label>
-            <label htmlFor="">Password:
-                <input type="password" value={this.state.password} onChange={this.handleInput('password')} />
-            </label>
-            <button type="submit" onClick={this.handleSubmit} > Signup </button>
+            <div className='signup-inputs'>
+              {/* <label htmlFor="">Email: */}
+                  <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleInput('email')} />
+              {/* </label> */}
+              {/* <label htmlFor="">First Name: */}
+                  <input placeholder="First Name" type="text" value={this.state.first_name} onChange={this.handleInput('first_name')} />
+              {/* </label> */}
+              {/* <label htmlFor="">Last Name: */}
+                  <input type="text" placeholder="Last Name" value={this.state.last_name} onChange={this.handleInput('last_name')} />
+              {/* </label> */}
+              <label htmlFor="">Birthdate
+                  <input className="birthdate" type="date" value={this.state.birthdate} onChange={this.handleInput('birthdate')} />
+              </label>
+              {/* <label htmlFor="">Password: */}
+                  <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')} />
+              {/* </label> */}
+              <button className="signup-submit" type="submit" onClick={this.handleSubmit} > Signup </button>
+              </div>
           </form>  
       </div>
     )

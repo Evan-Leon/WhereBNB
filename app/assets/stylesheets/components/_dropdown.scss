@@ -17,8 +17,8 @@
 .users-dropdown-btn:hover .login-buttons {
     display: block;
     box-shadow: -1px 4px 6px 1px rgb(92, 90, 90);
-    border-radius: 25%;
-    height: 200px;
+    border-radius: 25px;
+    height: 125px;
     cursor: pointer ;
     
     // box-shadow: -1px 4px 6px 1px black;
@@ -38,44 +38,50 @@
     border-radius: 3px;
     padding: 10px;
     width: 200px;
+    
     // margin:20px;
     z-index: 1;
     font-family: $font;
-    text-align: center;
+    text-align:start;
     box-shadow: -1px 4px 6px 1px black;
 
     li {
-        margin: 10px 0 10px 0;
+        padding: 10px 0 10px 10px;
+    }
+
+    li:hover {
+        background-color: lightgray;
+        
     }
     
 }
 
-.users-dropdown-btn:hover .nav-logout-button{
-    display: block;
-    box-shadow: -1px 4px 6px 1px rgb(92, 90, 90);
-    border-radius: 25%;
-    height: 200px;
-    cursor: pointer ;
+// .users-dropdown-btn:hover .nav-logout-button{
+//     display: block;
+//     box-shadow: -1px 4px 6px 1px rgb(92, 90, 90);
+//     border-radius: 25%;
+//     height: 200px;
+//     cursor: pointer ;
     
     // box-shadow: -1px 4px 6px 1px black;
-}
+// }
 
-.nav-logout-button {
-    position: absolute;
-    display: none;
-    top: 35px;
-    right: 0;
-    background-color: white;
-    // border: 2px solid orange;
-    border-radius: 3px;
-    padding: 10px;
-    width: 200px;
-    // margin:20px;
-    z-index: 1;
-    font-family: $font;
-    text-align: center;
-    box-shadow: -1px 4px 6px 1px black;
-}
+// .nav-logout-button {
+//     position: absolute;
+//     display: none;
+//     top: 35px;
+//     right: 0;
+//     background-color: white;
+//     // border: 2px solid orange;
+//     border-radius: 3px;
+//     padding: 10px;
+//     width: 200px;
+//     // margin:20px;
+//     z-index: 1;
+//     font-family: $font;
+//     text-align: center;
+//     box-shadow: -1px 4px 6px 1px black;
+// }
 
 
 .bars {
@@ -84,11 +90,25 @@
     // width: 50px;
 }
 
+.greetings-title {
+    padding-left: 9px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
 
 .user-icon{
     padding: 5px 5px 5px 5px;
     // height: 50px;
     // width: 50px;
+}
+
+// .nav-logout-button:hover {
+//     background-color: lightgray;
+// }
+
+.nav-logout-button {
+    margin-top: 15px;
 }
 
 
