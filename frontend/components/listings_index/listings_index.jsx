@@ -1,6 +1,8 @@
 import React from 'react';
 import ListingIndexItem from './listing_index_item';
 import ListingMap from '../listings_map/listing_map';
+import {Link} from 'react-router-dom'
+import { fetchListing } from '../../actions/listing_actions';
 
 class ListingsIndex extends React.Component {
     constructor(props){
@@ -24,18 +26,25 @@ class ListingsIndex extends React.Component {
                     <h2 className="main-index-title">Stays around here</h2>
                     <ul className="list-indexes">
                         {
-                            listings.map(listing => (
-                                <ListingIndexItem 
+                            listings.map((listing, i) => (
+                               <Link key ={i} to={`/listings/${listing.id}`} style={{ textDecoration: 'none' }}> <ListingIndexItem 
                                     listing= {listing}
                                     key={listing.id}
                                 />
+                                </Link>
                             ))
                         }
                     </ul>
                 </div>
-                {/* <ListingMap /> */}
-                <div    className='map-box'>
-
+                
+                <div className='map-box'>
+                    <ListingMap 
+                    listings={listings}
+                    // listingId={listing.id}
+                    // singleListing={false}
+                    // fetchListing = {fetchListing}
+                    updateFilter = {this.props.updateFilter}
+                    fetchListings = {this.props.fetchListings} />
                 </div>
             </div>
         )

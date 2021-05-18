@@ -21,7 +21,10 @@
     margin-left: 20px;
     display: flex;
     justify-content: space-between;
-    grid-area: "index"
+    grid-area: "index";
+    color: black;
+    overflow-y: scroll;
+    
     
     
 }
@@ -36,8 +39,14 @@
     height: 100vh;
     width: 50vw;
     margin-top: 100px;
-    grid-area: "map";
+    // grid-area: "map";
     
+}
+
+#map-container {
+    height: 100vh;
+    width: 50vw;
+    position: sticky;
 }
 
 .listing-inner {
@@ -59,6 +68,7 @@
     padding: 10px 10px 10px 10px;
     font-size: 24px;
     margin-top: 30px;
+    width: 26vw;
 
 }
 
@@ -81,7 +91,7 @@
 .listing-picture {
     width: 300px ;
     height: 200px ;
-    background-color: lightblue;
+    // background-color: lightblue;
     margin: 5px;
     border-radius: 20px;
 }
@@ -90,6 +100,15 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-decoration: none;
     
 }
+
+.index-img {
+    width: 20vw;
+    height: inherit;
+    border-radius: 25px;
+}
+
+
 

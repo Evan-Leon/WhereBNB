@@ -17,7 +17,7 @@ class NavBar extends React.Component {
     // }
 
     // componentDidUpdate(prevProps){
-    //     // debugger
+    //     
     //     if (this.props !== prevProps){
     //         this.setState({currentUser: [this.props.currentUser]})
     //     }

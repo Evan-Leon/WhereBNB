@@ -1,15 +1,25 @@
 import React, {useState} from 'react';
 // import MyCalendar from './calendar';
 import Calendar from 'react-calendar';
+import DateRange from './date_range';
 
 class ListingShow extends React.Component {
     constructor(props){
         super(props);
+        // this.changeDate = this.changeDate.bind(this)
+        this.state = {
+            checkin: new Date(),
+            checkout:new Date()
+        }
     }
 
     componentDidMount(){
         this.props.fetchListing(this.props.match.params.listingId);
     }
+
+    // changeDate(date){
+    //     date => {debugger}
+    // }
 
 
 
@@ -47,7 +57,7 @@ class ListingShow extends React.Component {
                 <div className="calendar-box">
                     <h3>Select check-in date</h3>
                     <br />
-                    <Calendar className="calendar" />
+                    <DateRange onChange={(e) => {debugger}}   className="calendar" />
                 </div>
 
             </div>
