@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
+// import MyCalendar from './calendar';
+import Calendar from 'react-calendar';
 
 class ListingShow extends React.Component {
     constructor(props){
@@ -13,6 +15,7 @@ class ListingShow extends React.Component {
 
     render(){
         const { listing } = this.props;
+        // const [value, onChange] = useState(new Date());
         if (!listing) return null;
         return(
             <div className= "listing-show-box">
@@ -43,9 +46,8 @@ class ListingShow extends React.Component {
 
                 <div className="calendar-box">
                     <h3>Select check-in date</h3>
-                    <div className='calendar-placeholder'>
-
-                    </div>
+                    <br />
+                    <Calendar className="calendar" />
                 </div>
 
             </div>
