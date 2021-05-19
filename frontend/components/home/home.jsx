@@ -27,7 +27,7 @@ class Home extends React.Component {
                     </div>
                     <div className="city-explore">
                         <img src={window.springsUrl} alt="springs" />
-                        <li>California</li>
+                        <li>San Francisco</li>
                     </div>
                     <div className="city-explore">
                         <img src={window.forestRiverUrl} alt="forest-river" />

@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 // import MyCalendar from './calendar';
 import Calendar from 'react-calendar';
-import DateRange from './date_range';
+import MyDateRange from './date_range';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faHome, faUsers, faClipboardList, faHandSparkles } from '@fortawesome/free-solid-svg-icons';
+import ListingMap from '../listings_map/listing_map';
+
 
 class ListingShow extends React.Component {
     constructor(props){
@@ -43,8 +47,10 @@ class ListingShow extends React.Component {
                     <h3 className="host-title">Home hosted by {listing.hostId}</h3>
                     <div className="border-line"></div>
                     <br />
-                    <p>Number of beds: {listing.numBeds}</p>
-                    <p>Number of guests: {listing.guestNum}</p>
+                    <p> <FontAwesomeIcon icon={faHome}  />  Number of beds: {listing.numBeds}</p>
+                    <p> <FontAwesomeIcon icon={faUsers}  />  Number of guests: {listing.guestNum}</p>
+                    <p> <FontAwesomeIcon icon={faClipboardList}  />     House Rules</p>
+                    <p> <FontAwesomeIcon icon={faHandSparkles}  /> Enhanced Clean </p>
                     <br />
                 </div>
                 
@@ -57,8 +63,27 @@ class ListingShow extends React.Component {
                 <div className="calendar-box">
                     <h3>Select check-in date</h3>
                     <br />
-                    <DateRange onChange={(e) => {debugger}}   className="calendar" />
+                    < MyDateRange onChange={(e) => {debugger}}   className="calendar" />
                 </div>
+
+                <div className="review-container">
+                    <h3>Score [5/5]</h3>
+                    <div className="review-box">
+                        <p>Loved it!</p>
+                        <p>Didn't want to Leave!</p>
+                        <p>The host was the BEST!</p>
+                        <p>Beautiful Location!</p>
+                        <p>Felt Like Home!</p>
+                        <p>Take me back!</p>
+                    </div>
+                </div>
+
+                <div className="show-map">
+                    {/* < ListingMap /> */}
+                    [Map Place Holder]
+                </div>
+
+               
 
             </div>
         )

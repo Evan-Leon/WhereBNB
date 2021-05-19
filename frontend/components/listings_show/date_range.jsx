@@ -1,10 +1,24 @@
-import { DateRangePicker } from 'react-date-range';
+import { DateRangePicker, DateRange  } from 'react-date-range';
 import React from 'react';
 
-class DateRange extends React.Component {
+class MyDateRange extends React.Component {
+    constructor(props){
+        super(props);
+        this.state= {
+            selection:{
+                startDate: new Date(),
+                endDate: new Date()
+            }
+        }
+    }
     
     handleSelect(ranges) {
-        console.log(ranges);
+        return({
+            selection: {
+                startDate: ranges[startDate],
+                endDate: ranges[endDate]
+            }
+        })
     }
 
     render(){
@@ -15,13 +29,20 @@ class DateRange extends React.Component {
         }
 
         return(
-            <DateRangePicker 
+            <DateRange
                 ranges={[selectionRange]}
                 // onChange={this.handleSelect}
-                onChange={(e) => {debugger}}
+                onChange={item => this.setState([item.selection])}
+                editableDateInputs={true}
+                showSelectionPreview={true}
+                months={2}
+                direction="horizontal"
+                showDateDisplay={false}
+                showMonthAndYearPickers={false}
+                // showMonthArrow={false}
                 />
         )
     }
 }
 
-export default DateRange;
+export default MyDateRange;
