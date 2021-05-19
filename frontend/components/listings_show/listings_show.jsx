@@ -77,7 +77,7 @@ class ListingShow extends React.Component {
                         <p>Take me back!</p>
                     </div>
                 </div>
-
+                <br />
                 <div className="show-map">
                     {/* < ListingMap /> */}
                     [Map Place Holder]
