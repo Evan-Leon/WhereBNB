@@ -18,7 +18,7 @@
 .index-item-box {
     // padding-top: 100px;
     // margin-top: 100px;
-    background-color: green;
+    // background-color: green;
     margin-left: 20px;
     display: flex;
     justify-content: space-between;
@@ -53,7 +53,7 @@
 
 .listing-inner {
     margin-top: 200px;
-    background-color: indigo;
+    // background-color: indigo;
     // padding-top: 100px;
 }
 
@@ -71,6 +71,7 @@
     font-size: 24px;
     margin-top: 30px;
     width: 26vw;
+    font-weight: 300;
 
 }
 
@@ -103,6 +104,11 @@
     flex-direction: column;
     justify-content: space-between;
     text-decoration: none;
+
+    p {
+        color: rgb(145, 141, 141);
+        font-weight: 300;
+    }
     
 }
 

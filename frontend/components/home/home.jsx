@@ -67,7 +67,7 @@ class Home extends React.Component {
                     </div>
                 </ul>
                 <br />
-                [Become Host/ Discover Experiences?]
+                
             </div>
         )
     }

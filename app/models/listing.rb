@@ -27,5 +27,5 @@ class Listing < ApplicationRecord
     foreign_key: :listing_id,
     class_name: :Booking
 
-  has_one_attached :photo
+  # has_many_attached :photos
 end

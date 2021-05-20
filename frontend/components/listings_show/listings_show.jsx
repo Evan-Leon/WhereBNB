@@ -25,8 +25,9 @@ class ListingShow extends React.Component {
     handleSelect(e) {
         const { startDate, endDate } = e.selection
         this.setState({ 
-           startDate: startDate,
-            endDate: endDate})
+           startDate: startDate.getDay(),
+            endDate: endDate.getDay()
+        })
     }
 
     // changeDate(date){
@@ -49,10 +50,15 @@ class ListingShow extends React.Component {
                 <div className="top-show">
                     <h3 className="listing-title">{listing.title}</h3>
 
-                    <p className="reviews">[REVIEW SCORE] Location</p>
+                    <p className="reviews">[REVIEW SCORE] {listing.city}</p>
                     <br />
                     <div className="photo-box">
-                        <p>[PlaceHolderPhoto]</p>
+                        <div className="title-photo">
+
+                        </div>
+                        <div className="many-photo-box">
+
+                        </div>
                     </div>
                 </div>
                 <br />

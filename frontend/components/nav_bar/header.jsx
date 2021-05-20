@@ -26,7 +26,7 @@ class Header extends React.Component {
                 <li className="users-dropdown-btn">
                     <FontAwesomeIcon className="bars" icon={faBars}  />
                     <FontAwesomeIcon className="user-icon" icon={faUserCircle}  />
-
+                    
                     <NavBarContainer className="login-buttons-box" />
                 </li>
             </div>

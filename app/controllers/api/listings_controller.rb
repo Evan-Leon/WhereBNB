@@ -7,8 +7,8 @@ class Api::ListingsController < ApplicationController
 
     def show 
       @listing = Listing.find(params[:id])
-      
-      render "/api/listings/show"
+
+      render :show
     end
 
 end
