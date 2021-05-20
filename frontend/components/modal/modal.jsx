@@ -3,6 +3,8 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
+import EditBookingFormContainer from '../bookings/edit_booking_form_container';
+import BookingFormContainer from '../bookings/create_booking_container';
 
 
 function Modal({modal, closeModal}) {
@@ -17,6 +19,12 @@ function Modal({modal, closeModal}) {
         case 'signup':
             component = <SignupFormContainer/>;
             break;
+        // case 'create-booking':
+        //     component = <BookingFormContainer />;
+        //     break;
+        // case 'edit-booking':
+        //     component = <EditBookingFormContainer />;
+        //     break;
         default:
             return null;
     }

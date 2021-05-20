@@ -11,7 +11,7 @@ const mSTP = state => ({
 })
 
 const mDTP = dispatch => ({
-    createBooking: post => dispatch(createBooking(post))
+    action: post => dispatch(createBooking(post))
 })
 
-export default connect(mSTP, mDTP)(BookingForm)
+export default connect(mSTP, mDTP)(BookingForm);

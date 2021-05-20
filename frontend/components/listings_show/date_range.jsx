@@ -5,20 +5,19 @@ class MyDateRange extends React.Component {
     constructor(props){
         super(props);
         this.state= {
-            selection:{
+            
                 startDate: new Date(),
                 endDate: new Date()
-            }
+            
         }
+        this.handleSelect = this.handleSelect.bind(this);
     }
     
-    handleSelect(ranges) {
-        return({
-            selection: {
-                startDate: ranges[startDate],
-                endDate: ranges[endDate]
-            }
-        })
+    handleSelect(e) {
+        const { startDate, endDate } = e.selection
+        this.setState({ 
+           startDate: startDate,
+            endDate: endDate})
     }
 
     render(){
@@ -32,7 +31,7 @@ class MyDateRange extends React.Component {
             <DateRange
                 ranges={[selectionRange]}
                 // onChange={this.handleSelect}
-                onChange={item => this.setState([item.selection])}
+                onChange={this.handleSelect}
                 editableDateInputs={true}
                 showSelectionPreview={true}
                 months={2}

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 // import MyCalendar from './calendar';
 import Calendar from 'react-calendar';
 import MyDateRange from './date_range';
+import {DateRange} from 'react-date-range'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faHome, faUsers, faClipboardList, faHandSparkles } from '@fortawesome/free-solid-svg-icons';
 import ListingMap from '../listings_map/listing_map';
@@ -12,13 +13,20 @@ class ListingShow extends React.Component {
         super(props);
         // this.changeDate = this.changeDate.bind(this)
         this.state = {
-            checkin: new Date(),
-            checkout:new Date()
+            startDate: new Date(),
+            endDate: new Date()
         }
     }
 
     componentDidMount(){
         this.props.fetchListing(this.props.match.params.listingId);
+    }
+
+    handleSelect(e) {
+        const { startDate, endDate } = e.selection
+        this.setState({ 
+           startDate: startDate,
+            endDate: endDate})
     }
 
     // changeDate(date){
@@ -29,6 +37,11 @@ class ListingShow extends React.Component {
 
     render(){
         const { listing } = this.props;
+        const selectionRange = {
+            startDate: new Date(),
+            endDate: new Date(),
+            key: 'selection',
+        }
         // const [value, onChange] = useState(new Date());
         if (!listing) return null;
         return(
@@ -56,14 +69,37 @@ class ListingShow extends React.Component {
                 
                 {/* <p>${listing.price}/night</p> */}
 
+                {/* <div className="booking-box">
+                    <input type="text" placeholder={new Date()} />
+                    <input type="text" placeholder={new Date()}/>
+                </div> */}
+
                 <div className='description-box-show'>
                     <p className="show-description"> {listing.description}</p>
                 </div>
 
                 <div className="calendar-box">
-                    <h3>Select check-in date</h3>
+                    <ul>
+                        <div>
+                            <li> {this.state.startDate.toDateString()} </ li>
+                            <li>{this.state.endDate.toDateString()}</li>
+                            <h3>Select check-in date</h3>
+                        </div>
+                    </ul>
                     <br />
-                    < MyDateRange onChange={(e) => {debugger}}   className="calendar" />
+                    {/* < MyDateRange onChange={e => {debugger} }   className="calendar" /> */}
+                    <DateRange
+                        ranges={[selectionRange]}
+                        // onChange={this.handleSelect}
+                        onChange={e => {debugger}}
+                        editableDateInputs={true}
+                        showSelectionPreview={true}
+                        months={2}
+                        direction="horizontal"
+                        showDateDisplay={false}
+                        showMonthAndYearPickers={false}
+                        // showMonthArrow={false}
+                        />
                 </div>
 
                 <div className="review-container">
