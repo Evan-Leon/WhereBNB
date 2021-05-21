@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {  faStar } from '@fortawesome/free-solid-svg-icons';
 
 class ListingIndexItem extends React.Component {
    
@@ -19,7 +21,7 @@ class ListingIndexItem extends React.Component {
 
 
                 <div className="review-price">
-                    <p>[review #]</p>
+                    <p><FontAwesomeIcon icon={faStar} className="star"/> 4.88 (27 reviews)</p>
                     <p>${listing.price}/night</p>
                 </div>
             </div>
