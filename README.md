@@ -51,4 +51,8 @@ Code that on click, either pops out a modal to login or sign up, or allows the u
         </div>
     )
 ```
+## Future Directions
+* Add booking functionality
+* Add hover states on map pins
+* Have search and filter functionality for listings
 
