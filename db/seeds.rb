@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require 'open-uri'
 User.destroy_all
 Listing.destroy_all
 
@@ -21,93 +21,290 @@ sally= User.create!(email: "sally@bob.com", password: "123456", first_name: 'Sal
 # New York City lat: 40.730610, lng: -73.935242 
 
 ny_listing1 = Listing.create!(title: "My house!", price: 100, guest_num: 5, description: "My awesome lounge pad!",
-    num_beds: 3, latitude: 40.830610, longitude: -73.935242, host_id: bob.id, city: 'New York City')
+    num_beds: 3, latitude: 40.830610, longitude: -73.935242, host_id: bob.id, city: 'New York City, New York')
+    ny_listing1_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/bernadette-gatsby-bN_TkedaBuQ-unsplash.jpg")
+    ny_listing1.coverphoto.attach(io: ny_listing1_cover, filename: 'bernadette-gatsby-bN_TkedaBuQ-unsplash.jpg'  )
 
 ny_listing2 = Listing.create!(title: "Beautiful cottage", price: 200, guest_num: 3, description: "Beautiful cottage in the water",
-    num_beds: 2, latitude: 40.730510, longitude: -73.935242, host_id: demo.id, city: 'New York City')
+    num_beds: 2, latitude: 40.730510, longitude: -73.935242, host_id: demo.id, city: 'New York City, New York')
+    ny_listing2_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/annie-spratt-rti3HfYJzOM-unsplash.jpg")
+    ny_listing2.coverphoto.attach(io: ny_listing2_cover, filename: 'annie-spratt-rti3HfYJzOM-unsplash.jpg')
 
 ny_listing3 = Listing.create!(title: "Special Igloo", price: 300, guest_num: 2, description: "Come chill in my igloo!",
-    num_beds: 3, latitude: 40.930610, longitude: -73.735242, host_id: felix.id, city: 'New York City')
+    num_beds: 3, latitude: 40.930610, longitude: -73.735242, host_id: felix.id, city: 'New York City, New York')
+    ny_listing3_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/lauri-vuokila-8_58RjtO4bQ-unsplash.jpg")
+    ny_listing3.coverphoto.attach(io: ny_listing3_cover, filename: 'lauri-vuokila-8_58RjtO4bQ-unsplash.jpg')
 
 ny_listing4 = Listing.create!(title: "Victorian Mansion", price: 700, guest_num: 12, description: "Come to our river spot and come fishing for salmon",
-    num_beds: 6, latitude: 40.730410, longitude: -73.235242, host_id: sally.id, city: 'New York City')
+    num_beds: 6, latitude: 40.730410, longitude: -73.235242, host_id: sally.id, city: 'New York City, New York')
+    ny_listing4_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/marc-zimmer-kEP-zO-w4nE-unsplash.jpg")
+    ny_listing4.coverphoto.attach(io: ny_listing4_cover, filename: 'marc-zimmer-kEP-zO-w4nE-unsplash.jpg')
 
 ny_listing5 = Listing.create!(title: "Shack in the water", price: 50, guest_num: 1, description: "We can share this place together probably",
-    num_beds: 1, latitude: 40.730410, longitude: -73.435242, host_id: demo.id, city: 'New York City')
+    num_beds: 1, latitude: 40.730410, longitude: -73.435242, host_id: demo.id, city: 'New York City, New York')
+    ny_listing5_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/luca-bravo-lake.jpg")
+    ny_listing5.coverphoto.attach(io: ny_listing5_cover, filename: 'luca-bravo-lake.jpg'  )
 
 
 # Austin lat: 30.266666	lng: -97.733330
 
 austin_listing1 = Listing.create!(title: "My Barn!", price: 65, guest_num: 3, description: "Come visit the animals and enjoy true pastures",
-    num_beds: 2, latitude: 30.266666, longitude: -97.733330, host_id: bob.id, city: 'Austin')
+    num_beds: 2, latitude: 30.266666, longitude: -97.733330, host_id: bob.id, city: 'Austin, TX')
+    austin_listing1_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/amy-reed-8hRr0IFz6qA-unsplash.jpg")
+    austin_listing1.coverphoto.attach(io: austin_listing1_cover, filename: 'amy-reed-8hRr0IFz6qA-unsplash.jpg')
 
 austin_listing2 = Listing.create!(title: "Mega Mansion", price: 1000, guest_num: 10, description: "The most beautiful home in the entirety of Austin, TX",
-    num_beds: 6, latitude: 30.264676, longitude: -97.783530, host_id: demo.id, city: 'Austin')
+    num_beds: 6, latitude: 30.264676, longitude: -97.783530, host_id: demo.id, city: 'Austin, TX')
+    austin_listing2_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/matin-keivanloo-2Fn53YULM48-unsplash.jpg")
+    austin_listing2.coverphoto.attach(io: austin_listing2_cover, filename: 'matin-keivanloo-2Fn53YULM48-unsplash.jpg')
 
 austin_listing3 = Listing.create!(title: "Luscious Sand Castle", price: 300, guest_num: 5, description: "Experience true nature and true grit!",
-    num_beds: 1, latitude: 30.564676, longitude: -97.983560, host_id: sally.id, city: 'Austin')
+    num_beds: 1, latitude: 30.564676, longitude: -97.983560, host_id: sally.id, city: 'Austin, TX')
+    austin_listing3_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/kit-suman-aIh-ic7kPo8-unsplash.jpg")
+    austin_listing3.coverphoto.attach(io: austin_listing3_cover, filename: 'kit-suman-aIh-ic7kPo8-unsplash.jpg')
 
 austin_listing4 = Listing.create!(title: "Beautiful Medeivel Castle", price: 2000, guest_num: 20, description: "Come experience the fear and excitement of the middle ages!",
-    num_beds: 10, latitude: 30.764676, longitude: -97.753530, host_id: felix.id, city: 'Austin')
+    num_beds: 10, latitude: 30.764676, longitude: -97.753530, host_id: felix.id, city: 'Austin, TX')
+    austin_listing4_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/marc-zimmer-kEP-zO-w4nE-unsplash.jpg")
+    austin_listing4.coverphoto.attach(io: austin_listing4_cover, filename: 'marc-zimmer-kEP-zO-w4nE-unsplash.jpglph')
 
 austin_listing5 = Listing.create!(title: "Newly Redone Townhouse", price: 250, guest_num: 4, description: "Live in a little slice of paradise here in the Longhorn state",
-    num_beds: 3, latitude: 30.374676, longitude: -97.874530, host_id: bob.id, city: 'Austin')
-
+    num_beds: 3, latitude: 30.374676, longitude: -97.874530, host_id: bob.id, city: 'Austin, TX')
+    austin_listing5_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/bernadette-gatsby-bN_TkedaBuQ-unsplash.jpg")
+    austin_listing5.coverphoto.attach(io: austin_listing5_cover, filename: 'jon-flobrant-sheds.jpg')
 
 # Boston lat: 42.346268, lng: -71.095764
 boston_listing1 = Listing.create!(title: "Fenway Park", price: 10000, guest_num: 1000, description: "Live in baseball history at Fenway park",
-    num_beds: 9, latitude: 42.346268, longitude: -71.095764, host_id: bob.id, city: 'Boston')
+    num_beds: 9, latitude: 42.346268, longitude: -71.095764, host_id: bob.id, city: 'Boston, MA')
+    boston_listing1_cover= open( "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/robert-f-9t5sV4KarVA-unsplash.jpg")
+    boston_listing1.coverphoto.attach(io: boston_listing1_cover, filename: 'robert-f-9t5sV4KarVA-unsplash.jpg')
+
 boston_listing2 = Listing.create!(title: "Citgo Sign", price: 1000, guest_num: 1, description: "No Greater landmark in Boston for views and history",
-    num_beds: 0, latitude: 42.456268, longitude: -71.186764, host_id: demo.id, city: 'Boston')
+    num_beds: 0, latitude: 42.456268, longitude: -71.186764, host_id: demo.id, city: 'Boston, MA')
+    boston_listing2_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/todd-kent-iRKv_XiN--M-unsplash.jpg")
+    boston_listing2.coverphoto.attach(io: boston_listing2_cover, filename: 'todd-kent-iRKv_XiN--M-unsplash.jpg')
+
 boston_listing3 = Listing.create!(title: "Dorcester Beauty", price: 100, guest_num: 3, description: "Come experience the real Boston in Dorcester, Southie is a lie!",
-    num_beds: 2, latitude: 42.457268, longitude: -71.115764, host_id: felix.id, city: 'Boston')
+    num_beds: 2, latitude: 42.457268, longitude: -71.115764, host_id: felix.id, city: 'Boston, MA')
+    boston_listing3_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/christian-koch-D_4R9CcYZOk-unsplash.jpg")
+    boston_listing3.coverphoto.attach(io: boston_listing3_cover, filename: 'christian-koch-D_4R9CcYZOk-unsplash.jpg')
+
 boston_listing4 = Listing.create!(title: "Condo in Back Bay", price: 300, guest_num: 4, description: "Check out pure luxury in the Back Bay of Boston",
-    num_beds: 2, latitude: 42.236268, longitude: -71.575764, host_id: sally.id, city: 'Boston')
+    num_beds: 2, latitude: 42.236268, longitude: -71.575764, host_id: sally.id, city: 'Boston, MA')
+    boston_listing4_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/folco-masi-fhA8jbG49zU-unsplash.jpg")
+    boston_listing4.coverphoto.attach(io: boston_listing4_cover, filename: 'folco-masi-fhA8jbG49zU-unsplash.jpg')
+
 boston_listing5 = Listing.create!(title: "Southie Paradise", price: 50, guest_num: 1, description: "Come visit Southie, where you can get there but can't leave",
-    num_beds: 1, latitude: 42.226268, longitude: -71.084764, host_id: bob.id, city: 'Boston')
+    num_beds: 1, latitude: 42.226268, longitude: -71.084764, host_id: bob.id, city: 'Boston, MA')
+    boston_listing5_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/tiffany-chan-lT2hiMUACco-unsplash.jpg")
+    boston_listing5.coverphoto.attach(io: boston_listing5_cover, filename: 'tiffany-chan-lT2hiMUACco-unsplash.jpg')
 
 
 # Chicago lat: 41.881832, lng: -87.623177
 chicago_listing1 = Listing.create!(title: "Wrigleyville", price: 220, guest_num: 3, description: "Stay in the ivy in the outfield for as long as you like",
-    num_beds: 2, latitude: 41.881832, longitude: -87.623177, host_id: bob.id, city: 'Chicago')
+    num_beds: 2, latitude: 41.881832, longitude: -87.623177, host_id: bob.id, city: 'Chicago, IL')
+    chicago_listing1_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/heather-maguire-1nKs6Js_JxA-unsplash.jpg")
+    chicago_listing1.coverphoto.attach(io: chicago_listing1_cover, filename: 'heather-maguire-1nKs6Js_JxA-unsplash.jpg')
+
 chicago_listing2 = Listing.create!(title: "Linkin Park Apartment", price: 320, guest_num: 5, description: "In the end it doesn't even matter, had to fall to lose it all",
-    num_beds: 3, latitude: 41.771832, longitude: -87.533177, host_id: demo.id, city: 'Chicago')
+    num_beds: 3, latitude: 41.771832, longitude: -87.533177, host_id: demo.id, city: 'Chicago, IL')
+    chicago_listing2_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/christian-koch-D_4R9CcYZOk-unsplash.jpg")
+    chicago_listing2.coverphoto.attach(io: chicago_listing2_cover, filename: 'christian-koch-D_4R9CcYZOk-unsplash.jpg')
+
 chicago_listing3 = Listing.create!(title: "The Great Lake ", price: 70, guest_num: 2, description: "A great lake with an even greater view!",
-    num_beds: 5, latitude: 41.981832, longitude: -87.723177, host_id: felix.id, city: 'Chicago')
+    num_beds: 5, latitude: 41.981832, longitude: -87.723177, host_id: felix.id, city: 'Chicago, IL')
+    chicago_listing3_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/morgane-perraud-rPA5JlVuf7Q-unsplash.jpg")
+    chicago_listing3.coverphoto.attach(io: chicago_listing3_cover, filename: 'morgane-perraud-rPA5JlVuf7Q-unsplash.jpg')
+
 chicago_listing4 = Listing.create!(title: "Deep Dish Driveup", price: 105, guest_num: 6, description: "Drive up and stay up when you hit the Deep Dish",
-    num_beds: 2, latitude: 41.882632, longitude: -87.625377, host_id: sally.id, city: 'Chicago')
+    num_beds: 2, latitude: 41.882632, longitude: -87.625377, host_id: sally.id, city: 'Chicago, IL')
+    chicago_listing4_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/matt-antonioli-ctwbBwcwI9U-unsplash.jpg")
+    chicago_listing4.coverphoto.attach(io: chicago_listing4_cover, filename: 'matt-antonioli-ctwbBwcwI9U-unsplash.jpg')
+
 chicago_listing5 = Listing.create!(title: "Sears Tower", price: 420, guest_num: 6, description: "Stay in the highest place in Chicago, the Sears Tower",
-    num_beds: 9, latitude: 41.991832, longitude: -87.553177, host_id: bob.id, city: 'Chicago')
+    num_beds: 9, latitude: 41.991832, longitude: -87.553177, host_id: bob.id, city: 'Chicago, IL')
+    chicago_listing5_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/guido-coppa-nMERjkt2o5k-unsplash.jpg")
+    chicago_listing5.coverphoto.attach(io: chicago_listing5_cover, filename: 'guido-coppa-nMERjkt2o5k-unsplash.jpg')
 # Miami lat:25.761681, lng: -80.191788
+
 miami_listing1 = Listing.create!(title: "Waterside Apartment in Downtown Miami", price: 250, guest_num: 4, description: "See the Ocean from your room, hear it in a shell, great location",
-    num_beds: 3, latitude: 25.761681, longitude: -80.191788, host_id: bob.id, city: 'Miami')
+    num_beds: 3, latitude: 25.761681, longitude: -80.191788, host_id: bob.id, city: 'Miami, FL')
+    miami_listing1_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/cody-board-aBPx_3gOhig-unsplash.jpg")
+    miami_listing1.coverphoto.attach(io: miami_listing1_cover, filename: 'cody-board-aBPx_3gOhig-unsplash.jpg')
+
 miami_listing2 = Listing.create!(title: "80's Style White Condo", price: 350, guest_num: 3, description: "Come experience a piece of history from the boon of Miami",
-    num_beds: 1, latitude: 25.871681, longitude: -80.292788, host_id: demo.id, city: 'Miami')
+    num_beds: 1, latitude: 25.871681, longitude: -80.292788, host_id: demo.id, city: 'Miami, FL')
+    miami_listing2_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/jason-briscoe--T0La6F_WrE-unsplash.jpg")
+    miami_listing2.coverphoto.attach(io: miami_listing2_cover, filename: 'jason-briscoe--T0La6F_WrE-unsplash.jpg')
+
 miami_listing3 = Listing.create!(title: "Club DLUX", price: 550, guest_num: 10, description: "Come to the most happening spot...and stay when you're done partying!",
-    num_beds: 5, latitude: 25.661681, longitude: -80.591788, host_id: felix.id, city: 'Miami')
+    num_beds: 5, latitude: 25.661681, longitude: -80.591788, host_id: felix.id, city: 'Miami, FL')
+    miami_listing3_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/ryan-spencer-Um9AkOiIDcU-unsplash.jpg")
+    miami_listing3.coverphoto.attach(io: miami_listing3_cover, filename: 'ryan-spencer-Um9AkOiIDcU-unsplash.jpg')
+
 miami_listing4 = Listing.create!(title: "Large Miami Beach Mansion", price: 800, guest_num: 6, description: "Stay in the most exclusive spot in Miami....may even see some stars",
-    num_beds: 8, latitude: 25.761792, longitude: -80.191899, host_id: sally.id, city: 'Miami')
+    num_beds: 8, latitude: 25.761792, longitude: -80.191899, host_id: sally.id, city: 'Miami, FL')
+    miami_listing4_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/matin-keivanloo-2Fn53YULM48-unsplash.jpg")
+    miami_listing4.coverphoto.attach(io: miami_listing4_cover, filename: 'matin-keivanloo-2Fn53YULM48-unsplash.jpg')
+
 miami_listing5 = Listing.create!(title: "Dolphin's Home", price: 110, guest_num: 2, description: "Experience living with live dolphins (oxygen costs extra)",
-    num_beds: 1, latitude: 25.561681, longitude: -80.991788, host_id: bob.id, city: 'Miami')
+    num_beds: 1, latitude: 25.561681, longitude: -80.991788, host_id: bob.id, city: 'Miami, FL')
+    miami_listing5_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/noaa-NsvzdXtvyio-unsplash.jpg")
+    miami_listing5.coverphoto.attach(io: miami_listing5_cover, filename: 'noaa-NsvzdXtvyio-unsplash.jpg')
+
 # Seattle lat: 47.608013, lng: -122.335167
 seattle_listing1 = Listing.create!(title: "The Space Needle", price: 300, guest_num: 2, description: "Stay at the best view in the city",
-    num_beds: 1, latitude: 47.608013, longitude: -122.335167, host_id: bob.id, city: 'Seattle')
+    num_beds: 1, latitude: 47.608013, longitude: -122.335167, host_id: bob.id, city: 'Seattle, WA')
+    seattle_listing1_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/andrea-leopardi-QfhbK2pY0Ao-unsplash.jpg")
+    seattle_listing1.coverphoto.attach(io: seattle_listing1_cover, filename: 'andrea-leopardi-QfhbK2pY0Ao-unsplash.jpg')
+
 seattle_listing2 = Listing.create!(title: "West Seattle Beauty", price: 150, guest_num: 4, description: "Experience the best part of the city with easy access to everywhere",
-    num_beds: 3, latitude: 47.718013, longitude: -122.445167, host_id: demo.id, city: 'Seattle')
+    num_beds: 3, latitude: 47.718013, longitude: -122.445167, host_id: demo.id, city: 'Seattle, WA')
+    seattle_listing2_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/folco-masi-fhA8jbG49zU-unsplash.jpg")
+    seattle_listing2.coverphoto.attach(io: seattle_listing2_cover, filename: 'folco-masi-fhA8jbG49zU-unsplash.jpg')
+
 seattle_listing3 = Listing.create!(title: "Mariner Mansion", price: 500, guest_num: 8, description: "Meet your baseball favorites and live in luxury",
-    num_beds: 5, latitude: 47.609123, longitude: -122.336277, host_id: felix.id, city: 'Seattle')
+    num_beds: 5, latitude: 47.609123, longitude: -122.336277, host_id: felix.id, city: 'Seattle, WA')
+    seattle_listing3_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/matin-keivanloo-2Fn53YULM48-unsplash.jpg")
+    seattle_listing3.coverphoto.attach(io: seattle_listing3_cover, filename: 'matin-keivanloo-2Fn53YULM48-unsplash.jpg')
+
 seattle_listing4 = Listing.create!(title: "Mercer Island", price: 50, guest_num: 6, description: "If you can make it here you can stay here, make sure to tuck and roll",
-    num_beds: 3, latitude: 47.598013, longitude: -122.225167, host_id: sally.id, city: 'Seattle')
+    num_beds: 3, latitude: 47.598013, longitude: -122.225167, host_id: sally.id, city: 'Seattle, WA')
+    seattle_listing4_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/luca-bravo-lake.jpg")
+    seattle_listing4.coverphoto.attach(io: seattle_listing4_cover, filename: 'luca-bravo-lake.jpg')
+
 seattle_listing5 = Listing.create!(title: "Historic Colonial", price: 250, guest_num: 4, description: "A beautiful home that looks right into Canada!",
-    num_beds: 3, latitude: 47.628213, longitude: -123.335167, host_id: bob.id, city: 'Seattle')
+    num_beds: 3, latitude: 47.628213, longitude: -123.335167, host_id: bob.id, city: 'Seattle, WA')
+    seattle_listing5_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/lindsay-e-durant-HIfkoSBuFXc-unsplash.jpg")
+    seattle_listing5.coverphoto.attach(io: seattle_listing5_cover, filename: 'lindsay-e-durant-HIfkoSBuFXc-unsplash.jpg')
+
 # San Francisco lat: 37.733795, lng: -122.446747
+
 sanfran_listing1 = Listing.create!(title: "Colorful Home on the Hill", price: 250, guest_num: 4, description: "Gain some leg strength and stay on the hill! A quick roll to anywhere",
-    num_beds: 2, latitude: 37.733795, longitude: -122.446747, host_id: bob.id, city: 'San Francisco')
+    num_beds: 2, latitude: 37.733795, longitude: -122.446747, host_id: bob.id, city: 'San Francisco, CA')
+    sanfran_listing1_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/kyle-smith-LBo8KX84t7o-unsplash.jpg")
+    sanfran_listing1.coverphoto.attach(io: sanfran_listing1_cover, filename: 'kyle-smith-LBo8KX84t7o-unsplash.jpg')
+
 sanfran_listing2 = Listing.create!(title: "Golden Gate Bridge", price: 900, guest_num: 2, description: "Very convienient location to the road and the best views in San Francisco",
-    num_beds: 1, latitude: 37.833795, longitude: -122.486747, host_id: demo.id, city: 'San Francisco')
+    num_beds: 1, latitude: 37.833795, longitude: -122.486747, host_id: demo.id, city: 'San Francisco, CA')
+    sanfran_listing2_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/joonyeop-baek-1kf69eE7VR4-unsplash.jpg")
+    sanfran_listing2.coverphoto.attach(io: sanfran_listing2_cover, filename: 'joonyeop-baek-1kf69eE7VR4-unsplash.jpg')
+
 sanfran_listing3 = Listing.create!(title: "Alcatraz Prison", price: 2000, guest_num: 40, description: "Feel free to stay because the only way to leave is by raincoat raft",
-    num_beds: 40, latitude: 37.744795, longitude: -122.556747, host_id: felix.id, city: 'San Francisco')
+    num_beds: 40, latitude: 37.744795, longitude: -122.556747, host_id: felix.id, city: 'San Francisco, CA')
+    sanfran_listing3_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/aldric-rivat-6bwYJgtzvE0-unsplash.jpg")
+    sanfran_listing3.coverphoto.attach(io: sanfran_listing3_cover, filename: 'aldric-rivat-6bwYJgtzvE0-unsplash.jpg')
+
 sanfran_listing4 = Listing.create!(title: "The Full House", price: 500, guest_num: 8, description: "The real house from Full House, it is up to you to fill it now!",
-    num_beds: 5, latitude: 37.722795, longitude: -122.336747, host_id: sally.id, city: 'San Francisco')
+    num_beds: 5, latitude: 37.722795, longitude: -122.336747, host_id: sally.id, city: 'San Francisco, CA')
+    sanfran_listing4_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/jordan-m-lomibao-QlBG1hIi02g-unsplash.jpg")
+    sanfran_listing4.coverphoto.attach(io: sanfran_listing4_cover, filename: 'jordan-m-lomibao-QlBG1hIi02g-unsplash.jpg')
+
 sanfran_listing5 = Listing.create!(title: "Trolley Car Tiny House", price: 150, guest_num: 2, description: "Stay at the most unique and most San Francisco place of them all...a Trolley Car!",
-    num_beds: 1, latitude: 37.733885, longitude: -122.448847, host_id: bob.id, city: 'San Francisco')
+    num_beds: 1, latitude: 37.733885, longitude: -122.448847, host_id: bob.id, city: 'San Francisco, CA')
+    sanfran_listing5_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/fringer-cat-IchEp56ZYjY-unsplash.jpg")
+    sanfran_listing5.coverphoto.attach(io: sanfran_listing5_cover, filename: 'fringer-cat-IchEp56ZYjY-unsplash.jpg')
+
+    # Space needle - "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/andrea-leopardi-QfhbK2pY0Ao-unsplash.jpg",
+    # trolley - "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/fringer-cat-IchEp56ZYjY-unsplash.jpg",
+    # alcatraz - "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/aldric-rivat-6bwYJgtzvE0-unsplash.jpg",
+    #fullhouse - "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/jordan-m-lomibao-QlBG1hIi02g-unsplash.jpg",
+    # San Fran - "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/kyle-smith-LBo8KX84t7o-unsplash.jpg",
+    # castle - "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/marc-zimmer-kEP-zO-w4nE-unsplash.jpg",
+    # fenway - "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/robert-f-9t5sV4KarVA-unsplash.jpg",
+    # space needle - "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/timothy-eberly-CXEqz2g0j9g-unsplash.jpg",
+    # Citgo sign - "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/todd-kent-iRKv_XiN--M-unsplash.jpg",
+    #water -cabin - "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/luca-bravo-lake.jpg",
+    # main photo - "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/jon-flobrant-sheds.jpg",
+    #golden gate - "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/joonyeop-baek-1kf69eE7VR4-unsplash.jpg",
+    #boston-style -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/alexander-london-hIz8LZW8qfI-unsplash.jpg"
+    #barn -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/amy-reed-8hRr0IFz6qA-unsplash.jpg"
+    #cottage -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/annie-spratt-rti3HfYJzOM-unsplash.jpg"
+    #townhome -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/bernadette-gatsby-bN_TkedaBuQ-unsplash.jpg"
+    #boston townhome -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/christian-koch-D_4R9CcYZOk-unsplash.jpg	"
+    #miami apt -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/cody-board-aBPx_3gOhig-unsplash.jpg	"
+    #highrise apt -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/folco-masi-fhA8jbG49zU-unsplash.jpg	"
+    #sears tower -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/guido-coppa-nMERjkt2o5k-unsplash.jpg"
+    #Wirgley -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/heather-maguire-1nKs6Js_JxA-unsplash.jpg"
+    #miami cockedo -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/jason-briscoe--T0La6F_WrE-unsplash.jpg"
+    #sandcastle -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/kit-suman-aIh-ic7kPo8-unsplash.jpg"
+    #igloo -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/lauri-vuokila-8_58RjtO4bQ-unsplash.jpg"
+    #boston-townhome -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/lindsay-e-durant-HIfkoSBuFXc-unsplash.jpg"
+    #miami mansion -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/matin-keivanloo-2Fn53YULM48-unsplash.jpg"
+    #pizza -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/matt-antonioli-ctwbBwcwI9U-unsplash.jpg"
+    #house lake -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/morgane-perraud-rPA5JlVuf7Q-unsplash.jpg"
+    #dolphin -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/noaa-NsvzdXtvyio-unsplash.jpg"
+    #miami club -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/ryan-spencer-Um9AkOiIDcU-unsplash.jpg"
+    #chicago bean -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/sawyer-bengtson-tnv84LOjes4-unsplash.jpg"
+    #southie -"https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/tiffany-chan-lT2hiMUACco-unsplash.jpg"
+    
+
+photo_urls = [
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/alberto-castillo-q-mx4mSkK9zeo-unsplash.jpg",	
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/andrea-davis-IWfe63thJxk-unsplash.jpg",	
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/andrea-davis-nbI8gqbBaHo-unsplash.jpg",	
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/jakob-owens-DJV40FsmPSg-unsplash.jpg",	
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/patrick-perkins-iRiVzALa4pI-unsplash.jpg",
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/roberto-nickson-emqnSQwQQDo-unsplash.jpg",	
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/sidekix-media-BAVam-y_9Wg-unsplash.jpg",	
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/sidekix-media-r_y2VBvEOIE-unsplash.jpg",	
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/zac-gudakov-95UK5aVgx54-unsplash.jpg",
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/andrea-davis-0SSPeyokubs-unsplash.jpg",	
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/im3rd-media-9USszO6wZqU-unsplash.jpg",	
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/justin-schuler-dAAk8Aqd_-I-unsplash.jpg",	
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/kyoshi-reyes-Ps_ujcY0oT8-unsplash.jpg",	
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/marvin-meyer--wzNB4Fsoa0-unsplash.jpg",	
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/neonbrand-mGZX2MOPR-s-unsplash.jpg",
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/orlova-maria-b37mDyPzdJM-unsplash.jpg",
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/vinicius-amnx-amano-17NCG_wOkMY-unsplash.jpg",
+    "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/zac-gudakov-_VH7-2PB3bc-unsplash.jpg",
+]
+
+# Listing.all.each do |listing|
+#     4.times do |i|
+#         photo = URI.open(photo_urls.sample)
+#         listing.photos.attach(io: photo, photo)
+#     end
+
+# end
+
+	
+
+	
+
+
+
+	
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+
+ 
+
+	
+
+	
+
+	
+
+	
+
+
+

@@ -16,7 +16,7 @@
 #
 class Listing < ApplicationRecord
   validates :title, :price, :guest_num, :description, :num_beds, :longitude, :latitude, :host_id, presence: true
-
+  # validates :coverphoto
   belongs_to :host,
     primary_key: :id,
     foreign_key: :host_id,
@@ -27,5 +27,11 @@ class Listing < ApplicationRecord
     foreign_key: :listing_id,
     class_name: :Booking
 
-  # has_many_attached :photos
+    #:intphoto1, :intphoto2, :intphoto3, :intphoto4,
+  has_one_attached :coverphoto
+  # has_one_attached :intphoto1
+  # has_one_attached :intphoto2
+  # has_one_attached :intphoto3
+  # has_one_attached :intphoto4
+
 end

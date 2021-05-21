@@ -23,9 +23,8 @@
  @import './components/dropdown.scss';
  @import './layout/listings_index.scss';
  @import './layout/listings_show.scss';
- @import 'react-date-range/dist/styles.css';
- @import 'react-date-range/dist/theme/default.css';
-// @import './base/imports.scss'
+ 
+@import './vendor/date-range.scss';
 
 
  

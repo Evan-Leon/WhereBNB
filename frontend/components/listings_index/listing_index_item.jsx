@@ -9,7 +9,7 @@ class ListingIndexItem extends React.Component {
     return(
         <li className="index-item-box">
             <div className="listing-picture">
-                <img className="index-img" src={window.triangleHouseUrl} alt="house" />
+                <img className="index-img" src={listing.coverphotoUrl} alt="house" />
             </div>
             <div className="index-info">
                 {/* {listing.id}.jpg */}
