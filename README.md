@@ -19,7 +19,8 @@ A clone of the site www.airbnb.com/ allowing users to create an account, browse 
 ### Interactive Map Feature
 Beside the list of all properties is an interactive google map which lists all properties that are registered. The user can click on the desired pin and that will bring them to that properties details page. This was done by fetching all the listings once the index page has loaded, then looping through each property and assigning it a pin based on its latitude and longitude.
 
-[image](https://user-images.githubusercontent.com/78226696/119146105-4d12ef00-ba18-11eb-837f-c5394fc85218.png)
+map_shot![image](https://user-images.githubusercontent.com/78226696/119146336-86e3f580-ba18-11eb-84a3-cc554160e710.png)
+
 
 
 * System dependencies
