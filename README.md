@@ -24,21 +24,12 @@ Beside the list of all properties is an interactive google map which lists all p
 ### Map Code Snippet
 Code to add all the listings to the map, getting passed in the individual listing via props.
 
-![image, map code snippet](https://user-images.githubusercontent.com/78226696/119146951-22756600-ba19-11eb-9a84-5e998223ea8d.png)
+```js componentDidMount(){
+        this.map = new google.maps.Map(this.mapNode, mapOptions);
+        this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+        this.registerListeners();
+        this.MarkerManager.updateMarkers(this.props.listings);
+    } ```
 
+### Fast adapting Login and Logout dropdown
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
