@@ -24,13 +24,14 @@ Beside the list of all properties is an interactive google map which lists all p
 ### Map Code Snippet
 Code to add all the listings to the map, getting passed in the individual listing via props.
 
-``js 
+```js 
       componentDidMount(){
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
         this.registerListeners();
         this.MarkerManager.updateMarkers(this.props.listings);
-    } ``
+    } 
+    ```
 
 ### Fast adapting Login and Logout dropdown
 
