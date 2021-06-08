@@ -30,7 +30,7 @@ class Api::BookingsController < ApplicationController
 
     def create 
         @booking = Booking.new(booking_params)
-
+        
         if @booking.save! 
             render 'api/bookings/show'
         else  
@@ -39,7 +39,7 @@ class Api::BookingsController < ApplicationController
     end
 
     def booking_params
-        params.require(:booking).permit(:check_in, :check_out, :host_id, :guest_id)
+        params.require(:booking).permit(:check_in, :check_out, :listing_id, :guest_id)
     end
 
 end

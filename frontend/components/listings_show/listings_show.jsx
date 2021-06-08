@@ -6,6 +6,7 @@ import {DateRange} from 'react-date-range'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faHome, faUsers, faClipboardList, faHandSparkles, faStar, faMedal, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import ListingMap from '../listings_map/listing_map';
+import BookingForm from '../bookings/booking_form';
 
 
 class ListingShow extends React.Component {
@@ -13,37 +14,61 @@ class ListingShow extends React.Component {
         super(props);
         // this.changeDate = this.changeDate.bind(this)
         this.state = {
-            startDate: new Date(),
-            endDate: new Date()
+            checkIn: new Date(),
+            checkOut: new Date()
         }
-        this.handleSelect= this.handleSelect.bind(this)
+        // this.handleSelect= this.handleSelect.bind(this)
+        // this.updateDates = this.updateDates.bind(this);
     }
 
     componentDidMount(){
         this.props.fetchListing(this.props.match.params.listingId);
     }
 
-    handleSelect(e) {
-        const { startDate, endDate } = e.selection
-        this.setState({ 
-           startDate: startDate.getDay(),
-            endDate: endDate.getDay()
-        })
-    }
-
-    // changeDate(date){
-    //     date => {debugger}
+    // handleSelect(e) {
+    //     e.preventDefault();
+    //     let booking = {
+    //         checkIn: this.state.checkIn,
+    //         checkOut: this.state.checkOut,
+    //         guestId: this.props.currentUser,
+    //         listingId: this.props.listing.id
+    //     }
+    //     debugger
+    //     this.props.createBooking(booking)
+    //         .then(booking => console.log(booking))
+        
+      
     // }
+
+//    updateDates(e) {
+//        let { startDate, endDate } = e.selection;
+//        debugger
+//        this.setState({
+//            checkIn: startDate,
+//            checkOut: endDate
+//        })
+//    }
 
 
 
     render(){
         const { listing } = this.props;
-        const selectionRange = {
-            startDate: new Date(),
-            endDate: new Date(),
-            key: 'selection',
-        }
+        
+        // let selectionRange = {
+        //     startDate: this.state.checkIn,
+        //     endDate: this.state.checkOut,
+        //     key: 'selection',
+        // }
+
+        // if (this.props.listing.startDate){
+        //     selectionRange = {
+        //         checkInstar: new Date(this.props.listing.startDate.toString().slice(0,10)) ,
+        //         endDate: new Date(this.props.listing.endDate.toString().slice(0,10)),
+        //         key: 'selection',
+        //     }
+        // }
+
+
         // const [value, onChange] = useState(new Date());
         if (!listing) return null;
         return(
@@ -105,9 +130,9 @@ class ListingShow extends React.Component {
                     </ul> */}
                     <br />
                     {/* < MyDateRange onChange={e => {debugger} }   className="calendar" /> */}
-                    <DateRange
+                    {/* <DateRange
                         ranges={[selectionRange]}
-                        onChange={this.handleSelect}
+                        onChange={this.updateDates}
                         // onChange={e}
                         editableDateInputs={true}
                         showSelectionPreview={true}
@@ -116,7 +141,14 @@ class ListingShow extends React.Component {
                         showDateDisplay={false}
                         showMonthAndYearPickers={false}
                         // showMonthArrow={false}
-                        />
+                        /> */}
+                    < BookingForm 
+                        listing={listing}
+                        createBooking={this.props.createBooking}
+                        currentUser = {this.props.currentUser}
+                    />
+
+                        {/* <button onClick={this.handleSelect}>Submit</button> */}
                 </div>
 
                 <div className="review-container">

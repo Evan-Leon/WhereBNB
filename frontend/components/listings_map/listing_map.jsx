@@ -18,15 +18,10 @@ const mapOptions = {
 class ListingMap extends React.Component {
     
     componentDidMount(){
-        // const map = this.map;
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-        // if (this.props.singleListing) {
-        //     this.props.fetchListing(this.props.listingId)
-        // } else {
         this.registerListeners();
         this.MarkerManager.updateMarkers(this.props.listings);
-        // }
     }
 
     componentDidUpdate() {

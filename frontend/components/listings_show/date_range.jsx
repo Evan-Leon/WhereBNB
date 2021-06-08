@@ -44,4 +44,4 @@ class MyDateRange extends React.Component {
     }
 }
 
-export default MyDateRange;
+// export default MyDateRange;
