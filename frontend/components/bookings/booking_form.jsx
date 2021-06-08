@@ -22,10 +22,10 @@ class BookingForm extends React.Component {
     handleSelect(e) {
         e.preventDefault();
         let booking = {
-            checkIn: this.state.checkIn,
-            checkOut: this.state.checkOut,
-            guestId: this.props.currentUser,
-            listingId: this.props.listing.id
+            check_in: this.state.checkIn,
+            check_out: this.state.checkOut,
+            guest_id: this.props.currentUser,
+            listing_id: this.props.listing.id
         }
         debugger
         this.props.createBooking(booking)
