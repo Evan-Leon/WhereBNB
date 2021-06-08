@@ -46,7 +46,7 @@
 
 .calendar-box {
     height: 400px;
-    width: 50vw;
+    width: 100vw;
     margin-bottom: 50px;
     border-bottom: 1px solid lightgray ;
 }
@@ -155,3 +155,85 @@
     margin-right:5px;
 }
 
+.booking-box {
+    background-color: rgba(85, 214, 96, 0.212);
+    height: 350px;
+    width: 350px;
+    margin-left: 100px;
+    padding: 10px;
+}
+
+.res-form{
+    display: flex;
+}
+
+.booking-box-header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.check-in-out {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.price-container{
+    display: flex;
+}
+
+.box-price {
+    font-weight: 600;
+    font-size: 24px;
+    padding-right: 10px;
+}
+
+.night {
+    justify-self:flex-start;
+}
+
+.check-in-container {
+    border: 1px solid cyan;
+    padding:10px;
+}
+
+.check-out-container {
+    border: 1px solid cyan;
+    padding:10px;
+}
+
+.night-cost {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.taxes {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.services {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid orange;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.guests-container {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,31 +1,34 @@
 import React from 'react';
 import {DateRange} from 'react-date-range';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { format, formatDistanceStrict, addDays } from 'date-fns';
 
 class BookingForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             checkIn: new Date(),
-            checkOut: new Date()
+            checkOut: new Date(),
+            numGuests: this.props.listing.guestNum,
+            errors: []
         }
 
         this.handleSelect = this.handleSelect.bind(this);
         this.updateDates = this.updateDates.bind(this);
+        this.handleGuest = this.handleGuest.bind(this);
     }
 
 
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     this.props.action(this.state) 
-    // }
-
     handleSelect(e) {
         e.preventDefault();
+        debugger
         let booking = {
             check_in: this.state.checkIn,
             check_out: this.state.checkOut,
             guest_id: this.props.currentUser,
-            listing_id: this.props.listing.id
+            listing_id: this.props.listing.id,
+            num_guests: this.state.numGuests
         }
         debugger
         this.props.createBooking(booking)
@@ -36,10 +39,17 @@ class BookingForm extends React.Component {
 
     updateDates(e) {
         let { startDate, endDate } = e.selection;
-        debugger
+        
         this.setState({
             checkIn: startDate,
             checkOut: endDate
+        })
+    }
+
+    handleGuest(e) {
+        console.log(e.target.value)
+        this.setState({
+            numGuests: e.target.value,
         })
     }
 
@@ -52,31 +62,76 @@ class BookingForm extends React.Component {
             endDate: this.state.checkOut,
             key: 'selection',
         }
-
-        // if (this.props.listing.checkIn){
-        //     dateRange = {
-        //         startDate: new Date(this.state.checkIn.toString().slice(0,10)) ,
-        //         endDate: new Date(this.state.checkOut.toString().slice(0,10)),
-        //         key: 'selection',
-        //     }
-        // }
         
         return(
             <div className="booking-form-container">
-                <form onSubmit={this.handleSelect} className="">
+                <form onSubmit={this.handleSelect} className="res-form">
                     <DateRange
                         ranges={[selectionRange]}
                         onChange={this.updateDates}
-                        // onChange={e}
                         editableDateInputs={true}
                         showSelectionPreview={true}
                         months={2}
                         direction="horizontal"
                         showDateDisplay={false}
                         showMonthAndYearPickers={false}
-                        // showMonthArrow={false}
                         />
-                    <button type="submit" value={this.props.formType}>Submit</button>
+                       
+                       <div className="booking-box">
+                           <div className="booking-box-header">
+                               <div className="price-container">
+                                    <p className="box-price">${this.props.listing.price}</p>
+                                    <p className="night">/night</p>
+                                </div>
+                                <p><FontAwesomeIcon icon={faStar} className="star"/> 4.88 (27 reviews)</p>
+                            </div>
+                            <div className="check-in-out">
+                                <div className="check-in-container">
+                                    <label >CHECK-IN</label>
+                                    <p className="check-in">{format(this.state.checkIn, "MMM d yyyy")}</p>
+                                </div>
+                                <div className="check-out-container">
+                                    <label >CHECKOUT</label>
+                                    <p className="check-out">{format(this.state.checkOut, "MMM d yyyy")}</p>
+                                </div>
+                                
+                            </div>
+                            <div className="guests-container">
+                                <label htmlFor="num-guests">Guests</label>
+                                <select name="num-guests" id="num-guests" value={this.state.numGuests} onChange={this.handleGuest}>
+                                    <option value="1">1 guest</option>
+                                    <option value="2">2 guests</option>
+                                    <option value="3">3 guests</option>
+                                    <option value="4">4 guests</option>
+                                    <option value="5">5 guests</option>
+                                    <option value="6">6 guests</option>
+                                    <option value="7">7 guests</option>
+                                    <option value="8">8 guests</option>
+                                    <option value="9">9 guests</option>
+                                </select>
+                            </div>
+                            <div className="cost">
+                                <div className="night-cost">
+                                    <p>${this.props.listing.price} x {formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1))}</p>
+                                    <p>${([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)])}</p>
+                                </div>
+                                <div className="services">
+                                    <p>Service Fee</p>
+                                    <p>$57</p>
+                                </div>
+                                <div className="taxes">
+                                    <p>Occupancy taxes and fees</p>
+                                    <p>${(([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)]))*(.05)}</p>
+                                </div>
+                                <div className="total">
+                                    <p>Total</p>
+                                    <p>${([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)])
+                                        + (([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)]))*(.05)
+                                        + (57)}</p>
+                                </div>
+                            </div>
+                            <button type="submit" value={this.props.formType}>Submit</button>
+                        </div>
                 </form>
             </div>
         )
