@@ -13,6 +13,7 @@
 #  host_id     :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  city        :string
 #
 class Listing < ApplicationRecord
   validates :title, :price, :guest_num, :description, :num_beds, :longitude, :latitude, :host_id, presence: true

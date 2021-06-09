@@ -8,6 +8,7 @@
 require 'open-uri'
 User.destroy_all
 Listing.destroy_all
+Booking.destroy_all
 
 
 #Users
