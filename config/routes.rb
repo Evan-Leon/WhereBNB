@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :listings, only: [:index, :show]
     resources :bookings, only: [:index, :show, :create, :update, :destroy]
+    resources :reviews, only: [:create]
   end
 
   root "static_pages#root"

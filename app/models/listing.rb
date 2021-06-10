@@ -27,6 +27,12 @@ class Listing < ApplicationRecord
     primary_key: :id,
     foreign_key: :listing_id,
     class_name: :Booking
+  
+  has_many :reviews,
+    primary_key: :id,
+    foreign_key: :listing_id,
+    class_name: :Review
+
 
     #:intphoto1, :intphoto2, :intphoto3, :intphoto4,
   has_one_attached :coverphoto
