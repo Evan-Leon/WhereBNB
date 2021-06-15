@@ -6,7 +6,8 @@ import {DateRange} from 'react-date-range'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faHome, faUsers, faClipboardList, faHandSparkles, faStar, faMedal, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import ListingMap from '../listings_map/listing_map';
-import BookingForm from '../bookings/booking_form'
+import BookingForm from '../bookings/booking_form';
+import ReviewFormContainer from '../reviews/review_form_container';
 
 
 
@@ -85,7 +86,7 @@ class ListingShow extends React.Component {
                         currentUser = {this.props.currentUser}
                     />
                 </div>
-
+                <ReviewFormContainer  listing={listing} currentUser= {this.props.currentUser} />
                 <div className="review-container">
                     <h3 className="review-title">  <FontAwesomeIcon icon={faStar} className="star"/> 4.88 (27 reviews)</h3>
                     <div className="review-box">

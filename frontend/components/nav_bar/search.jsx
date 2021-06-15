@@ -12,13 +12,16 @@ class Search extends React.Component{
     }
 
     handleSubmit(e){
+        e.preventDefault();
+        let search = this.state.search ;
+        search = search.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
 
     }
 
     render(){
         return(
             <div className="search-bar-box">
-                <form action="" onSubmit={this.handleSubmit}>
+                <form className="search-form" onSubmit={this.handleSubmit}>
                     <input type="text" className="search-text" placeholder="Start your search" value={this.state.search} onChange={this.update} />
                 </form>
             </div>

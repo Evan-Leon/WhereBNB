@@ -6,6 +6,9 @@ import Search from './search';
 
 const mSTP = state => ({
     listings: asArray(state.entities),
+    cities: asArray(state.entities.city),
+    filters: state.ui.filters,
+    map: state.ui.map, 
 
 })
 
