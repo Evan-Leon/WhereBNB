@@ -23,7 +23,7 @@ const MapsReducer = (state = nyc, action) => {
         case RESET_MAP:
             return nyc;
         default:
-            state;
+            return state;
     }
 }
 

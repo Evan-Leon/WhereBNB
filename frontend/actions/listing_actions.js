@@ -2,6 +2,7 @@ import * as APIListingUtils from '../utils/listing_utils';
 
 export const RECEIVE_LISTINGS = "RECEIVE_LISTINGS";
 export const RECEIVE_LISTING = "RECEIVE_LISTING";
+export const RECEIVE_SEARCH = "RECEIVE_SEARCH";
 
 const receiveListings = listings => {
     
@@ -15,6 +16,7 @@ export const receiveListing = listing => ({
     listing 
 })
 
+
 export const fetchListings = (filters) => dispatch => {
     return(
     APIListingUtils.fetchListings(filters)
@@ -25,3 +27,10 @@ export const fetchListing = id => dispatch => (
     APIListingUtils.fetchListing(id)
     .then(listing => dispatch(receiveListing(listing)))
 );
+
+export const fetchSearch = searchString => dispatch => {
+    return (
+        APIListingUtils.fetchSearch(searchString)
+        .then(listings => dispatch(receiveListings(listings)))
+    )
+}

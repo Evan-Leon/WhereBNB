@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :listings, only: [:index, :show]
     resources :bookings, only: [:index, :show, :create, :update, :destroy]
     resources :reviews, only: [:create]
+    get 'search' => 'listings#search'
+    post 'search_index' => 'listings#search_index'
   end
 
   root "static_pages#root"

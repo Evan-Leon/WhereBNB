@@ -11,4 +11,14 @@ class Api::ListingsController < ApplicationController
       render :show
     end
 
+    # def search 
+
+    # end
+
+    def search_index 
+      
+      @listings = Listing.search_results(params[:searchString])
+      render "api/listings/index"
+    end
+
 end

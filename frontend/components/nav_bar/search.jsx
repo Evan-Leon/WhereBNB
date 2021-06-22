@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router';
 
 class Search extends React.Component{
     constructor(props){
@@ -6,27 +7,33 @@ class Search extends React.Component{
         this.state = {
             search: '',
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     update(){
-        return e => this.setState({search: e.currentTarget.value })
+        
+       return e => this.setState({search: e.currentTarget.value })
     }
 
     handleSubmit(e){
+        debugger
         e.preventDefault();
+        
         let search = this.state.search ;
-        search = search.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
-
+        search = search.toLowerCase();
+        this.props.history.push(`/search/${search}`)
     }
 
     render(){
+        
         return(
             <div className="search-bar-box">
                 <form className="search-form" onSubmit={this.handleSubmit}>
-                    <input type="text" className="search-text" placeholder="Start your search" value={this.state.search} onChange={this.update} />
+                    <input type="text" className="search-text" placeholder="Start your search" value={this.state.search} onChange={this.update()} />
+                    <button type='submit'>Search</button>
                 </form>
             </div>
         )
     }
 }
 
-export default Search;
+export default withRouter(Search);

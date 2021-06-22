@@ -4,18 +4,17 @@ import {updateFilter } from '../../actions/filter_actions';
 import {asArray } from '../../reducers/selectors';
 import Search from './search';
 import { fetchSearch } from '../../actions/listing_actions';
+import SearchIndex from './search_index';
 
-const mSTP = state => ({
-    listings: state.entities,
-    cities: state.entities.city,
-    filters: state.ui.filters,
-    map: state.ui.map, 
-
-})
+const mSTP = (state, ownProps) => (
+    {
+    search: state.entities.listings[ownProps.match.params.search],
+    currentUser: state.session.id
+});
 
 const mDTP = dispatch => ({
-    updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
     fetchSearch: searchString => dispatch(fetchSearch(searchString)),
+    updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
 })
 
-export default connect(mSTP, mDTP)(Search);
+export default connect(mSTP, mDTP)(SearchIndex);

@@ -41,4 +41,11 @@ class Listing < ApplicationRecord
   # has_one_attached :intphoto3
   # has_one_attached :intphoto4
 
+  def self.search_results(search_string)
+    listings = Listing.all 
+    string = search_string.downcase 
+    cities = listings.select { |listing| listing.city.downcase.include?(string) }
+    title = listings.select { |listing| listing.title.downcase.include?(string) }
+    return cities + title
+  end
 end

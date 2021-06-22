@@ -13,3 +13,11 @@ export const fetchListing = id =>(
         url: `/api/listings/${id}`
     })
 )
+
+export const fetchSearch = searchString => (
+    $.ajax({
+        method: "POST",
+        url: `/api/search_index`,
+        data: {searchString}
+    })
+)
