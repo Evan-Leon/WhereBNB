@@ -21,6 +21,7 @@ class ListingMap extends React.Component {
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
         this.registerListeners();
+        
         this.MarkerManager.updateMarkers(this.props.listings);
     }
 
@@ -30,7 +31,9 @@ class ListingMap extends React.Component {
         //     const targetListing = this.props.listings[targetListingKey];
         //     this.MarkerManager.updateMarkers([targetListing]);
         // } else {
+            
             this.MarkerManager.updateMarkers(this.props.listings)
+            
         // }
     }
 
@@ -63,7 +66,7 @@ class ListingMap extends React.Component {
 
 
     render(){
-
+        
 
         return(
             <div id='map-container' ref={map => this.mapNode = map}>

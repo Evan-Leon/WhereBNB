@@ -8,7 +8,7 @@ import { faHome, faUsers, faClipboardList, faHandSparkles, faStar, faMedal, faUs
 import ListingMap from '../listings_map/listing_map';
 import BookingForm from '../bookings/booking_form';
 import ReviewFormContainer from '../reviews/review_form_container';
-
+import ReviewDisplay from '../reviews/review_display';
 
 
 class ListingShow extends React.Component {
@@ -17,7 +17,8 @@ class ListingShow extends React.Component {
         // this.changeDate = this.changeDate.bind(this)
         this.state = {
             checkIn: new Date(),
-            checkOut: new Date()
+            checkOut: new Date(),
+            reviews: ''
         }
         // this.handleSelect= this.handleSelect.bind(this)
         // this.updateDates = this.updateDates.bind(this);
@@ -25,6 +26,10 @@ class ListingShow extends React.Component {
 
     componentDidMount(){
         this.props.fetchListing(this.props.match.params.listingId);
+        
+        this.props.fetchReviews(this.props.match.params.listingId)
+            .then(reviews => this.setState(reviews))
+            
     }
 
    
@@ -33,7 +38,7 @@ class ListingShow extends React.Component {
     render(){
         const { listing } = this.props;
         
-       
+       const {reviews} = this.state.reviews;
         
         if (!listing) return null;
         return(
@@ -87,9 +92,10 @@ class ListingShow extends React.Component {
                     />
                 </div>
                 <ReviewFormContainer  listing={listing} currentUser= {this.props.currentUser} />
+                <ReviewDisplay reviews={this.state.reviews} />
                 <div className="review-container">
                     <h3 className="review-title">  <FontAwesomeIcon icon={faStar} className="star"/> 4.88 (27 reviews)</h3>
-                    <div className="review-box">
+                    {/* <div className="review-box">
                         <div className='act-review'>
                             <h4 className="title-review"> <FontAwesomeIcon className="user-rev" icon={faUserCircle}  /> Amazing Home</h4>
                             <p className="review-body">Loved it! Everything about it was just perfect and the host and the location were great!</p>
@@ -114,7 +120,7 @@ class ListingShow extends React.Component {
                             <h4 className="title-review"><FontAwesomeIcon className="user-rev" icon={faUserCircle}  /> I am lost please help</h4>
                             <p className="review-body">Take me back! No, really I am lost right now and still have this place booked, really this is not a review but a call for help</p>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <br />
                 {/* <div className="show-map">

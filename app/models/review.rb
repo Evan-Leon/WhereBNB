@@ -13,7 +13,7 @@
 #
 class Review < ApplicationRecord
     validates :rating, inclusion: { in: (1..5) }
-    validates :body, :rating, :guest_id, :listing_id, :booking_id, presence: true
+    validates :body, :rating, :guest_id, :listing_id, presence: true
 
     belongs_to :listing,
         primary_key: :id,
@@ -25,8 +25,5 @@ class Review < ApplicationRecord
         foreign_key: :guest_id,
         class_name: :User 
 
-    belongs_to :booking,
-        primary_key: :id,
-        foreign_key: :booking_id,
-        class_name: :Booking
+    
 end

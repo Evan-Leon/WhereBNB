@@ -30,7 +30,7 @@ export const fetchBooking = bookingId => dispatch => (
 )
 
 export const createBooking = booking => dispatch => {
-    debugger
+    
     return(
     BookingApiUtils.createBooking(booking)
     .then(booking => dispatch(receiveBooking(booking))))

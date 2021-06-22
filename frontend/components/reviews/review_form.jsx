@@ -18,8 +18,7 @@ class ReviewForm extends React.Component {
             rating: this.state.rating,
             body: this.state.body,
             listing_id: this.props.listing.id,
-            guest_id: this.currentUser,
-            booking_id:2,
+            guest_id: this.props.currentUser,
         }
         this.props.createReview(review)
             
@@ -30,7 +29,7 @@ class ReviewForm extends React.Component {
     }
 
     render() {
-        debugger
+        
         return (
             <div className="review-form-container">
                 <form className="review-form" onSubmit={this.handleSubmit}>

@@ -1,16 +1,16 @@
-export const fetchReviews = () => (
+export const fetchReviews = listingId => (
     $.ajax({
         method: 'GET',
-        url: '/api/reviews'
+        url: `/api/reviews/${listingId}`
     })
 )
 
-export const fetchReview = (reviewId) => (
-    $.ajax({
-      method: 'GET',
-      url: `/api/reviews/${reviewId}`
-    })
-)
+// export const fetchReview = (reviewId) => (
+//     $.ajax({
+//       method: 'GET',
+//       url: `/api/reviews/${reviewId}`
+//     })
+// )
 
 export const createReview = review => (
     $.ajax({

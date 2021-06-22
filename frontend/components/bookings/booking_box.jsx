@@ -12,7 +12,7 @@ class BookingBox extends React.Component {
 
     
     render(){
-        debugger
+        
         if (!this.props.listing) return null;
         
         return (

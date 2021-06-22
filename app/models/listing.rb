@@ -48,4 +48,10 @@ class Listing < ApplicationRecord
     title = listings.select { |listing| listing.title.downcase.include?(string) }
     return cities + title
   end
+
+  def self.get_reviews(listing_id)
+    reviews = Review.all 
+    listing_reviews = reviews.select {|review| review.listing_id == listing_id.to_i}
+    return listing_reviews
+  end
 end

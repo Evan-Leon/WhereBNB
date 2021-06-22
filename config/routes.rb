@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :listings, only: [:index, :show]
     resources :bookings, only: [:index, :show, :create, :update, :destroy]
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :index, :show]
     get 'search' => 'listings#search'
     post 'search_index' => 'listings#search_index'
   end

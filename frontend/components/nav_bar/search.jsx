@@ -15,7 +15,7 @@ class Search extends React.Component{
     }
 
     handleSubmit(e){
-        debugger
+        
         e.preventDefault();
         
         let search = this.state.search ;

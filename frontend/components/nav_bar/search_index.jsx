@@ -14,14 +14,14 @@ class SearchIndex extends React.Component {
     }
 
     componentDidMount() {
-        debugger
+        
         this.props.fetchSearch(this.props.match.params.searchString)
             .then(listings => this.setState(listings))
     }
 
 
     render(){
-        debugger
+        
         
         
         if (this.state.listings === '') return null;

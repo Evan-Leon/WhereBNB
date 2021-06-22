@@ -11,7 +11,14 @@ class Api::ReviewsController < ApplicationController
         end
     end
 
+    def show 
+        
+        @reviews = Listing.get_reviews(params[:id])
+        render "api/reviews/show"
+
+    end
+
     def review_params
-        params.require(:review).permit(:rating, :body, :listing_id, :guest_id, :booking_id)
+        params.require(:review).permit(:rating, :body, :listing_id, :guest_id)
     end
 end

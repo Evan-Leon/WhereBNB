@@ -22,7 +22,7 @@ class BookingForm extends React.Component {
 
     handleSelect(e) {
         e.preventDefault();
-        debugger
+       
         let booking = {
             check_in: this.state.checkIn,
             check_out: this.state.checkOut,
@@ -30,7 +30,7 @@ class BookingForm extends React.Component {
             listing_id: this.props.listing.id,
             num_guests: this.state.numGuests
         }
-        debugger
+        
         this.props.createBooking(booking)
             .then(booking => console.log(booking))
         
@@ -56,7 +56,7 @@ class BookingForm extends React.Component {
     render(){
 
         // const { listing } = this.props;
-        debugger
+       
         let selectionRange = {
             startDate: this.state.checkIn,
             endDate: this.state.checkOut,

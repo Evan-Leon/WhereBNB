@@ -19,8 +19,8 @@ const removeReview = reviewId => ({
     reviewId
 })
 
-export const fetchReviews = () => dispatch => (
-    ReviewApiUtils.fetchReviews()
+export const fetchReviews = listingId => dispatch => (
+    ReviewApiUtils.fetchReviews(listingId)
     .then(reviews => dispatch(receiveReviews(reviews)))
 )
 
