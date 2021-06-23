@@ -33,9 +33,9 @@ class ReviewDisplay extends React.Component {
                         
                         {
                             Object.values(reviews).map((review, i) => (
-                                <div>
-                                    <li><FontAwesomeIcon className="user-rev" icon={faUserCircle}  />{review.guest.first_name} </li>
-                                    <li key={i}> {review.body} </li>
+                                <div key={i}>
+                                    <li ><FontAwesomeIcon className="user-rev" icon={faUserCircle}  />{review.guest.first_name} </li>
+                                    <li > {review.body} </li>
                                 </div>
                             ))
                         }

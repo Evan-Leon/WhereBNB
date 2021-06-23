@@ -27,7 +27,7 @@ class NavBar extends React.Component {
 
     navSessionLinks = () =>(
         <div className="login-signup-dropdown">
-                <ul className="login-buttons">
+                <ul className="logout-buttons">
                     <li onClick={() => this.props.openModal('login')}>Login</li>
                     <li onClick={() => this.props.openModal('signup')}>Signup</li>
                     <li onClick={() => this.props.login(this.props.demoUser)}>Demo User</li>
@@ -48,9 +48,7 @@ class NavBar extends React.Component {
             
             return(
                 <div className="login-signup-dropdown">
-                    <ul className="login-buttons">
-                        
-                        <p className='greetings-title'>Greetings!</p>
+                    <ul className="logout-buttons">
                         <li className="nav-logout-button" onClick={this.props.logout}>Log Out</li>
                     </ul>
                     

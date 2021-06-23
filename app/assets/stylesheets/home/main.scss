@@ -29,10 +29,11 @@
     border-radius: 25%;
 }
 
-.visit-container > div > img {
-    width: 300px;
-    height: 300px;
-    border-radius: 5%;
+.city-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    padding: 10px;
 }
 
 .explore-container {
@@ -42,7 +43,7 @@
     grid-template-areas: 
         "city city city"
         "city city city";
-    margin-left: 80px;
+    margin-left: 5%;
 }
 
 .main-photo {
@@ -106,13 +107,11 @@
     }
 
     img {
+        
         align-self: center;
     }
 
-    .new-york {
-        
-    }
-
+   
 }
 
 
@@ -132,6 +131,11 @@
     li {
         font-weight: 500;
     }
+}
+.live-anywhere-img{
+    height:35vh;
+    width: 20vw;
+    border-radius: 15px;
 }
 
 .visit-container{
