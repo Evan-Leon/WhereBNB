@@ -407,13 +407,7 @@ photo_urls = [
     "https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/zac-gudakov-_VH7-2PB3bc-unsplash.jpg",
 ]
 
-# Listing.all.each do |listing|
-#     4.times do |i|
-#         photo = URI.open(photo_urls.sample)
-#         listing.photos.attach(io: photo, photo)
-#     end
 
-# end
 
 	
 

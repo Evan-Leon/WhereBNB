@@ -24,6 +24,5 @@ class Review < ApplicationRecord
         primary_key: :id,
         foreign_key: :guest_id,
         class_name: :User 
-
     
 end

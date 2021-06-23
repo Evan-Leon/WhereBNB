@@ -26,7 +26,7 @@ class ListingShow extends React.Component {
 
     componentDidMount(){
         this.props.fetchListing(this.props.match.params.listingId);
-        
+        debugger
         this.props.fetchReviews(this.props.match.params.listingId)
             .then(reviews => this.setState(reviews))
             
@@ -39,7 +39,7 @@ class ListingShow extends React.Component {
         const { listing } = this.props;
         
        const {reviews} = this.state.reviews;
-        
+        debugger
         if (!listing) return null;
         return(
             <div className= "listing-show-box">
@@ -64,7 +64,7 @@ class ListingShow extends React.Component {
                 </div>
                 <br />
                 <div className="info-box">
-                    <h3 className="host-title">Home hosted by <FontAwesomeIcon className="medal" icon={faMedal}/> Superhost</h3>
+                    <h3 className="host-title">Home hosted by <FontAwesomeIcon className="medal" icon={faMedal}/> {listing.host.first_name} {listing.host.last_name}</h3>
                     <div className="border-line"></div>
                     <br />
                     <div className="attributes">
@@ -93,8 +93,7 @@ class ListingShow extends React.Component {
                 </div>
                 <ReviewFormContainer  listing={listing} currentUser= {this.props.currentUser} />
                 <ReviewDisplay reviews={this.state.reviews} />
-                <div className="review-container">
-                    <h3 className="review-title">  <FontAwesomeIcon icon={faStar} className="star"/> 4.88 (27 reviews)</h3>
+                    
                     {/* <div className="review-box">
                         <div className='act-review'>
                             <h4 className="title-review"> <FontAwesomeIcon className="user-rev" icon={faUserCircle}  /> Amazing Home</h4>
@@ -121,7 +120,6 @@ class ListingShow extends React.Component {
                             <p className="review-body">Take me back! No, really I am lost right now and still have this place booked, really this is not a review but a call for help</p>
                         </div>
                     </div> */}
-                </div>
                 <br />
                 {/* <div className="show-map">
                     {/* < ListingMap /> */}

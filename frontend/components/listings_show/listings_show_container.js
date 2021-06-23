@@ -8,7 +8,8 @@ import { fetchReviews } from '../../actions/review_actions';
 const mSTP = (state, ownProps) => (
     {
     listing: state.entities.listings[ownProps.match.params.listingId],
-    currentUser: state.session.id
+    currentUser: state.session.id,
+    
 });
 
 const mDTP = dispatch => ({

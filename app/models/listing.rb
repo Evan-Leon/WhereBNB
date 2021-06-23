@@ -33,13 +33,8 @@ class Listing < ApplicationRecord
     foreign_key: :listing_id,
     class_name: :Review
 
-
-    #:intphoto1, :intphoto2, :intphoto3, :intphoto4,
   has_one_attached :coverphoto
-  # has_one_attached :intphoto1
-  # has_one_attached :intphoto2
-  # has_one_attached :intphoto3
-  # has_one_attached :intphoto4
+  
 
   def self.search_results(search_string)
     listings = Listing.all 
@@ -54,4 +49,5 @@ class Listing < ApplicationRecord
     listing_reviews = reviews.select {|review| review.listing_id == listing_id.to_i}
     return listing_reviews
   end
+
 end

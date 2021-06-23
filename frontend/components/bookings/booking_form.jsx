@@ -75,6 +75,7 @@ class BookingForm extends React.Component {
                         direction="horizontal"
                         showDateDisplay={false}
                         showMonthAndYearPickers={false}
+                        minDate={new Date()}
                         />
                        
                        <div className="booking-box">

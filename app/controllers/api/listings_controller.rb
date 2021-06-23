@@ -7,13 +7,8 @@ class Api::ListingsController < ApplicationController
 
     def show 
       @listing = Listing.find(params[:id])
-
       render :show
     end
-
-    # def search 
-
-    # end
 
     def search_index 
       
