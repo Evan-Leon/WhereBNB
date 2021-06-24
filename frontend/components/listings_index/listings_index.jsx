@@ -23,7 +23,7 @@ class ListingsIndex extends React.Component {
             
             <div className="listings-index-box">
                 <div className="listings-inner">
-                    <h2 className="main-index-title">Stays around here</h2>
+                    <h2 className="main-index-title">All Listings</h2>
                     <ul className="list-indexes">
                         {
                             listings.map((listing, i) => (

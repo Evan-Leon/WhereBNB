@@ -10,6 +10,7 @@ class SearchIndex extends React.Component {
         super(props);
         this.state = {
             listings: '',
+            search: this.props.match.params.searchString,
         }
     }
 
@@ -30,7 +31,7 @@ class SearchIndex extends React.Component {
             
             <div className="listings-index-box">
                 <div className="listings-inner">
-                    <h2 className="main-index-title">Stays around here</h2>
+                    <h2 className="main-index-title">Stays like: '{this.state.search}'</h2>
                     <ul className="list-indexes">
                         {
                     

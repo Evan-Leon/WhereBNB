@@ -22,28 +22,28 @@ class Home extends React.Component {
                 <h2 className="explore">Explore</h2>
                 <ul className="explore-container">
                    <div className='city-explore'>
-                        <Link to='/search/new york'><img id="new-york" className="city-pic" src={window.cartoonLakeUrl} alt="lake" /></Link>
+                        <Link to='/search/New York City'><img id="new-york" className="city-pic" src={window.cartoonLakeUrl} alt="lake" /></Link>
                         <li>New York</li>
                         
                     </div>
                     <div className="city-explore">
-                    <Link className="city-link" to='/search/san francisco'><img id="san-fran" className="city-pic" src={window.springsUrl} alt="springs" /></Link>
+                    <Link className="city-link" to='/search/San Francisco'><img id="san-fran" className="city-pic" src={window.springsUrl} alt="springs" /></Link>
                         <li>San Francisco</li>
                     </div>
                     <div className="city-explore">
-                    <Link to='/search/boston'><img id="boston" className="city-pic" src={window.forestRiverUrl} alt="forest-river" /></Link>
+                    <Link to='/search/Boston'><img id="boston" className="city-pic" src={window.forestRiverUrl} alt="forest-river" /></Link>
                         <li>Boston</li>
                     </div>
                     <div className='city-explore'>
-                    <Link to='/search/chicago'><img id="chicago" className="city-pic" src={window.soundsUrl} alt="sound" /></Link>
+                    <Link to='/search/Chicago'><img id="chicago" className="city-pic" src={window.soundsUrl} alt="sound" /></Link>
                         <li>Chicago</li>
                     </div>
                     <div className="city-explore">
-                    <Link to='/search/miami'><img id="miami" className="city-pic" src={window.watersideUrl} alt="waterside" /></Link>
+                    <Link to='/search/Miami'><img id="miami" className="city-pic" src={window.watersideUrl} alt="waterside" /></Link>
                         <li>Miami</li>
                     </div>
                     <div className="city-explore">
-                    <Link to='/search/seattle'> <img id="seattle" className="city-pic" src={window.riverUrl} alt="river" /></Link>
+                    <Link to='/search/Seattle'> <img id="seattle" className="city-pic" src={window.riverUrl} alt="river" /></Link>
                         <li>Seattle</li>
                     </div>
                 </ul>

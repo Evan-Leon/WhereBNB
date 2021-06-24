@@ -28,7 +28,7 @@ class SignupForm extends React.Component {
     return(
       <ul>
           {this.props.errors.map((error, i) =>(
-              <li key={`error-${i}`}>
+              <li className="errors" key={`error-${i}`}>
                   {error}
               </li>
           ))}
@@ -41,7 +41,7 @@ class SignupForm extends React.Component {
       <div className="signup-form">
           <h2 className="signup-title">Sign up!</h2>
           <div onClick={this.props.closeModal} className="close-x">X</div>
-          {this.renderErrors()}
+          
           <form className="signup-form-box"  >
             <div className='signup-inputs'>
               {/* <label htmlFor="">Email: */}
@@ -53,12 +53,13 @@ class SignupForm extends React.Component {
               {/* <label htmlFor="">Last Name: */}
                   <input type="text" placeholder="Last Name" value={this.state.last_name} onChange={this.handleInput('last_name')} />
               {/* </label> */}
-              <label htmlFor="">Birthdate
-                  <input className="birthdate" type="date" value={this.state.birthdate} onChange={this.handleInput('birthdate')} />
-              </label>
+              {/* <label htmlFor="">Birthdate */}
+                  <input className="birthdate" placeholder="Birthdate" type="date" value={this.state.birthdate} onChange={this.handleInput('birthdate')} />
+              {/* </label> */}
               {/* <label htmlFor="">Password: */}
                   <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleInput('password')} />
               {/* </label> */}
+              {this.renderErrors()}
               <button className="signup-submit" type="submit" onClick={this.handleSubmit} > Signup </button>
               </div>
           </form>  

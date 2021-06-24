@@ -29,7 +29,7 @@ class LoginForm extends React.Component {
         return(
             <ul>
                 {this.props.errors.map((error, i) =>(
-                    <li key={`error-${i}`}>
+                    <li className="errors" key={`error-${i}`}>
                         {error}
                     </li>
                 ))}
@@ -51,15 +51,16 @@ class LoginForm extends React.Component {
                     <div onClick={this.props.closeModal} className="close-x">X</div>
                     </div>
                     <br />
-                    {this.renderErrors()}
+                    
                     <div className="login-form">
                         
                         {/* <label htmlFor="">Email: */}
-                            <input placeholder="Email" type="text" value={this.state.email} onChange={this.update('email')} className="login-input" />
+                            <input placeholder="Email" type="text" value={this.state.email} onChange={this.update('email')} className="email-input" />
                         {/* </label> */}
                         {/* <label htmlFor="">Password: */}
-                            <input placeholder="Password" type="password" value={this.state.password} onChange={this.update('password')} className="login-input" />
+                            <input placeholder="Password" type="password" value={this.state.password} onChange={this.update('password')} className="pass-input" />
                         {/* </label> */}
+                        {this.renderErrors()}
                         <button  className="login-submit" value="Login"  >Login </button>
                         <button className="demo-user-button" onClick={this.demoUser}>Demo User</button>
                     </div>

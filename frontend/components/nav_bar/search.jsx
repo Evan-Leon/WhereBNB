@@ -1,5 +1,9 @@
 import React from 'react';
 import {withRouter} from 'react-router';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faSearch} from '@fortawesome/free-solid-svg-icons';
+import {Link} from 'react-router-dom';
+
 
 class Search extends React.Component{
     constructor(props){
@@ -20,7 +24,10 @@ class Search extends React.Component{
         
         let search = this.state.search ;
         search = search.toLowerCase();
-        this.props.history.push(`/search/${search}`)
+        this.setState({search: ''});
+    
+        this.props.history.replace(`/search/${search}`)
+        
     }
 
     render(){
@@ -29,7 +36,8 @@ class Search extends React.Component{
             <div className="search-bar-box">
                 <form className="search-form" onSubmit={this.handleSubmit}>
                     <input type="text" className="search-text" placeholder="Start your search" value={this.state.search} onChange={this.update()} />
-                    <button type='submit'>Search</button>
+                    <button type='submit' className="search-btn"><FontAwesomeIcon className="search" icon={faSearch}  /></button>
+                   
                 </form>
             </div>
         )

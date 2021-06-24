@@ -84,22 +84,22 @@ class BookingForm extends React.Component {
                                     <p className="box-price">${this.props.listing.price}</p>
                                     <p className="night">/night</p>
                                 </div>
-                                <p><FontAwesomeIcon icon={faStar} className="star"/> 4.88 (27 reviews)</p>
+                                <p><FontAwesomeIcon icon={faStar} className="star"/> {this.props.round_rating} ({this.props.review_num} reviews)</p>
                             </div>
                             <div className="check-in-out">
                                 <div className="check-in-container">
-                                    <label >CHECK-IN</label>
+                                    <label className="check-label" >CHECK-IN</label>
                                     <p className="check-in">{format(this.state.checkIn, "MMM d yyyy")}</p>
                                 </div>
                                 <div className="check-out-container">
-                                    <label >CHECKOUT</label>
+                                    <label className="check-label" >CHECKOUT</label>
                                     <p className="check-out">{format(this.state.checkOut, "MMM d yyyy")}</p>
                                 </div>
                                 
                             </div>
                             <div className="guests-container">
-                                <label htmlFor="num-guests">Guests</label>
-                                <select name="num-guests" id="num-guests" value={this.state.numGuests} onChange={this.handleGuest}>
+                                <label className="guest-label" htmlFor="num-guests">GUESTS</label>
+                                <select className="num-guests" id="num-guests" value={this.state.numGuests} onChange={this.handleGuest}>
                                     <option value="1">1 guest</option>
                                     <option value="2">2 guests</option>
                                     <option value="3">3 guests</option>
@@ -131,7 +131,7 @@ class BookingForm extends React.Component {
                                         + (57)}</p>
                                 </div>
                             </div>
-                            <button type="submit" value={this.props.formType}>Submit</button>
+                            <button className="booking-sub" type="submit" value={this.props.formType}>Submit</button>
                         </div>
                 </form>
             </div>

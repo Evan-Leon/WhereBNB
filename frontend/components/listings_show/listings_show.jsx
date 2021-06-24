@@ -36,17 +36,34 @@ class ListingShow extends React.Component {
 
 
     render(){
+        debugger
         const { listing } = this.props;
         
-       const {reviews} = this.state.reviews;
+        // let review_num = reviews.length;
+        // let counter = 0;
+        // let ratings = reviews.forEach(review => counter += review.rating)
+        // let avg_rating = [counter/review_num]
+        // let round_rating = Math.round(avg_rating * 100)/100
+        
+       
+       
         debugger
         if (!listing) return null;
+
+        let review_num = listing.reviews.length;
+        let counter = 0;
+        let ratings = listing.reviews.forEach(review => counter += review.rating)
+        let avg_rating = [counter/review_num]
+        let round_rating = Math.round(avg_rating * 100)/100
+        
+       
+
         return(
             <div className= "listing-show-box">
                 <div className="top-show">
                     <h3 className="listing-title">{listing.title}</h3>
                     <div className="review-city">
-                        <p className="reviews"> <FontAwesomeIcon icon={faStar} className="star"/> 4.88 (27 reviews)</p>  
+                        <p className="reviews"> <FontAwesomeIcon icon={faStar} className="star"/> {round_rating} ({review_num} reviews)</p>  
                         <p className="city" >{listing.city} </p>
                     </div>
                     <br />
@@ -85,12 +102,17 @@ class ListingShow extends React.Component {
 
                 <div className="calendar-box">
                     <br />
+                    <h2 className="calendar-title">Select check-in date</h2>
+                    <p className="cal-desc">Add your travel dates for exact pricing</p>
                     < BookingForm 
                         listing={listing}
+                        round_rating={round_rating}
+                        review_num={review_num}
                         createBooking={this.props.createBooking}
                         currentUser = {this.props.currentUser}
                     />
                 </div>
+                <br />
                 <ReviewFormContainer  listing={listing} currentUser= {this.props.currentUser} />
                 <ReviewDisplay reviews={this.state.reviews} />
                     
