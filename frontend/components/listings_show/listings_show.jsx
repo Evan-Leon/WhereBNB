@@ -18,10 +18,12 @@ class ListingShow extends React.Component {
         this.state = {
             checkIn: new Date(),
             checkOut: new Date(),
-            reviews: ''
+            reviews: '',
+            
         }
         // this.handleSelect= this.handleSelect.bind(this)
         // this.updateDates = this.updateDates.bind(this);
+        
     }
 
     componentDidMount(){
@@ -32,7 +34,7 @@ class ListingShow extends React.Component {
             
     }
 
-   
+  
 
 
     render(){
@@ -113,8 +115,11 @@ class ListingShow extends React.Component {
                     />
                 </div>
                 <br />
-                <ReviewFormContainer  listing={listing} currentUser= {this.props.currentUser} />
-                <ReviewDisplay reviews={this.state.reviews} />
+                <div className="review-container-show">
+                    <ReviewDisplay className="review-display" reviews={this.state.reviews} />
+                    <ReviewFormContainer  listing={listing} wasReviewed={this.wasReviewed} currentUser= {this.props.currentUser} />
+                </div>
+                
                     
                     {/* <div className="review-box">
                         <div className='act-review'>

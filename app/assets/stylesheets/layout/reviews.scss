@@ -1,0 +1,144 @@
+.review-container {
+    // display: flex;
+    height: 40vh;
+    width: 50vw;
+    
+}
+
+.review-container-show {
+    display: flex;
+    height: 45vh;
+    width: 80vw;
+    overflow-y:auto;
+    overflow-x: visible;
+    
+}
+
+.review-title {
+    border-top: 1px solid lightgray;
+    padding-top: 30px;
+}
+
+.actual-reviews {
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: space-between;
+   
+    
+    display: grid;
+    width: 50vw;
+    height: 450px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:  1fr 1fr;
+    grid-template-areas:
+    "rev rev"
+    "rev rev";
+    
+    
+}
+
+
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.review-form-container {
+    border: 1px solid darkgray;
+    border-radius: 25px;
+    width: 350px;
+    margin-left: 10px;
+    
+    
+}
+
+.review-sub {
+    background-color: rgb(226, 17, 86);
+    color: white;
+    border-radius: 10px;
+    margin-top:10px;
+    
+    padding:5px;
+    font-weight: 700;
+    height: 50px;
+   
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.rating-container {
+    display:flex;
+    border:1px solid darkgrey;
+    width:150px;
+    height: 50px;
+    
+    margin-bottom: 10px;
+    
+}
+
+.review-text-container {
+    display: flex;
+    flex-direction: column;
+    border:1px solid darkgrey;
+    padding:10px
+}
+
+.rating-title {
+    color:rgb(134, 133, 133);
+    padding:10px;
+}
+
+.rating {
+    border:hidden;
+    padding:10px;
+    font-size: 20px;
+    margin-left: 25px;
+    outline: none;
+
+}
+
+.review-text-area {
+    border:hidden;
+    outline: none;
+}
+
+.review-title-box{
+    color:rgb(134, 133, 133);
+    padding-bottom: 10px;
+}
+
+.review-form-box-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 20px;
+    padding: 20px 0 0 0 ;
+}
+
+.review-display-container {
+    
+    padding:10px;
+    width: 18vw;
+    height: 20vh;
+}
+
+.user-rev {
+    padding: 3px 0 0 0;
+    font-weight: 500;
+}
+
+.rev-date{
+    font-weight: 300;
+    font-size: 14px;
+    margin-top: 3px;
+    color:rgb(134, 133, 133);
+}
+
+.user-title-container {
+    padding-bottom: 20px;
+}
+
+.user-icon{
+    padding:0 5px 0 5px;
+}

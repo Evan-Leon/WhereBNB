@@ -1,6 +1,7 @@
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faHome, faUsers, faClipboardList, faHandSparkles, faStar, faMedal, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { format, formatDistanceStrict, addDays } from 'date-fns';
 
 class ReviewDisplay extends React.Component {
     constructor(props){
@@ -18,6 +19,7 @@ class ReviewDisplay extends React.Component {
         let ratings = reviews.forEach(review => counter += review.rating)
         let avg_rating = [counter/review_num]
         let round_rating = Math.round(avg_rating * 100)/100
+        
 ;        return(
             <div className="review-container">
                 <h3 className="review-title">  <FontAwesomeIcon icon={faStar} className="star"/> {round_rating} ({review_num} reviews)</h3>
@@ -27,19 +29,23 @@ class ReviewDisplay extends React.Component {
                         <p className="review-body">Loved it! Everything about it was just perfect and the host and the location were great!</p>
                     </div>
                 </div> */}
-                <div>
+                <div className='actual-reviews'>
                     
-                    <ul className="act-review">
+                    
                         
                         {
+                            
                             Object.values(reviews).map((review, i) => (
-                                <div key={i}>
-                                    <li ><FontAwesomeIcon className="user-rev" icon={faUserCircle}  />{review.guest.first_name} </li>
+                                <div className="review-display-container" key={i}>
+                                    <div className="user-title-container">
+                                        <li className="user-rev" ><FontAwesomeIcon className="user-icon"  icon={faUserCircle}  />{review.guest.first_name} </li>
+                                        <li className="rev-date">{format(new Date(review.createdAt),'MMMM yyyy' )}</li>
+                                    </div>
                                     <li > {review.body} </li>
                                 </div>
                             ))
                         }
-                    </ul>
+                    
                 </div>
             </div>
         )

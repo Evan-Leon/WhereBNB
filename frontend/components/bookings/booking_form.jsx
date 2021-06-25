@@ -131,7 +131,7 @@ class BookingForm extends React.Component {
                                         + (57)}</p>
                                 </div>
                             </div>
-                            <button className="booking-sub" type="submit" value={this.props.formType}>Submit</button>
+                            <button className="booking-sub" type="submit" value={this.props.formType}>Check availability</button>
                         </div>
                 </form>
             </div>
