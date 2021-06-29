@@ -4,34 +4,29 @@ import Calendar from 'react-calendar';
 import MyDateRange from './date_range';
 import {DateRange} from 'react-date-range'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faHome, faUsers, faClipboardList, faHandSparkles, faStar, faMedal, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUsers, faClipboardList, faHandSparkles, faStar, 
+    faMedal, faUserCircle, faClock, faPaw, faSprayCan, faRadiation,
+    faFireExtinguisher } from '@fortawesome/free-solid-svg-icons';
 import ListingMap from '../listings_map/listing_map';
 import BookingForm from '../bookings/booking_form';
 import ReviewFormContainer from '../reviews/review_form_container';
-import ReviewDisplay from '../reviews/review_display';
+import ReviewDisplayContainer from '../reviews/review_display_container';
 
 
 class ListingShow extends React.Component {
     constructor(props){
         super(props);
-        // this.changeDate = this.changeDate.bind(this)
         this.state = {
             checkIn: new Date(),
             checkOut: new Date(),
             reviews: '',
             
         }
-        // this.handleSelect= this.handleSelect.bind(this)
-        // this.updateDates = this.updateDates.bind(this);
         
     }
 
     componentDidMount(){
         this.props.fetchListing(this.props.match.params.listingId);
-        debugger
-        this.props.fetchReviews(this.props.match.params.listingId)
-            .then(reviews => this.setState(reviews))
-            
     }
 
   
@@ -41,22 +36,13 @@ class ListingShow extends React.Component {
         debugger
         const { listing } = this.props;
         
-        // let review_num = reviews.length;
-        // let counter = 0;
-        // let ratings = reviews.forEach(review => counter += review.rating)
-        // let avg_rating = [counter/review_num]
-        // let round_rating = Math.round(avg_rating * 100)/100
-        
-       
-       
-        debugger
         if (!listing) return null;
 
-        let review_num = listing.reviews.length;
+        let reviewNum = listing.reviews.length;
         let counter = 0;
         let ratings = listing.reviews.forEach(review => counter += review.rating)
-        let avg_rating = [counter/review_num]
-        let round_rating = Math.round(avg_rating * 100)/100
+        let avgRating = [counter/reviewNum]
+        let roundRating = Math.round(avgRating * 100)/100
         
        
 
@@ -65,7 +51,7 @@ class ListingShow extends React.Component {
                 <div className="top-show">
                     <h3 className="listing-title">{listing.title}</h3>
                     <div className="review-city">
-                        <p className="reviews"> <FontAwesomeIcon icon={faStar} className="star"/> {round_rating} ({review_num} reviews)</p>  
+                        <p className="reviews"> <FontAwesomeIcon icon={faStar} className="star"/> {roundRating} ({reviewNum} reviews)</p>  
                         <p className="city" >{listing.city} </p>
                     </div>
                     <br />
@@ -108,53 +94,77 @@ class ListingShow extends React.Component {
                     <p className="cal-desc">Add your travel dates for exact pricing</p>
                     < BookingForm 
                         listing={listing}
-                        round_rating={round_rating}
-                        review_num={review_num}
+                        roundRating={roundRating}
+                        reviewNum={reviewNum}
                         createBooking={this.props.createBooking}
                         currentUser = {this.props.currentUser}
                     />
                 </div>
                 <br />
                 <div className="review-container-show">
-                    <ReviewDisplay className="review-display" reviews={this.state.reviews} />
-                    <ReviewFormContainer  listing={listing} wasReviewed={this.wasReviewed} currentUser= {this.props.currentUser} />
+                    <ReviewDisplayContainer className="review-display" listingId={listing.id} roundRating={roundRating}
+                        reviewNum={reviewNum} />
+                    <ReviewFormContainer  listing={listing}   currentUser= {this.props.currentUser} />
                 </div>
-                
-                    
-                    {/* <div className="review-box">
-                        <div className='act-review'>
-                            <h4 className="title-review"> <FontAwesomeIcon className="user-rev" icon={faUserCircle}  /> Amazing Home</h4>
-                            <p className="review-body">Loved it! Everything about it was just perfect and the host and the location were great!</p>
-                        </div>
-                        <div className='act-review'>
-                            <h4 className="title-review"> <FontAwesomeIcon className="user-rev" icon={faUserCircle}  /> Try and make me leave!</h4>
-                            <p className="review-body">Didn't want to Leave! They did make me, but still all in all 5 stars!</p>
-                        </div >
-                        <div className='act-review'>
-                            <h4 className="title-review"><FontAwesomeIcon className="user-rev" icon={faUserCircle}  /> A home for friends</h4>
-                            <p className="review-body">The host was the BEST! We became fast friends and now we live in this bnb together</p>
-                        </div>
-                        <div className='act-review'>
-                            <h4 className="title-review"> <FontAwesomeIcon className="user-rev" icon={faUserCircle}  /> Best Location Ever!</h4>
-                            <p className="review-body">Beautiful Location! I couldn't have been any closer to all the greatest happenings, had such a blast</p>
-                        </div>
-                        <div className='act-review'>
-                            <h4 className="title-review"> <FontAwesomeIcon className="user-rev" icon={faUserCircle}  /> Would buy it if I could</h4>
-                            <p className="review-body">Felt Like Home! I then made an offer on this home because I needed it to be MY HOME, in other words it was lovely</p>
-                        </div>
-                        <div className='act-review'>
-                            <h4 className="title-review"><FontAwesomeIcon className="user-rev" icon={faUserCircle}  /> I am lost please help</h4>
-                            <p className="review-body">Take me back! No, really I am lost right now and still have this place booked, really this is not a review but a call for help</p>
-                        </div>
-                    </div> */}
+
                 <br />
-                {/* <div className="show-map">
-                    {/* < ListingMap /> */}
-                    {/* [Map Place Holder] */}
-                {/* </div> */} 
 
-               
+                <div className="show-map-container">
+                    <h2 className="map-title">Location</h2>
+                    <ListingMap 
+                        className="show-map"
+                        listing={listing}
+                        listingId = {listing.id}
+                        singleListing={true}
+                        updateFilter = {this.props.updateFilter}
+                        fetchListing = {this.props.fetchListing}
+                        />
+                    <h3 className="map-city">{listing.city} </h3>
+                </div>
+                <br />
 
+                
+                <h2 className="things-title">Things to know</h2>
+                    <div className="things-to-know">
+                        <div className="house-rules-container">
+                            <ul>
+                                <li className='rules-title'>House rules</li>
+                                <li className='rules-item'> <FontAwesomeIcon icon={faClock} className="rules-icons"  />  Check-in: 2:00 PM - 8:00 PM</li>
+                                <li className='rules-item'> <FontAwesomeIcon icon={faClock} className="rules-icons"  />  Checkout: 11:00 AM</li>
+                                <li className='rules-item'> <FontAwesomeIcon icon={faPaw} className="rules-icons"  /> Pets are allowed </li>
+                            </ul>
+                        </div>
+                        <div className="health-container">
+                            <ul>
+                                
+                                <li className='rules-title' >Health & Safety</li>
+                                <div className="rule-cont">
+                                    <FontAwesomeIcon icon={faHandSparkles} className="rule-icon"  />
+                                    <li className='rules-item'>   Committed to WhereBNB's enhanced cleaning process.</li>
+                                </div>
+                                <div className="rule-cont">
+                                    <FontAwesomeIcon icon={faSprayCan} className="rule-icon"  />
+                                    <li className='rules-item'>   WhereBNB's social-distancing and other COVID-19-related guidelines apply</li>
+                                </div>
+                                <div className="rule-cont">
+                                    <FontAwesomeIcon icon={faRadiation} className="rule-icon"  />
+                                    <li className='rules-item'>   Carbon monoxide alarm</li>
+                                </div>
+                                <div className="rule-cont">
+                                    <FontAwesomeIcon icon={faFireExtinguisher} className="rule-icon"  /> 
+                                    <li className='rules-item'>  Smoke alarm</li>
+                                </div>
+                            </ul>
+                        </div>
+                        <div className="cancellation-con">
+                            <ul>
+                                <li className='rules-title'>Cancellation policy</li>
+                                <li className='cancel-day'>Free cancellation until 48 hours before booking</li>
+                                <li className='cancel-night'>After that, cancel before check-in and receive a 50% refund, minus the first night and service fee</li>
+                            </ul>
+                        </div>
+                    </div>
+            
             </div>
         )
     }

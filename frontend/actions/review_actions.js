@@ -19,15 +19,15 @@ const removeReview = reviewId => ({
     reviewId
 })
 
-export const fetchReviews = listingId => dispatch => (
-    ReviewApiUtils.fetchReviews(listingId)
+export const fetchReviews = userId => dispatch => (
+    ReviewApiUtils.fetchReviews(userId)
     .then(reviews => dispatch(receiveReviews(reviews)))
 )
 
-export const fetchReview = reviewId => dispatch => (
-    ReviewApiUtils.fetchReview(reviewId)
-    .then(review => dispatch(receiveReview(review)))
-)
+// export const fetchReview = reviewId => dispatch => (
+//     ReviewApiUtils.fetchReview(reviewId)
+//     .then(review => dispatch(receiveReview(review)))
+// )
 
 export const createReview = review => dispatch => {
     return(

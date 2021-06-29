@@ -84,7 +84,7 @@ class BookingForm extends React.Component {
                                     <p className="box-price">${this.props.listing.price}</p>
                                     <p className="night">/night</p>
                                 </div>
-                                <p><FontAwesomeIcon icon={faStar} className="star"/> {this.props.round_rating} ({this.props.review_num} reviews)</p>
+                                <p><FontAwesomeIcon icon={faStar} className="star"/> {this.props.roundRating} ({this.props.reviewNum} reviews)</p>
                             </div>
                             <div className="check-in-out">
                                 <div className="check-in-container">

@@ -12,8 +12,8 @@ class Api::ReviewsController < ApplicationController
     end
 
     def show 
-        
-        @reviews = Listing.get_reviews(params[:id])
+        user = User.find(params[:id])
+        @reviews = user.reviews
         render "api/reviews/show"
 
     end

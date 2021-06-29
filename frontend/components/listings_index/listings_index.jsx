@@ -41,7 +41,7 @@ class ListingsIndex extends React.Component {
                     <ListingMap 
                     listings={listings}
                     // listingId={listing.id}
-                    // singleListing={false}
+                    singleListing={false}
                     // fetchListing = {fetchListing}
                     updateFilter = {this.props.updateFilter}
                     fetchListings = {this.props.fetchListings} />

@@ -31,7 +31,7 @@ class User < ApplicationRecord
   has_many :reviews,
     primary_key: :id,
     foreign_key: :guest_id,
-    class_name: :User
+    class_name: :Review
 
   after_initialize :ensure_session_token
 

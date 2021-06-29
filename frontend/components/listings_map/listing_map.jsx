@@ -20,21 +20,33 @@ class ListingMap extends React.Component {
     componentDidMount(){
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-        this.registerListeners();
-        
-        this.MarkerManager.updateMarkers(this.props.listings);
+        if (this.props.singleListing){
+            this.props.fetchListing(this.props.listingId)
+        }else{
+            debugger
+            this.registerListeners();
+            this.MarkerManager.updateMarkers(this.props.listings);
+        }
     }
 
     componentDidUpdate() {
-        // if (this.props.singleListing) {
-        //     const targetListingKey = Object.keys(this.props.listings)[0];
-        //     const targetListing = this.props.listings[targetListingKey];
-        //     this.MarkerManager.updateMarkers([targetListing]);
-        // } else {
+        if (this.props.singleListing) {
+            debugger
+            // const targetListingKey = Object.keys(this.props.listings)[0];
+            // const targetListing = this.props.listings[targetListingKey];
+            const mapLoc = {
+                lat: this.props.listing.latitude,
+                lng: this.props.listing.longitude
+            }
+        
+            this.map.setCenter(mapLoc);
+            this.map.setZoom(10);
+            this.MarkerManager.updateMarkers([this.props.listing]);
+        } else {
             
             this.MarkerManager.updateMarkers(this.props.listings)
             
-        // }
+        }
     }
 
     registerListeners() {
@@ -57,19 +69,11 @@ class ListingMap extends React.Component {
         this.props.history.push(`listings/${listing.id}`);
     }
 
-    // handleClick(coords) {
-    //     this.props.history.push({
-    //         pathname: '/'
-    //     });
-    // }
-
-
-
     render(){
         
 
         return(
-            <div id='map-container' ref={map => this.mapNode = map}>
+            <div id='map-container' className="show-map" ref={map => this.mapNode = map}>
 
             </div>
         )
