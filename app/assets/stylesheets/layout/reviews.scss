@@ -145,3 +145,28 @@
 .rev-user-icon{
     padding:0 5px 0 5px;
 }
+
+.review-show-container {
+    padding-top: 90px;
+    display: grid;
+    width: 100vw;
+    height: 95vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr;
+    grid-template-areas:
+    "rev rev rev"
+    "rev rev rev";
+    border: 2px solid orange;
+    overflow: auto;
+}
+
+.review-show-box {
+    border: 1px solid darkgray;
+    height: 20vh;
+    width: 30vw;
+}
+
+.edit-delete-btns {
+    height: 50px;
+    width: 50px;
+}

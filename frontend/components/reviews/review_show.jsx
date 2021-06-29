@@ -9,17 +9,34 @@ class ReviewShow extends React.Component {
         this.state = {
             reviews: ''
         }
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
+        
     }
 
     componentDidMount(){
-        debugger
+        
         this.props.fetchReviews(this.props.currentUser)
             
 
     }
 
-    render(){
+    handleDelete(e){
+        e.preventDefault()
+        
+        this.props.deleteReview(e.target.value)
+        .then(() => this.props.fetchReviews(this.props.currentUser))
+    }
+
+    handleEdit(e){
+        e.preventDefault();
         debugger
+        this.props.updateFilter('edit-review', [e.target.value])
+        this.props.openModal('edit-review')
+    }
+
+    render(){
+        
         let {reviews} = this.props;
 
         if (!reviews) return null;
@@ -27,15 +44,19 @@ class ReviewShow extends React.Component {
 ;        return(
 
                 <div className="review-show-container">
-                    <h1>REVIEWS</h1>
-                    <li className="user-rev" ><FontAwesomeIcon className="rev-user-icon"  icon={faUserCircle}  />Name </li>
+                    <h1>{this.props.userName.firstName} {this.props.userName.lastName} REVIEWS</h1>  
                     {Object.values(reviews).map((rev, i) =>(
                         <div key={i} className="review-show-box">
                             <div className="user-title-container">
-                                        
+                                        <li>Listing: {rev.listing.title}</li>
+                                        <li>Location: {rev.listing.city}</li>
                                         <li > {rev.body} </li>
                                         <li className="rev-date">{format(new Date(rev.createdAt),'MMMM yyyy' )}</li>
-                                    </div>
+                                        <div className="edit-delete-btns-container">
+                                             <button className="edit-delete-btns" value={rev.id} onClick={this.handleDelete}>Delete Review</button>
+                                    <button className="edit-delete-btns" value={rev.id} onClick={this.handleEdit}>Edit Review</button>
+                                        </div>
+                                </div>
                                     
                         </div>
                     ) )}

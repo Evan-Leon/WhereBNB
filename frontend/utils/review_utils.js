@@ -5,12 +5,12 @@ export const fetchReviews = userId => (
     })
 )
 
-// export const fetchReview = (reviewId) => (
-//     $.ajax({
-//       method: 'GET',
-//       url: `/api/reviews/${reviewId}`
-//     })
-// )
+export const fetchReview = (reviewId) => (
+    $.ajax({
+      method: 'GET',
+      url: `/api/reviews/single/${reviewId}`
+    })
+)
 
 export const createReview = review => (
     $.ajax({

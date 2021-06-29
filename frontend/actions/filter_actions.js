@@ -15,20 +15,16 @@ export const clearFilter = () => ({
     type: CLEAR_FILTER,
 })
 
-export const updateFilter = (filter, value, zoom, latitude, longitude) => (dispatch, getState) => {
-    if (filter == 'city'){
-        value = ['New York City, New York', 'Austin, TX', 'Boston, MA', 'Chicago, IL', 'Miami, FL', 'Seattle, WA', 'San Francisco, CA']
-            .includes(value) ? value : "";
-        dispatch(changeCity({latitude, longitude}, zoom))
+export const updateFilter = (filter, value) => (dispatch, getState) => {
+    if (filter == 'edit-review'){
+        
+        dispatch(changeFilter(value))
     }else {
-        dispatch(resetMap)
+        dispatch(changeFilter(value))
     }
-    dispatch(changeFilter(filter, value));
-    return fetchListings(getState().ui.filters)(dispatch);
 }
 
 export const removeFilter = () => (dispatch, getState) => {
     dispatch(clearFilter());
-    dispatch(resetMap());
-    return fetchListings(getState.ui.filters)(dispatch)
+    // return fetchListings(getState.ui.filters)(dispatch)
 }

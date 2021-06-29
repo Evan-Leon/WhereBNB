@@ -12,17 +12,17 @@ class ReviewDisplay extends React.Component {
     }
 
     componentDidMount(){
-        debugger
+        
         this.props.fetchReviews(this.props.listingId)
             .then(reviews => this.setState({reviews}))
 
     }
 
     render(){
-        debugger
+        
         const {reviews} = this.state.reviews;
 
-        debugger
+        
         if (!reviews) return null;
         
         // let review_num = reviews.length;

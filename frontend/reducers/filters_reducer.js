@@ -1,10 +1,7 @@
 import { UPDATE_FILTER, CLEAR_FILTER } from '../actions/filter_actions';
 
-const defaultFilters = Object.freeze({
-    cityFilter: '',
-})
 
-const FiltersReducer = (state = defaultFilters, action) => {
+const FiltersReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case UPDATE_FILTER:
@@ -13,7 +10,7 @@ const FiltersReducer = (state = defaultFilters, action) => {
             }
             return Object.assign({}, state, newFilter);
         case CLEAR_FILTER:
-            return defaultFilters;
+            return {};
         default:
             return state;
     }

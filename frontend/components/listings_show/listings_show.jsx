@@ -33,7 +33,7 @@ class ListingShow extends React.Component {
 
 
     render(){
-        debugger
+        
         const { listing } = this.props;
         
         if (!listing) return null;
