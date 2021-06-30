@@ -1,0 +1,55 @@
+.booking-show-container {
+    padding-top: 90px;
+    // display: grid;
+    // width: 100vw;
+    // height: 95vh;
+    // grid-template-columns: 1fr 1fr ;
+    // grid-template-rows:  1fr 1fr 1 fr;
+    // grid-template-areas:
+    // "title "
+    // "rev rev rev"
+    // "rev rev rev";
+    // border: 2px solid orange;
+    // overflow: auto;
+}
+
+.booking-show-box {
+    border: 1px solid darkgray;
+    height: 60vh;
+    width: 40vw;
+    background-color: pink;
+}
+
+.edit-delete-btns {
+    height: 50px;
+    width: 50px;
+}
+
+.edit-booking-form-container {
+    border: 1px solid white;
+    border-radius: 25px;
+    width: 350px;
+    margin-left: 10px;
+    background-color: white;
+    
+    
+    
+}
+
+.edit-booking-form-box-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 20px;
+    padding: 20px 0 0 0 ;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.edit-booking-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    border-radius: 25px;
+}
+

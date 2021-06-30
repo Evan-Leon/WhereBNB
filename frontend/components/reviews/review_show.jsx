@@ -21,6 +21,18 @@ class ReviewShow extends React.Component {
 
     }
 
+    // componentDidUpdate(prevProps, prevState) {
+    //     debugger
+    //     if (this.state !== prevState) {
+    //         debugger
+    //         this.props.fetchReviews(this.props.currentUser)
+    //             .then(reviews => this.setState({ reviews }))
+
+    //     }
+    // }
+
+   
+
     handleDelete(e){
         e.preventDefault()
         
@@ -40,7 +52,7 @@ class ReviewShow extends React.Component {
         let {reviews} = this.props;
 
         if (!reviews) return null;
-        
+        debugger
 ;        return(
 
                 <div className="review-show-container">

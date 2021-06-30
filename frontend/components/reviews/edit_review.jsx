@@ -5,56 +5,74 @@ class EditReview extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            review:{
             rating: 5,
             body: ''
+            }
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        // this.update = this.update.bind(this);
 
     }
 
     componentDidMount(){
         debugger
         this.props.fetchReview(Number(this.props.reviewId[0]))
-            .then(() => {debugger} )
+            .then(review => this.setState(review))
             debugger
     }
 
     handleSubmit(e) {
         e.preventDefault();
+        debugger
         const review = {
-            rating: this.state.rating,
-            body: this.state.body,
-            listing_id: this.props.listing.id,
-            guest_id: this.props.currentUser,
+            id: this.props.reviewId,
+            rating: this.state.review.rating,
+            body: this.state.review.body,
+            listing_id: this.state.review.listing.id,
+            guest_id: this.state.review.guest.id,
         }
         this.props.updateReview(review)
+            
             .then(this.props.closeModal());
 
     }
 
-    update(field, value) {
-        return e => { this.setState({ [field]: e.target.value }) }
+    updateBody(e) {
+    
+        let review = {...this.state.review}
+        review.body = e.target.value; 
+        
+        this.setState({review})
+    }
+
+    updateRating(e) {
+        
+        let review = { ...this.state.review }
+        review.rating = e.target.value;
+        
+        this.setState({ review })
     }
 
     render() {
-        let {review} = this.props;
+        let {review} = this.state;
         
         if (!review) return null
-
+        debugger
         return (
-            <div className="review-form-container">
-                <h3 className="review-form-box-title">Leave a review:</h3>
-                <form className="review-form" onSubmit={this.handleSubmit}>
+            <div className="edit-review-form-container">
+                <h3 className="edit-review-form-box-title">Edit your review:</h3>
+                <form className="edit-review-form" onSubmit={this.handleSubmit}>
                     <div className="rating-container">
                         <label className="rating-title" htmlFor="rating-input" > Rating </label>
-                        <input className="rating" id="rating-input" type="number" max='5' min="0" value={review.rating} onChange={this.update("rating")} />
+                        <input className="rating" id="rating-input" type="number" max='5' min="0" value={review.rating} onChange={e => this.updateRating(e)} />
                     </div>
                     <div className="review-text-container">
                         <label htmlFor="text-area" className="review-title-box" >Review</label>
-                        <textarea id='text-area' className="review-text-area" value={review.body} onChange={this.update('body')} cols="30" rows="5"></textarea>
+                        <textarea id='text-area' className="review-text-area" value={review.body} onChange={e => this.updateBody(e)} cols="30" rows="5"></textarea>
 
                     </div>
-                    <button className="review-sub" >Submit review</button>
+                    <button className="review-sub" >Edit review</button>
                 </form>
             </div>
         )

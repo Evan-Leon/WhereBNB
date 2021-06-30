@@ -30,10 +30,12 @@ class Api::ReviewsController < ApplicationController
     end
 
     def update 
-         @review = review.find(params[:id])
-
+        
+         @review = Review.find(params[:id])
+       
         if @review.update_attributes(review_params)
             render '/api/reviews/show'
+            
         else
             render json: ["Could not update review, try again!"], status: 404
         end

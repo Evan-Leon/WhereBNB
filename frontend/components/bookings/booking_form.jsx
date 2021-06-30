@@ -32,7 +32,10 @@ class BookingForm extends React.Component {
         }
         
         this.props.createBooking(booking)
-            .then(booking => console.log(booking))
+            .then(() => this.setState({checkIn: new Date(),
+                checkOut: new Date(),
+                numGuests: this.props.listing.guestNum,
+                errors: []}))
         
       
     }

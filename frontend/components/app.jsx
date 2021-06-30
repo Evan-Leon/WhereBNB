@@ -6,7 +6,7 @@ import Footer from './footer/footer';
 import ListingShowContainer from './listings_show/listings_show_container';
 import ListingsIndexContainer from './listings_index/listing_index_container';
 import SearchIndexContainer from './nav_bar/search_index_container';
-// import BookingsShowContainer from './bookings/booking_show_container';
+import BookingsShowContainer from './bookings/booking_show_container';
 import ReviewShowContainer from './reviews/review_show_container';
 
 
@@ -23,7 +23,7 @@ const App = () => (
       
       <Switch>
         <Route path="/listings/:listingId" component={ListingShowContainer} />
-        {/* <Route path="/bookings/:userId" component={BookingsShowContainer} /> */}
+        <Route path="/bookings/:userId" component={BookingsShowContainer} />
         <Route path="/reviews/:userId" component={ReviewShowContainer} />
         <Route path="/search/:searchString" component={SearchIndexContainer} />
         <Route path="/listings" component={ListingsIndexContainer} />

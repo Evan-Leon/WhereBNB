@@ -2,7 +2,8 @@ class Api::BookingsController < ApplicationController
     before_action :ensure_logged_in
 
     def index 
-        @bookings = Booking.all
+        user = current_user
+        @bookings = user.bookings
 
         render '/api/bookings/index'
     end

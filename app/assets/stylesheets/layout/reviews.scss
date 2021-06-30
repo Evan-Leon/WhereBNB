@@ -170,3 +170,31 @@
     height: 50px;
     width: 50px;
 }
+
+.edit-review-form-container {
+    border: 1px solid white;
+    border-radius: 25px;
+    width: 350px;
+    margin-left: 10px;
+    background-color: white;
+    
+    
+    
+}
+
+.edit-review-form-box-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 20px;
+    padding: 20px 0 0 0 ;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.edit-review-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    border-radius: 25px;
+}
