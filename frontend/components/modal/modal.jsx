@@ -3,8 +3,8 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
-import EditBookingFormContainer from '../bookings/edit_booking_form_container';
-import BookingFormContainer from '../bookings/create_booking_container';
+import EditBookingContainer from '../bookings/edit_booking_container';
+// import BookingFormContainer from '../bookings/create_booking_container';
 import EditReviewContainer from '../reviews/edit_review_container';
 
 
@@ -23,9 +23,9 @@ function Modal({modal, closeModal}) {
         case 'edit-review':
             component = <EditReviewContainer />;
             break;
-        // case 'edit-booking':
-        //     component = <EditBookingFormContainer />;
-        //     break;
+        case 'edit-booking':
+            component = <EditBookingFormContainer />;
+            break;
         default:
             return null;
     }

@@ -2,9 +2,12 @@ import { connect } from 'react-redux';
 import { fetchReviews } from '../../actions/review_actions';
 import ReviewDisplay from './review_display';
 
-const mSTP = state => ({
-    currentUser: state.session.id
-})
+const mSTP = state => {
+    debugger
+    return ({
+    currentUser: state.session.id,
+    reviews: Object.values(state.entities.reviews)
+})}
 
 const mDTP = dispatch => ({
     fetchReviews: listingId => dispatch(fetchReviews(listingId)),

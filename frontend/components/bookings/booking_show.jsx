@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUsers, faClipboardList, faHandSparkles, faStar, faMedal, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCity, faUsers, faClipboardList, faHandSparkles, faStar, faMedal, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { format, formatDistanceStrict, addDays } from 'date-fns';
 
 
@@ -55,29 +55,49 @@ class BookingShow extends React.Component {
         if (!bookings) return null;
         debugger
         return (
-
-            <div className="booking-show-container">
-                <h1>BOOKINGS</h1>
-                {Object.values(bookings).map((booking, i) => (
-                    <div key={i} className="booking-show-box">
-                        <div className="booking-show-container">
-                            <li>{console.log(booking)}</li>
-                            <li>Location: {booking.listing.city}</li>
-                            <li>$/night: {booking.listing.price}</li>
-                            <li > Check-in: {booking.checkIn} </li>
-                            <li > Checkout: {booking.checkOut} </li>
-                            <li > Number of Guests: {booking.guestNum} </li>
-                            {/* <li className="rev-date">{format(new Date(rev.createdAt), 'MMMM yyyy')}</li> */}
-                            <div className="edit-delete-btns-container">
-                                <button className="edit-delete-btns" value={booking.id} onClick={this.handleDelete}>Delete Booking</button>
-                                <button className="edit-delete-btns" value={booking.id} onClick={this.handleEdit}>Edit Booking</button>
+            <div className="outer-container">
+                <h1 className="booking-show-head-title">BOOKINGS</h1>
+                <div className="bookings-show-container">
+                    {Object.values(bookings).map((booking, i) => (
+                        <div key={i} className="booking-show-box">
+                            <div className="booking-show-container">
+                                <ul className="booking-list">
+                                    <div className="booking-title-show">
+                                        <li className="booking-show-item">Listing:  </li>
+                                        <li> {booking.listing.title}</li>
+                                    </div>
+                                    <div className="booking-title-show">
+                                        <li><FontAwesomeIcon className="city-icon" icon={faCity} /> </li>
+                                        <li>{booking.listing.city}</li>
+                                    </div>
+                                    <div className="booking-title-show">
+                                        <li>$/night: </li>
+                                        <li>${booking.listing.price}</li>
+                                    </div>
+                                    <div className="booking-title-show">
+                                        <li > Check-in: </li>
+                                        <li >{format(new Date([booking.checkIn]), "MMM d yyyy")} </li>
+                                    </div>
+                                    <div className="booking-title-show">
+                                        <li > Checkout:</li>
+                                        {format(new Date([booking.checkOut]), "MMM d yyyy")}
+                                    </div>
+                                    <div className="booking-title-show">
+                                        <li > <FontAwesomeIcon className="users-icon" icon={faUsers} /></li>
+                                        <li > {booking.numGuests} </li>
+                                    </div>
+                                </ul>
+                                {/* <li className="rev-date">{format(new Date(rev.createdAt), 'MMMM yyyy')}</li> */}
+                                <div className="edit-delete-btns-container-booking">
+                                    <button className="edit-delete-btns-book" value={booking.id} onClick={this.handleDelete}>Delete </button>
+                                    <button className="edit-delete-btns-book" value={booking.id} onClick={this.handleEdit}>Edit </button>
+                                </div>
                             </div>
+
                         </div>
-
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-
             // <div className="review-container">
             //     <h3 className="review-title">  <FontAwesomeIcon icon={faStar} className="star"/> {this.props.roundRating} ({this.props.reviewNum} reviews)</h3>
             //     {/* <div className="review-box">

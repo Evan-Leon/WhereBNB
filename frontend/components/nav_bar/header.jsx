@@ -17,10 +17,9 @@ class Header extends React.Component {
         return(
             <div className="nav-header">
                 <div className="logo-container">
-                  <Link to="/"> <FontAwesomeIcon className="logo" icon={faIgloo} size='3x' />
-                    
-                    </Link> 
+                    <Link className="logo-box" to="/" style={{ textDecoration: 'none', color: "black" }}> <FontAwesomeIcon className="logo" icon={faIgloo} size='3x' />
                     <p className='Title'>WhereBNB</p>
+                    </Link>
                 </div>
                 < SearchContainer />
                 <li className="users-dropdown-btn">

@@ -1,28 +1,47 @@
-.booking-show-container {
-    padding-top: 90px;
-    // display: grid;
-    // width: 100vw;
-    // height: 95vh;
-    // grid-template-columns: 1fr 1fr ;
-    // grid-template-rows:  1fr 1fr 1 fr;
-    // grid-template-areas:
-    // "title "
-    // "rev rev rev"
-    // "rev rev rev";
-    // border: 2px solid orange;
+.bookings-show-container {
+    display: flex;
+    padding: 20px;
     // overflow: auto;
+    width: 200vw;
+    
+}
+
+.booking-show-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 45vh;
+    width: 25vw;
+    background: 1px solid darkgray;
+    border-radius: 25px;
 }
 
 .booking-show-box {
     border: 1px solid darkgray;
-    height: 60vh;
-    width: 40vw;
-    background-color: pink;
+    display: flex;
+    margin: 5px;
+    // height: 30vh;
+    // width: 250px;
+    border-radius: 25px;
+    background-color: white;
+    // align-items: space-between;
 }
 
-.edit-delete-btns {
+.edit-delete-btns-book {
+    height: 80px;
+    width: 80px;
+    padding: 5px;
+     background-color: rgb(226, 17, 86);
+    color: white;
+    border-radius: 10px;
+    margin-top:10px;
+    
+    
+    font-weight: 700;
     height: 50px;
-    width: 50px;
+   
+    font-size: 18px;
+    // margin:5px;
 }
 
 .edit-booking-form-container {
@@ -51,5 +70,38 @@
     padding: 20px;
     background-color: white;
     border-radius: 25px;
+}
+
+.booking-show-head-title{
+    padding:10px;
+    font-size: 32px;
+}
+
+.outer-container {
+    padding: 90px 20px 20px 0;
+    // width: 100vw;
+    height: 77vh;
+    overflow: auto;
+
+}
+
+.edit-delete-btns-container-booking{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px;
+}
+
+.booking-title-show {
+    display: flex;
+    justify-content: space-between;
+    padding:5px;
+}
+
+.booking-list {
+    padding: 15px;
+}
+
+.booking-show-item {
+    padding: 5px;
 }
 

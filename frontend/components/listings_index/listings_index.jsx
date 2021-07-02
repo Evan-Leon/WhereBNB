@@ -37,7 +37,7 @@ class ListingsIndex extends React.Component {
                     </ul>
                 </div>
                 
-                <div className='map-box'>
+                <div className='map-index-box'>
                     <ListingMap 
                     listings={listings}
                     // listingId={listing.id}

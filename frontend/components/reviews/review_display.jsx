@@ -18,13 +18,22 @@ class ReviewDisplay extends React.Component {
 
     }
 
+    componentDidUpdate(prevProps){
+        debugger
+        if (prevProps.reviews.length !== this.props.reviews.length){
+            this.setState({
+                reviews: this.props.reviews
+            })
+        }
+    }
+
     
 
     render(){
         
-        const {reviews} = this.state.reviews;
+        const {reviews} = this.props;
 
-        
+        debugger
         if (!reviews) return null;
         
         // let review_num = reviews.length;

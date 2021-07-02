@@ -50,7 +50,7 @@ class SearchIndex extends React.Component {
                     <ListingMap 
                     listings={Object.values(this.state.listings)}
                     // listingId={listing.id}
-                    // singleListing={false}
+                    singleListing={false}
                     // fetchListing = {fetchListing}
                     updateFilter = {this.props.updateFilter}
                     fetchListings = {this.props.fetchListings} />

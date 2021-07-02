@@ -9,85 +9,76 @@ const getCoordsObj = latLng => ({
 
 const mapOptions = {
     center: {
-        lat: 40.730610, 
+        lat: 40.730610,
         lng: -73.935242
     },
-    zoom:10
+    zoom: 10
 }
 
-class ListingMap extends React.Component {
-    
-    componentDidMount(){
+class ListingShowMap extends React.Component {
+
+    componentDidMount() {
         this.map = new google.maps.Map(this.mapNode, mapOptions);
         this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-        if (this.props.singleListing){
+        if (this.props.singleListing) {
             this.props.fetchListing(this.props.listingId)
-        }else{
-            
+        } else {
+            debugger
             this.registerListeners();
             this.MarkerManager.updateMarkers(this.props.listings);
         }
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate() {
         if (this.props.singleListing) {
-            
+            debugger
             // const targetListingKey = Object.keys(this.props.listings)[0];
             // const targetListing = this.props.listings[targetListingKey];
             const mapLoc = {
                 lat: this.props.listing.latitude,
                 lng: this.props.listing.longitude
             }
-        
+
             this.map.setCenter(mapLoc);
             this.map.setZoom(10);
             this.MarkerManager.updateMarkers([this.props.listing]);
         } else {
-            debugger
-            if (prevProps.listings.length !== this.props.listings.length){
-                const firstList = this.props.listings[0];
-                const mapLoc = {
-                    lat: firstList.latitude,
-                    lng: firstList.longitude
-                }
-                this.map.setCenter(mapLoc);
-                this.map.setZoom(10);
-                this.MarkerManager.updateMarkers(this.props.listings)
-            }
+
             this.MarkerManager.updateMarkers(this.props.listings)
-            
+
         }
     }
 
     registerListeners() {
         google.maps.event.addListener(this.map, 'idle', () => {
-            const {north, south, east, west } = this.map.getBounds().toJSON();
+            const { north, south, east, west } = this.map.getBounds().toJSON();
             const bounds = {
-                northEast: {lat: north, lng: east},
-                southWest: {lat: south, lng: west} };
+                northEast: { lat: north, lng: east },
+                southWest: { lat: south, lng: west }
+            };
             this.props.updateFilter('bounds', bounds);
         });
     }
-            // google.maps.event.addListener(this.map, 'click', (e) => {
-            //     const coords = getCoordsObj(e.latLng);
-            //     this.handleClick(coords);
-            // });
-        
+    // google.maps.event.addListener(this.map, 'click', (e) => {
+    //     const coords = getCoordsObj(e.latLng);
+    //     this.handleClick(coords);
+    // });
+
     // }
 
     handleMarkerClick(listing) {
         this.props.history.push(`listings/${listing.id}`);
     }
 
-    render(){
-        
+    render() {
 
-        return(
-            <div id='index-map-container' className="index-map" ref={map => this.mapNode = map}>
+
+        return (
+            <div id='map-container' className="show-map" ref={map => this.mapNode = map}>
 
             </div>
         )
     }
 }
 
-export default withRouter(ListingMap);
+export default withRouter(ListingShowMap);

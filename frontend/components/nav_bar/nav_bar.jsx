@@ -45,13 +45,14 @@ class NavBar extends React.Component {
     render(){
         
         if (this.props.currentUser){
-            debugger
+            
             let userId = this.props.currentUser;
             return(
                 <div className="login-signup-dropdown">
                     <ul className="logout-buttons">
                         <li className="nav-logout-button" onClick={this.props.logout}>Log Out</li>
-                        <Link to={{pathname: `/reviews/${userId}`}} ><li className="nav-logout-button" >My Reviews</li> </Link>
+                        <Link className="drop-links" to={{pathname: `/reviews/${userId}`}} style={{textDecoration: 'none', color:"black"}} ><li className="nav-logout-button" >My Reviews</li> </Link>
+                        <Link className="drop-links" to={{ pathname: `/bookings/${userId}` }} style={{ textDecoration: 'none', color: "black" }} ><li className="nav-logout-button" >My Bookings</li> </Link>
                         
                     </ul>
                     

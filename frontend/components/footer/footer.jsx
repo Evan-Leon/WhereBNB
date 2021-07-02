@@ -15,9 +15,14 @@ class Footer extends React.Component{
         return(
             <footer className="main-footer">
                 <div className="footer-logo-container">
+                    <Link className="logo-box" to="/" style={{ textDecoration: 'none', color: "black" }}> <FontAwesomeIcon className="logo-footer" icon={faIgloo} size='3x' />
+                        <p className='logo-footer-title'>WhereBNB</p>
+                    </Link>
+                </div>
+                {/* <div className="footer-logo-container">
                   <FontAwesomeIcon className="logo-footer" icon={faIgloo} size='5x' />
                     <p className='logo-footer-title'>WhereBNB</p>
-                </div>
+                </div> */}
                 
                 <div className="link-container">
                     <a href="https://www.linkedin.com/in/evan-leon-737918211/"><i className="fab fa-linkedin"></i></a>

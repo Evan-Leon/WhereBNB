@@ -7,7 +7,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faHome, faUsers, faClipboardList, faHandSparkles, faStar, 
     faMedal, faUserCircle, faClock, faPaw, faSprayCan, faRadiation,
     faFireExtinguisher } from '@fortawesome/free-solid-svg-icons';
-import ListingMap from '../listings_map/listing_map';
+import ListingShowMap from '../listings_map/listing_show_map';
 import BookingForm from '../bookings/booking_form';
 import ReviewFormContainer from '../reviews/review_form_container';
 import ReviewDisplayContainer from '../reviews/review_display_container';
@@ -27,8 +27,10 @@ class ListingShow extends React.Component {
 
     componentDidMount(){
         this.props.fetchListing(this.props.match.params.listingId);
+        
     }
 
+   
   
 
 
@@ -43,8 +45,9 @@ class ListingShow extends React.Component {
         let ratings = listing.reviews.forEach(review => counter += review.rating)
         let avgRating = [counter/reviewNum]
         let roundRating = Math.round(avgRating * 100)/100
-        
        
+        
+       debugger
 
         return(
             <div className= "listing-show-box">
@@ -98,6 +101,7 @@ class ListingShow extends React.Component {
                         reviewNum={reviewNum}
                         createBooking={this.props.createBooking}
                         currentUser = {this.props.currentUser}
+                        
                     />
                 </div>
                 <br />
@@ -111,7 +115,7 @@ class ListingShow extends React.Component {
 
                 <div className="show-map-container">
                     <h2 className="map-title">Location</h2>
-                    <ListingMap 
+                    <ListingShowMap 
                         className="show-map"
                         listing={listing}
                         listingId = {listing.id}
