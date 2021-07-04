@@ -19,16 +19,14 @@ class Footer extends React.Component{
                         <p className='logo-footer-title'>WhereBNB</p>
                     </Link>
                 </div>
-                {/* <div className="footer-logo-container">
-                  <FontAwesomeIcon className="logo-footer" icon={faIgloo} size='5x' />
-                    <p className='logo-footer-title'>WhereBNB</p>
-                </div> */}
+                
                 
                 <div className="link-container">
                     <a href="https://www.linkedin.com/in/evan-leon-737918211/"><i className="fab fa-linkedin"></i></a>
                     <a href="https://github.com/Evan-Leon"><i className="fab fa-github"  ></i></a>
+                    <a href="https://angel.co/u/evan-leon"><i className="fab fa-angellist"  ></i></a>
                 </div>
-                {/* </ul> */}
+                
             </footer>
         )
     }
