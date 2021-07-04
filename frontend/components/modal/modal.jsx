@@ -6,9 +6,10 @@ import SignupFormContainer from '../session_form/signup_form_container';
 import EditBookingContainer from '../bookings/edit_booking_container';
 // import BookingFormContainer from '../bookings/create_booking_container';
 import EditReviewContainer from '../reviews/edit_review_container';
+import { removeFilter } from '../../actions/filter_actions';
 
 
-function Modal({modal, closeModal}) {
+function Modal({modal, closeModal, removeFilter}) {
     if (!modal){
         return null;
     }
@@ -24,7 +25,7 @@ function Modal({modal, closeModal}) {
             component = <EditReviewContainer />;
             break;
         case 'edit-booking':
-            component = <EditBookingFormContainer />;
+            component = <EditBookingContainer />;
             break;
         default:
             return null;
@@ -45,6 +46,7 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
     closeModal: () => dispatch(closeModal()),
+    removeFilter: () => dispatch(removeFilter())
 })
 
 export default connect(mSTP, mDTP)(Modal);

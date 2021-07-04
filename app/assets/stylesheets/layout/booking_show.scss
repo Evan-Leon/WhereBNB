@@ -45,23 +45,32 @@
 }
 
 .edit-booking-form-container {
-    border: 1px solid white;
-    border-radius: 25px;
-    width: 350px;
-    margin-left: 10px;
-    background-color: white;
+    // // border: 1px solid white;
+    // border-radius: 25px;
+    // // width: 50vw;
+    // // height: 80vh;
+    // margin-left: 10px;
+    // background-color: white;
     
     
     
 }
 
-.edit-booking-form-box-title {
-    font-size: 20px;
-    font-weight: 500;
-    margin-left: 20px;
-    padding: 20px 0 0 0 ;
+.edit-booking-form-out-container{
+    height:60vh;
+    width: 50vw;
     background-color: white;
     border-radius: 25px;
+}
+
+.edit-booking-form-box-title {
+    font-size: 26px;
+    font-weight: 500;
+    margin-left: 55px;
+    padding: 20px 0 0 0 ;
+    // background-color: white;
+    border-radius: 25px;
+    margin-top: 10px;
 }
 
 .edit-booking-form {
@@ -105,3 +114,34 @@
     padding: 5px;
 }
 
+.range-picker{
+    z-index: 3;
+}
+
+.edit-res-form{
+    display: flex;
+    justify-content: space-between;
+}
+
+.date-range-box{
+    margin: 40px;
+}
+
+.booking-box-out-container{
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    margin-top: 40px;   
+    border-radius: 25px;
+    border: 1px solid darkgray;
+    padding: 20px;
+}
+
+.edit-guests-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid darkgray;
+    padding: 10px 1px 5px 30px;
+    width: 290px;
+    margin-left: 10px;
+}

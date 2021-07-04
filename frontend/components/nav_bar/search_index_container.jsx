@@ -9,7 +9,8 @@ import SearchIndex from './search_index';
 const mSTP = (state, ownProps) => (
     {
     search: state.entities.listings[ownProps.match.params.search],
-    currentUser: state.session.id
+    currentUser: state.session.id,
+    listings: Object.values(state.entities.listings)
 });
 
 const mDTP = dispatch => ({

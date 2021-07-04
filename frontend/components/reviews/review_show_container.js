@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchReviews, deleteReview } from '../../actions/review_actions';
+import { fetchUserReviews, deleteReview } from '../../actions/review_actions';
 import ReviewShow from './review_show';
 import { openModal } from '../../actions/modal_actions';
 import { updateFilter } from '../../actions/filter_actions';
@@ -11,7 +11,7 @@ const mSTP = state => ({
 })
 
 const mDTP = dispatch => ({
-    fetchReviews: userId => dispatch(fetchReviews(userId)),
+    fetchUserReviews: () => dispatch(fetchUserReviews()),
     deleteReview: reviewId => dispatch(deleteReview(reviewId)),
     openModal: modal => dispatch(openModal(modal)),
     updateFilter: (filter, value) => dispatch(updateFilter(filter, value))

@@ -16,26 +16,28 @@ class EditReview extends React.Component {
     }
 
     componentDidMount(){
-        debugger
-        this.props.fetchReview(Number(this.props.reviewId[0]))
-            .then(review => this.setState(review))
-            debugger
+        
+        let index = this.props.reviewId.length
+        this.setState({ review: this.props.reviews[Number(this.props.reviewId[index-1])] })
+            
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+        
         const review = {
-            id: this.props.reviewId,
+            id: this.state.review.id,
             rating: this.state.review.rating,
             body: this.state.review.body,
             listing_id: this.state.review.listing.id,
             guest_id: this.state.review.guest.id,
         }
         this.props.updateReview(review)
-            
-            .then(this.props.closeModal());
-
+            .then(() => this.props.deleteReview(review.id))
+            .then(this.props.closeModal())
+            .then(this.props.removeFilter())
+            .then(this.props.history.push(`/listings/${this.state.review.listing.id}`))
+        
     }
 
     updateBody(e) {
@@ -58,7 +60,7 @@ class EditReview extends React.Component {
         let {review} = this.state;
         
         if (!review) return null
-        debugger
+        
         return (
             <div className="edit-review-form-container">
                 <h3 className="edit-review-form-box-title">Edit your review:</h3>

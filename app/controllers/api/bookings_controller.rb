@@ -15,6 +15,7 @@ class Api::BookingsController < ApplicationController
     end
 
     def update 
+        
         @booking = Booking.find(params[:id])
 
         if @booking.update_attributes(booking_params)

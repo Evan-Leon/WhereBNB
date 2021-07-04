@@ -56,7 +56,7 @@ class BookingForm extends React.Component {
     }
 
     handleGuest(e) {
-        console.log(e.target.value)
+        
         this.setState({
             numGuests: e.target.value,
         })
@@ -84,7 +84,7 @@ class BookingForm extends React.Component {
         }
         
         let noDates = this.noDates();
-        debugger
+        
         if (!this.state.booked){
             return(
             <div className="booking-form-container">

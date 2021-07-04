@@ -7,23 +7,28 @@ class ReviewDisplay extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            reviews: ''
+            reviews: '',
+            newRev: false
         }
     }
 
     componentDidMount(){
         
-        this.props.fetchReviews(this.props.listingId)
+        this.props.fetchListingReviews(this.props.listingId)
             .then(reviews => this.setState({reviews}))
 
     }
 
-    componentDidUpdate(prevProps){
-        debugger
-        if (prevProps.reviews.length !== this.props.reviews.length){
+    componentDidUpdate(prevProps, prevState){
+        
+       
+        if (prevState.reviews.length !== this.state.reviews.length){
             this.setState({
-                reviews: this.props.reviews
+                reviews: this.state.reviews
             })
+        } else if (prevProps.reviews.length !== this.props.reviews.length) {
+            this.props.fetchListingReviews(this.props.listingId)
+                .then(reviews => this.setState({ reviews }))
         }
     }
 
@@ -31,26 +36,15 @@ class ReviewDisplay extends React.Component {
 
     render(){
         
-        const {reviews} = this.props;
-
-        debugger
-        if (!reviews) return null;
         
-        // let review_num = reviews.length;
-        // let counter = 0;
-        // let ratings = reviews.forEach(review => counter += review.rating)
-        // let avg_rating = [counter/review_num]
-        // let round_rating = Math.round(avg_rating * 100)/100
+        let { reviews } = this.state.reviews;
+        
+        if (!reviews) return null;
         
 ;        return(
             <div className="review-container">
                 <h3 className="review-title">  <FontAwesomeIcon icon={faStar} className="star"/> {this.props.roundRating} ({this.props.reviewNum} reviews)</h3>
-                {/* <div className="review-box">
-                    <div className='act-review'>
-                        <h4 className="title-review"> <FontAwesomeIcon className="user-rev" icon={faUserCircle}  /> Amazing Home</h4>
-                        <p className="review-body">Loved it! Everything about it was just perfect and the host and the location were great!</p>
-                    </div>
-                </div> */}
+               
                 <div className='actual-reviews'>
                     
                     

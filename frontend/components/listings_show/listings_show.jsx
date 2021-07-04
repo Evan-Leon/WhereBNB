@@ -47,7 +47,7 @@ class ListingShow extends React.Component {
         let roundRating = Math.round(avgRating * 100)/100
        
         
-       debugger
+      
 
         return(
             <div className= "listing-show-box">
@@ -106,8 +106,8 @@ class ListingShow extends React.Component {
                 </div>
                 <br />
                 <div className="review-container-show">
-                    <ReviewDisplayContainer className="review-display" listingId={listing.id} roundRating={roundRating}
-                        reviewNum={reviewNum} />
+                    <ReviewDisplayContainer className="review-display" listing={listing} listingId={listing.id} roundRating={roundRating}
+                        reviewNum={reviewNum} reviews={listing.reviews} />
                     <ReviewFormContainer  listing={listing}   currentUser= {this.props.currentUser} />
                 </div>
 

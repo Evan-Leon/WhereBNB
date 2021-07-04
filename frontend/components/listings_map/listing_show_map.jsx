@@ -23,7 +23,7 @@ class ListingShowMap extends React.Component {
         if (this.props.singleListing) {
             this.props.fetchListing(this.props.listingId)
         } else {
-            debugger
+            
             this.registerListeners();
             this.MarkerManager.updateMarkers(this.props.listings);
         }
@@ -31,7 +31,7 @@ class ListingShowMap extends React.Component {
 
     componentDidUpdate() {
         if (this.props.singleListing) {
-            debugger
+            
             // const targetListingKey = Object.keys(this.props.listings)[0];
             // const targetListing = this.props.listings[targetListingKey];
             const mapLoc = {
@@ -40,7 +40,7 @@ class ListingShowMap extends React.Component {
             }
 
             this.map.setCenter(mapLoc);
-            this.map.setZoom(10);
+            this.map.setZoom(13);
             this.MarkerManager.updateMarkers([this.props.listing]);
         } else {
 

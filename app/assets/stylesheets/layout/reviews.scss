@@ -139,7 +139,8 @@
 }
 
 .user-title-container {
-    padding-bottom: 20px;
+    
+    padding:20px;
 }
 
 .rev-user-icon{
@@ -147,28 +148,42 @@
 }
 
 .review-show-container {
-    padding-top: 90px;
+    padding-top: 10px;
     display: grid;
     width: 100vw;
     height: 95vh;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows:  1fr 1fr 1fr;
     grid-template-areas:
+    "title title title"
     "rev rev rev"
     "rev rev rev";
-    border: 2px solid orange;
+    
     overflow: auto;
 }
 
 .review-show-box {
     border: 1px solid darkgray;
-    height: 20vh;
+    height: 40vh;
     width: 30vw;
+    border-radius: 25px;
+    margin: 10px;
 }
 
 .edit-delete-btns {
+    height: 80px;
+    width: 80px;
+    padding: 5px;
+     background-color: rgb(226, 17, 86);
+    color: white;
+    border-radius: 10px;
+    margin-top:10px;
+    
+    
+    font-weight: 700;
     height: 50px;
-    width: 50px;
+   
+    font-size: 18px;
 }
 
 .edit-review-form-container {
@@ -198,3 +213,56 @@
     background-color: white;
     border-radius: 25px;
 }
+
+.review-show-out-container{
+    padding-top: 90px;
+    display:flex;
+    flex-direction: column;
+}
+
+.review-show-title{
+    font-size: 32px;
+    font-weight: 400;
+    padding:10px;
+    margin-left:95px;
+}
+
+.listing-title-rev{
+    font-size: 20px;
+    padding:10px;
+}
+
+.rev-title-show{
+    display: flex;
+    justify-content: space-between;
+    padding:10px;
+}
+
+.rev-date-show-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.rev-body-show-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.edit-delete-btns-container {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.rev-body-show{
+    font-size: 20px;
+    padding: 10px 5px 10px 20px;
+    border:1px solid lightgray;
+    border-radius: 25px;
+    font-weight: 300;
+    margin: 20px 0 10px 0;
+    
+}
+

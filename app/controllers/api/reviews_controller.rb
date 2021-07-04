@@ -12,10 +12,16 @@ class Api::ReviewsController < ApplicationController
     end
 
     def show 
-        user = User.find(params[:id])
-        @reviews = user.reviews
+        listing = Listing.find(params[:id])
+        @reviews = listing.reviews
         render "api/reviews/index"
 
+    end
+
+    def index 
+        user = current_user 
+        @reviews = user.reviews 
+        render "api/reviews/index"
     end
 
     def single 

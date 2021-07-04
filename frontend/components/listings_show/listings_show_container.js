@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ListingShow from './listings_show';
 import { fetchListing } from '../../actions/listing_actions';
 import { createBooking } from '../../actions/booking_actions';
-import { fetchReviews } from '../../actions/review_actions';
+import { fetchListingReviews } from '../../actions/review_actions';
 import { updateFilter } from '../../actions/filter_actions';
 
 const mSTP = (state, ownProps) => (
@@ -16,7 +16,7 @@ const mSTP = (state, ownProps) => (
 const mDTP = dispatch => ({
     fetchListing: listingId => dispatch(fetchListing(listingId)),
     createBooking: booking => dispatch(createBooking(booking)),
-    fetchReviews: listingId => dispatch(fetchReviews(listingId)),
+    fetchListingReviews: listingId => dispatch(fetchListingReviews(listingId)),
     updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
 })
 

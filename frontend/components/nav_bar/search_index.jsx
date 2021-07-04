@@ -24,9 +24,9 @@ class SearchIndex extends React.Component {
     render(){
         
         
+        const {listings} = this.props;
+        if (!listings) return null;
         
-        if (this.state.listings === '') return null;
-        // let listingArr = Object.values(this.state.listings);
         return(
             
             <div className="listings-index-box">
@@ -35,7 +35,7 @@ class SearchIndex extends React.Component {
                     <ul className="list-indexes">
                         {
                     
-                            Object.values(this.state.listings).map((listing, i) => (
+                            Object.values(listings).map((listing, i) => (
                                <Link key ={i} to={`/listings/${listing.id}`} style={{ textDecoration: 'none' }}> <ListingIndexItem 
                                     listing= {listing}
                                     key={listing.id}
@@ -46,9 +46,9 @@ class SearchIndex extends React.Component {
                     </ul>
                 </div>
                 
-                <div className='map-box'>
+                <div className='map-index-box'>
                     <ListingMap 
-                    listings={Object.values(this.state.listings)}
+                    listings={listings}
                     // listingId={listing.id}
                     singleListing={false}
                     // fetchListing = {fetchListing}

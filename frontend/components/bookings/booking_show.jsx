@@ -18,20 +18,24 @@ class BookingShow extends React.Component {
     componentDidMount() {
 
         this.props.fetchBookings(this.props.currentUser)
-
+            .then(bookings => this.setState({bookings}))
 
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     debugger
-    //     if (this.state !== prevState) {
-    //         debugger
-    //         this.props.fetchReviews(this.props.currentUser)
-    //             .then(reviews => this.setState({ reviews }))
+    componentDidUpdate(prevProps, prevState) {
+        
 
-    //     }
-    // }
+        if (prevState.bookings.length !== this.state.bookings.length) {
+            this.setState({
+                bookings: this.state.bookings
+            })
+        } else if (prevProps.bookings.length !== this.props.bookings.length) {
+            this.props.fetchBookings(this.props.currentUser)
+                .then(bookings => this.setState({ bookings }))
+        }
+    }
 
+   
 
 
     handleDelete(e) {
@@ -43,17 +47,17 @@ class BookingShow extends React.Component {
 
     handleEdit(e) {
         e.preventDefault();
-        debugger
-        // this.props.updateFilter('edit-booking', [e.target.value])
+        
+        this.props.updateFilter('edit-booking', [e.target.value])
         this.props.openModal('edit-booking')
     }
 
     render() {
 
-        let { bookings } = this.props;
+        let { bookings } = this.state.bookings;
 
         if (!bookings) return null;
-        debugger
+        
         return (
             <div className="outer-container">
                 <h1 className="booking-show-head-title">BOOKINGS</h1>
@@ -76,11 +80,11 @@ class BookingShow extends React.Component {
                                     </div>
                                     <div className="booking-title-show">
                                         <li > Check-in: </li>
-                                        <li >{format(new Date([booking.checkIn]), "MMM d yyyy")} </li>
+                                        <li >{format(new Date(addDays(new Date([booking.checkIn]),1)), "MMM d yyyy")} </li>
                                     </div>
                                     <div className="booking-title-show">
                                         <li > Checkout:</li>
-                                        {format(new Date([booking.checkOut]), "MMM d yyyy")}
+                                        {format(new Date(addDays(new Date([booking.checkOut]),1)), "MMM d yyyy")}
                                     </div>
                                     <div className="booking-title-show">
                                         <li > <FontAwesomeIcon className="users-icon" icon={faUsers} /></li>
@@ -90,7 +94,7 @@ class BookingShow extends React.Component {
                                 {/* <li className="rev-date">{format(new Date(rev.createdAt), 'MMMM yyyy')}</li> */}
                                 <div className="edit-delete-btns-container-booking">
                                     <button className="edit-delete-btns-book" value={booking.id} onClick={this.handleDelete}>Delete </button>
-                                    <button className="edit-delete-btns-book" value={booking.id} onClick={this.handleEdit}>Edit </button>
+                                    <button className="edit-delete-btns-book" value={bookings.indexOf(booking)} onClick={this.handleEdit}>Edit </button>
                                 </div>
                             </div>
 

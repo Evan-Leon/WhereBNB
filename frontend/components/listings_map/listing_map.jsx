@@ -30,20 +30,21 @@ class ListingMap extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.singleListing) {
+        // if (this.props.singleListing) {
             
-            // const targetListingKey = Object.keys(this.props.listings)[0];
-            // const targetListing = this.props.listings[targetListingKey];
-            const mapLoc = {
-                lat: this.props.listing.latitude,
-                lng: this.props.listing.longitude
-            }
+        //     // const targetListingKey = Object.keys(this.props.listings)[0];
+        //     // const targetListing = this.props.listings[targetListingKey];
+        //     const mapLoc = {
+        //         lat: this.props.listing.latitude,
+        //         lng: this.props.listing.longitude
+        //     }
         
-            this.map.setCenter(mapLoc);
-            this.map.setZoom(10);
-            this.MarkerManager.updateMarkers([this.props.listing]);
-        } else {
-            debugger
+            // this.map.setCenter(mapLoc);
+            // this.map.setZoom(10);
+            // this.MarkerManager.updateMarkers([this.props.listing]);
+        // }
+        //  else {
+           
             if (prevProps.listings.length !== this.props.listings.length){
                 const firstList = this.props.listings[0];
                 const mapLoc = {
@@ -54,9 +55,8 @@ class ListingMap extends React.Component {
                 this.map.setZoom(10);
                 this.MarkerManager.updateMarkers(this.props.listings)
             }
-            this.MarkerManager.updateMarkers(this.props.listings)
+            // this.MarkerManager.updateMarkers(this.props.listings)
             
-        }
     }
 
     registerListeners() {
