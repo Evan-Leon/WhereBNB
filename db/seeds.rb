@@ -208,6 +208,14 @@ sanfran_listing5 = Listing.create!(title: "Trolley Car Tiny House", price: 150, 
     sanfran_listing5_cover= open("https://photos-wherebnb.s3.us-east-1.amazonaws.com/photo_seeds/fringer-cat-IchEp56ZYjY-unsplash.jpg")
     sanfran_listing5.coverphoto.attach(io: sanfran_listing5_cover, filename: 'fringer-cat-IchEp56ZYjY-unsplash.jpg')
 
+#Bookings
+booking_1 = Booking.create!(check_in: '2021-07-13', check_out: '2021-07-16', guest_id: demo.id, listing_id: ny_listing1.id, num_guests: 3)
+booking_2 = Booking.create!(check_in: '2021-08-13', check_out: '2021-08-20', guest_id: demo.id, listing_id: boston_listing1.id, num_guests: 4)
+booking_3 = Booking.create!(check_in: '2021-09-13', check_out: '2021-09-21', guest_id: demo.id, listing_id: austin_listing1.id, num_guests: 5)
+booking_4 = Booking.create!(check_in: '2021-10-01', check_out: '2021-10-10', guest_id: demo.id, listing_id: seattle_listing1.id, num_guests: 3)
+booking_5 = Booking.create!(check_in: '2021-11-10', check_out: '2021-11-20', guest_id: demo.id, listing_id: sanfran_listing1.id, num_guests: 4)
+
+
 #Reviews
 review_1 = Review.create!(body:"Such a beautiful location", rating: 5, guest_id: demo.id, listing_id: ny_listing1.id )
 review_2 = Review.create!(body:"Such a beautiful location", rating: 5, guest_id: bob.id, listing_id: ny_listing1.id )
