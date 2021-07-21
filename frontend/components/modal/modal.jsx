@@ -7,6 +7,7 @@ import EditBookingContainer from '../bookings/edit_booking_container';
 // import BookingFormContainer from '../bookings/create_booking_container';
 import EditReviewContainer from '../reviews/edit_review_container';
 import { removeFilter } from '../../actions/filter_actions';
+import BookingConfirmContainer from '../bookings/booking_confirm_container';
 
 
 function Modal({modal, closeModal, removeFilter}) {
@@ -26,6 +27,9 @@ function Modal({modal, closeModal, removeFilter}) {
             break;
         case 'edit-booking':
             component = <EditBookingContainer />;
+            break;
+        case 'booking-confirm':
+            component = <BookingConfirmContainer />;
             break;
         default:
             return null;

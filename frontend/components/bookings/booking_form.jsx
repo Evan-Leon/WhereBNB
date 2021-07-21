@@ -28,21 +28,22 @@ class BookingForm extends React.Component {
        if (!this.props.currentUser){
            this.props.openModal("login")
        } else{
-        let booking = {
-            check_in: this.state.checkIn,
-            check_out: this.state.checkOut,
-            guest_id: this.props.currentUser,
-            listing_id: this.props.listing.id,
-            num_guests: this.state.numGuests
-        }
+           this.props.openModal("booking-confirm");
+        // let booking = {
+        //     check_in: this.state.checkIn,
+        //     check_out: this.state.checkOut,
+        //     guest_id: this.props.currentUser,
+        //     listing_id: this.props.listing.id,
+        //     num_guests: this.state.numGuests
+        // }
         
-        this.props.createBooking(booking)
-            .then(() => this.setState({checkIn: new Date(),
-                checkOut: new Date(),
-                numGuests: this.props.listing.guestNum,
-                errors: [],
-                booked:true
-        }))
+        // this.props.createBooking(booking)
+        //     .then(() => this.setState({checkIn: new Date(),
+        //         checkOut: new Date(),
+        //         numGuests: this.props.listing.guestNum,
+        //         errors: [],
+        //         booked:true
+        // }))
     }
         
       
@@ -50,7 +51,7 @@ class BookingForm extends React.Component {
 
     updateDates(e) {
         let { startDate, endDate } = e.selection;
-        
+        this.props.openModal("booking-confirm");
         this.setState({
             checkIn: startDate,
             checkOut: endDate
@@ -62,6 +63,7 @@ class BookingForm extends React.Component {
         this.setState({
             numGuests: e.target.value,
         })
+        this.props.openModal("booking-confirm")
     }
 
     noDates() {
@@ -75,6 +77,8 @@ class BookingForm extends React.Component {
         }
     }
 
+    
+
     render(){
 
         // const { listing } = this.props;
@@ -87,6 +91,11 @@ class BookingForm extends React.Component {
         
         let noDates = this.noDates();
         
+        const priceFormatter = 
+            new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+            });
         if (!this.state.booked){
             
             return(
@@ -120,7 +129,7 @@ class BookingForm extends React.Component {
                                 </div>
                                 <div className="check-out-container">
                                     <label className="check-label" >CHECKOUT</label>
-                                    <p className="check-out">{format(this.state.checkOut, "MMM d yyyy")}</p>
+                                    <p className="check-out">{format(addDays(new Date([this.state.checkOut]), 1), "MMM d yyyy")}</p>
                                 </div>
                                 
                             </div>
@@ -153,7 +162,7 @@ class BookingForm extends React.Component {
                                 </div>
                                 <div className="total">
                                     <p>Total</p>
-                                    <p>${([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)])
+                                    <p>${priceFormatter.format([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)])
                                         + (([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)]))*(.05)
                                         + (57)}</p>
                                 </div>

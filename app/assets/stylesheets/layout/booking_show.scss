@@ -57,8 +57,7 @@
 }
 
 .edit-booking-form-out-container{
-    height:60vh;
-    width: 50vw;
+    
     background-color: white;
     border-radius: 25px;
 }
@@ -88,10 +87,10 @@
 
 .outer-container {
     padding: 90px 20px 20px 0;
-    // width: 100vw;
+    width: 80vw;
     height: 77vh;
     overflow: auto;
-
+    
 }
 
 .edit-delete-btns-container-booking{
@@ -145,3 +144,10 @@
     width: 290px;
     margin-left: 10px;
 }
+
+.booking-confirm-form-out-container{
+    background-color: white;
+    border-radius: 25px;
+    height: 80vh;
+}
+
