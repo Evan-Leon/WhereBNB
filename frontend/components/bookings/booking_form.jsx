@@ -25,7 +25,9 @@ class BookingForm extends React.Component {
 
     handleSelect(e) {
         e.preventDefault();
-       
+       if (!this.props.currentUser){
+           this.props.openModal("login")
+       } else{
         let booking = {
             check_in: this.state.checkIn,
             check_out: this.state.checkOut,
@@ -41,7 +43,7 @@ class BookingForm extends React.Component {
                 errors: [],
                 booked:true
         }))
-
+    }
         
       
     }
@@ -86,6 +88,7 @@ class BookingForm extends React.Component {
         let noDates = this.noDates();
         
         if (!this.state.booked){
+            
             return(
             <div className="booking-form-container">
                 <form onSubmit={this.handleSelect} className="res-form">
@@ -230,7 +233,7 @@ class BookingForm extends React.Component {
                                         + (57)}</p>
                                 </div>
                             </div>
-
+                            
                             <button className="booking-sub" type="submit" value={this.props.formType} disabled>Booked!</button>
                         </div>
                     </form>

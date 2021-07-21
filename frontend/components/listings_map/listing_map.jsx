@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import MarkerManager from '../../utils/marker_manager';
+import { Link } from 'react-router-dom'
 
 const getCoordsObj = latLng => ({
     lat: latLng.lat(),
@@ -44,7 +45,7 @@ class ListingMap extends React.Component {
             // this.MarkerManager.updateMarkers([this.props.listing]);
         // }
         //  else {
-           
+           debugger
             if (prevProps.listings.length !== this.props.listings.length){
                 const firstList = this.props.listings[0];
                 const mapLoc = {
@@ -55,6 +56,17 @@ class ListingMap extends React.Component {
                 this.map.setZoom(10);
                 this.MarkerManager.updateMarkers(this.props.listings)
             }
+        if (prevProps.listings[0] !== this.props.listings[0]){
+            const firstList = this.props.listings[0];
+            const mapLoc = {
+                lat: firstList.latitude,
+                lng: firstList.longitude
+            }
+            this.map.setCenter(mapLoc);
+            this.map.setZoom(10);
+            this.MarkerManager.updateMarkers(this.props.listings)
+        }
+
             // this.MarkerManager.updateMarkers(this.props.listings)
             
     }
@@ -76,7 +88,8 @@ class ListingMap extends React.Component {
     // }
 
     handleMarkerClick(listing) {
-        this.props.history.push(`listings/${listing.id}`);
+
+        this.props.history.push(`/listings/${listing.id}`);
     }
 
     render(){

@@ -101,6 +101,7 @@ class ListingShow extends React.Component {
                         reviewNum={reviewNum}
                         createBooking={this.props.createBooking}
                         currentUser = {this.props.currentUser}
+                        openModal = {this.props.openModal}
                         
                     />
                 </div>

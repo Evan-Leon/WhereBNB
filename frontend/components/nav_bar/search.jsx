@@ -26,7 +26,7 @@ class Search extends React.Component{
         search = search.toLowerCase();
         this.setState({search: ''});
     
-        this.props.history.replace(`/search/${search}`)
+        this.props.history.push(`/search/${search}`)
         
     }
 

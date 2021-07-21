@@ -11,6 +11,7 @@ class SearchIndex extends React.Component {
         this.state = {
             listings: '',
             search: this.props.match.params.searchString,
+            searched: false
         }
     }
 
@@ -20,6 +21,13 @@ class SearchIndex extends React.Component {
             .then(listings => this.setState(listings))
     }
 
+    componentDidUpdate(prevProps){
+        debugger
+        if (prevProps.location.pathname !== this.props.location.pathname){
+            this.props.fetchSearch(this.props.match.params.searchString)
+                .then(listings => this.setState(listings))
+        }
+    }
 
     render(){
         
@@ -31,7 +39,7 @@ class SearchIndex extends React.Component {
             
             <div className="listings-index-box">
                 <div className="listings-inner">
-                    <h2 className="main-index-title">Stays like: '{this.state.search}'</h2>
+                    <h2 className="main-index-title">Stays like: '{this.props.match.params.searchString}'</h2>
                     <ul className="list-indexes">
                         {
                     
