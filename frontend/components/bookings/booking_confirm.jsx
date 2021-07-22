@@ -120,6 +120,12 @@ class BookingConfirm extends React.Component {
             endDate: new Date([booking.checkOut]),
             key: 'selection',
         }
+
+        const priceFormatter =
+            new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+            });
         debugger
         if (!this.state.errored){
         return (
@@ -178,7 +184,7 @@ class BookingConfirm extends React.Component {
                                 <div className="cost">
                                     <div className="night-cost">
                                         <p>${listing.price} x {formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1))}</p>
-                                        <p>${([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])}</p>
+                                        <p>{([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])}</p>
                                     </div>
                                     <div className="services">
                                         <p>Service Fee</p>
@@ -186,13 +192,13 @@ class BookingConfirm extends React.Component {
                                     </div>
                                     <div className="taxes">
                                         <p>Occupancy taxes and fees</p>
-                                        <p>${(([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])) * (.05)}</p>
+                                        <p>{priceFormatter.format((([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])) * (.05))}</p>
                                     </div>
                                     <div className="total">
                                         <p>Total</p>
-                                        <p>${([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])
+                                        <p>{priceFormatter.format(([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])
                                             + (([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])) * (.05)
-                                            + (57)}</p>
+                                            + (57))}</p>
                                     </div>
                                 </div>
 

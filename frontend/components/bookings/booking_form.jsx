@@ -91,11 +91,12 @@ class BookingForm extends React.Component {
         
         let noDates = this.noDates();
         
-        const priceFormatter = 
+        const priceFormatter =
             new Intl.NumberFormat('en-US', {
                 style: 'currency',
                 currency: 'USD',
             });
+
         if (!this.state.booked){
             
             return(
@@ -158,13 +159,13 @@ class BookingForm extends React.Component {
                                 </div>
                                 <div className="taxes">
                                     <p>Occupancy taxes and fees</p>
-                                    <p>${(([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)]))*(.05)}</p>
+                                    <p>{priceFormatter.format((([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)]))*(.05))}</p>
                                 </div>
                                 <div className="total">
                                     <p>Total</p>
-                                    <p>${priceFormatter.format([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)])
+                                    <p>{priceFormatter.format(([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)])
                                         + (([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)]))*(.05)
-                                        + (57)}</p>
+                                        + (57))}</p>
                                 </div>
                             </div>
                             
