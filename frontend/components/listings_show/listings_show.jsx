@@ -108,7 +108,7 @@ class ListingShow extends React.Component {
                 <br />
                 <div className="review-container-show">
                     <ReviewDisplayContainer className="review-display" listing={listing} listingId={listing.id} roundRating={roundRating}
-                        reviewNum={reviewNum} reviews={listing.reviews} />
+                        reviewNum={reviewNum} reviews={listing.reviews} updateFilter={this.props.updateFilter} />
                     <ReviewFormContainer  listing={listing}   currentUser= {this.props.currentUser} />
                 </div>
 

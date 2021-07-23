@@ -32,16 +32,10 @@ class BookingConfirm extends React.Component {
 
     }
 
-    // componentDidMount() {
-
-    //     // this.props.fetchBooking(Number(this.props.bookingId[0]))
-    //     debugger
-    //     // this.setState({ booking: this.props.bookings[Number(this.props.bookingId[0])] })
-
-    // }
+   
 
     componentDidUpdate(prevProps, prevState) {
-        debugger
+        
         if (prevState.errors !== this.state.errors) {
             this.setState({ errored: true })
         }
@@ -49,7 +43,7 @@ class BookingConfirm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+        
         if (!this.props.currentUser){
             this.setState({errors: "Please login to create booking"})
         }else{
@@ -126,7 +120,7 @@ class BookingConfirm extends React.Component {
                 style: 'currency',
                 currency: 'USD',
             });
-        debugger
+        
         if (!this.state.errored){
         return (
             <div className="booking-confirm-form-out-container">

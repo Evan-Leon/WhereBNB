@@ -6,6 +6,7 @@ import SignupFormContainer from '../session_form/signup_form_container';
 import EditBookingContainer from '../bookings/edit_booking_container';
 // import BookingFormContainer from '../bookings/create_booking_container';
 import EditReviewContainer from '../reviews/edit_review_container';
+import ReviewDisplayEditContainer from '../reviews/review_display_edit_container';
 import { removeFilter } from '../../actions/filter_actions';
 import BookingConfirmContainer from '../bookings/booking_confirm_container';
 
@@ -30,6 +31,9 @@ function Modal({modal, closeModal, removeFilter}) {
             break;
         case 'booking-confirm':
             component = <BookingConfirmContainer />;
+            break;
+        case 'review-display-edit-container':
+            component = <ReviewDisplayEditContainer/>;
             break;
         default:
             return null;

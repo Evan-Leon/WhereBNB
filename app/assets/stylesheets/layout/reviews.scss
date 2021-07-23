@@ -8,11 +8,8 @@
 .review-container-show {
     display: flex;
     height: 50vh;
-    width: 80vw;
+    width: 90vw;
     overflow-y:auto;
-    overflow-x: visible;
-    
-    
     
 }
 
@@ -124,7 +121,7 @@
     
     padding:10px;
     width: 18vw;
-    height: 20vh;
+    height: 25vh;
 }
 
 .user-rev {
@@ -152,7 +149,7 @@
     padding-top: 10px;
     display: grid;
     width: 100vw;
-    height: 95vh;
+    height: 200vh;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows:  1fr 1fr 1fr;
     grid-template-areas:
@@ -165,7 +162,7 @@
 
 .review-show-box {
     border: 1px solid darkgray;
-    height: 40vh;
+    height: 50vh;
     width: 30vw;
     border-radius: 25px;
     margin: 10px;
@@ -219,6 +216,7 @@
     padding-top: 90px;
     display:flex;
     flex-direction: column;
+    
 }
 
 .review-show-title{
@@ -265,5 +263,21 @@
     font-weight: 300;
     margin: 20px 0 10px 0;
     
+}
+
+.edit-delete-review-btns {
+    height: 30px;
+    width: 60px;
+    padding: 5px;
+     background-color: rgb(226, 17, 86);
+    color: white;
+    border-radius: 10px;
+    margin-top:10px;
+    
+    
+    font-weight: 700;
+    
+   
+    font-size: 10px;
 }
 

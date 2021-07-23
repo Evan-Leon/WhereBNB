@@ -8,7 +8,7 @@ class ReviewForm extends React.Component {
             rating: 5,
             body:'',
             reviewed: false,
-            errors: "",
+            errors: false,
             errored: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,11 +17,11 @@ class ReviewForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        debugger
+        
         if (!this.props.currentUser) {
             this.props.openModal("login")
         }
-        else if (this.state.errors===""){
+        else if (this.state.body===""){
             this.setState({errors: "Review body can not be blank"})
         }else{
             const review = {
@@ -36,7 +36,7 @@ class ReviewForm extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        debugger 
+    
         if (prevState.errors !== this.state.errors){
             this.setState({errored: true})
         }

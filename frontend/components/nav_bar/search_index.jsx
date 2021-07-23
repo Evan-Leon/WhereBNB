@@ -22,7 +22,7 @@ class SearchIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        debugger
+       
         if (prevProps.location.pathname !== this.props.location.pathname){
             this.props.fetchSearch(this.props.match.params.searchString)
                 .then(listings => this.setState(listings))
