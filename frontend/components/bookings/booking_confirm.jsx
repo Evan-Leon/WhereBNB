@@ -43,16 +43,15 @@ class BookingConfirm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        
+        debugger
         if (!this.props.currentUser){
             this.setState({errors: "Please login to create booking"})
-        }else{
-            if (format([this.state.booking.checkIn], "MMM d yyyy") === format([this.state.booking.checkOut], "MMM d yyyy")){
-            this.setState({errors: "Check-in must be after checkout"})
-        }else{
+        }
+        else{
+            debugger
             const booking = {
                 check_in: this.state.booking.checkIn,
-                check_out: addDays(new Date([this.state.booking.checkOut]), 1),
+                check_out: new Date(addDays(new Date([this.state.booking.checkOut]), 1)),
                 guest_id: this.props.currentUser,
                 listing_id: this.props.listing.id,
                 num_guests: this.state.booking.numGuests
@@ -61,7 +60,7 @@ class BookingConfirm extends React.Component {
             this.props.createBooking(booking)
                .then(this.props.closeModal())
                 .then(this.props.history.push(`/bookings/${this.props.currentUser}`))
-        }}
+        }
         // this.props.updateBooking(booking)
             // .then(() => this.props.deleteBooking(booking.id))
             // .then(this.props.closeModal())
