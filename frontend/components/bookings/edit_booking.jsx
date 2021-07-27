@@ -33,7 +33,9 @@ class EditBooking extends React.Component {
     componentDidMount() {
        
         // this.props.fetchBooking(Number(this.props.bookingId[0]))
-        this.setState({booking:this.props.bookings[Number(this.props.bookingId[0])]})
+        //     .then(booking => this.setState({booking}))
+        // this.setState({booking:this.props.bookings[Number(this.props.bookingId[0])]})
+        this.setState({ booking: this.props.bookings.filter(booking => booking.id === Number(this.props.bookingId[0]))[0]})
        
     }
 
@@ -43,17 +45,17 @@ class EditBooking extends React.Component {
         const booking = {
             id: this.state.booking.id,
             check_in: this.state.booking.checkIn,
-            check_out: this.state.booking.checkOut,
+            check_out: new Date(addDays(new Date([this.state.booking.checkOut]), 1)),
             guest_id: this.props.currentUser,
             listing_id: this.state.booking.listing.id,
             num_guests: this.state.booking.numGuests
         }
 
         this.props.updateBooking(booking)
-            .then(() => this.props.deleteBooking(booking.id))
+            // .then(() => this.props.deleteBooking(booking.id))
             .then(this.props.closeModal())
             .then(this.props.removeFilter())
-            .then(this.props.history.push(`/listings/${this.state.booking.listing.id}`))
+            
     }
 
     // updateBody(e) {
@@ -102,15 +104,16 @@ class EditBooking extends React.Component {
                 currency: 'USD',
             });
 
-        if (!this.state.booking.listing) return null;
+        // if (!this.state.booking.listing) return null;
         let { booking } = this.state;
+        if (booking.numGuests === 0) return null;
        
         let selectionRange = {
             startDate: new Date([booking.checkIn]),
             endDate: new Date([booking.checkOut]),
             key: 'selection',
         }
-       
+        
         return (
             <div className="edit-booking-form-out-container">
                 <h3 className="edit-booking-form-box-title">Edit your booking:</h3>
@@ -166,21 +169,21 @@ class EditBooking extends React.Component {
                                 </div>
                                 <div className="cost">
                                     <div className="night-cost">
-                                    <p>${booking.listing.price} x {formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1))}</p>
-                                    <p>${([booking.listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])}</p>
+                                    <p>${booking.listing.price} x {formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1), {unit: 'day'})}</p>
+                                    <p>${([booking.listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1),{unit: 'day'}).slice(0, 2)])}</p>
                                     </div>
                                     <div className="services">
                                         <p>Service Fee</p>
-                                        <p>$57</p>
+                                        <p>$57.00</p>
                                     </div>
                                     <div className="taxes">
                                         <p>Occupancy taxes and fees</p>
-                                        <p>{priceFormatter.format((([booking.listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])) * (.05))}</p>
+                                        <p>{priceFormatter.format((([booking.listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1), {unit: 'day'}).slice(0, 2)])) * (.05))}</p>
                                     </div>
                                     <div className="total">
                                         <p>Total</p>
-                                        <p>{priceFormatter.format(([booking.listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])
-                                            + (([booking.listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])) * (.05)
+                                        <p>{priceFormatter.format(([booking.listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1), { unit: 'day' }).slice(0, 2)])
+                                            + (([booking.listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1), { unit: 'day' }).slice(0, 2)])) * (.05)
                                             + (57))}</p>
                                     </div>
                                 </div>

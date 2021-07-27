@@ -5,9 +5,11 @@ import { closeModal } from '../../actions/modal_actions';
 import { removeFilter } from '../../actions/filter_actions';
 
 const mSTP = state => {
+    debugger
     return ({
         currentUser: state.session.id,
-        listing: Object.values(state.entities.listings)[0]
+        listing: Object.values(state.entities.reviews)[0].listing,
+        
        
     })
 }

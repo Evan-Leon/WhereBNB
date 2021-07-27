@@ -17,7 +17,7 @@ class BookingConfirm extends React.Component {
             booking: {
                 checkIn: new Date(),
                 checkOut: new Date(),
-                numGuests: 0,
+                numGuests: 2,
                 errors: [],
                 booked: false
             },
@@ -108,6 +108,7 @@ class BookingConfirm extends React.Component {
         let { booking } = this.state;
         let {listing} = this.props;
         if (!listing) return null;
+        debugger
         let selectionRange = {
             startDate: new Date([booking.checkIn]),
             endDate: new Date([booking.checkOut]),
@@ -162,7 +163,7 @@ class BookingConfirm extends React.Component {
                                 </div>
                                 <div className="edit-guests-container">
                                     <label className="guest-label" htmlFor="num-guests">GUESTS</label>
-                                    <select className="num-guests" id="num-guests" value={booking.numGuests} onChange={this.handleGuest}>
+                                    <select className="num-guests" id="num-guests" value={listing.numGuests} onChange={this.handleGuest}>
                                         <option value="1">1 guest</option>
                                         <option value="2">2 guests</option>
                                         <option value="3">3 guests</option>
@@ -176,21 +177,21 @@ class BookingConfirm extends React.Component {
                                 </div>
                                 <div className="cost">
                                     <div className="night-cost">
-                                        <p>${listing.price} x {formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1))}</p>
-                                        <p>{([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])}</p>
+                                        <p>${listing.price} x {formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1), { unit: 'day' })}</p>
+                                        <p>{priceFormatter.format(([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1), { unit: 'day' }).slice(0, 2)]))}</p>
                                     </div>
                                     <div className="services">
                                         <p>Service Fee</p>
-                                        <p>$57</p>
+                                        <p>$57.00</p>
                                     </div>
                                     <div className="taxes">
                                         <p>Occupancy taxes and fees</p>
-                                        <p>{priceFormatter.format((([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])) * (.05))}</p>
+                                        <p>{priceFormatter.format((([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1), { unit: 'day' }).slice(0, 2)])) * (.05))}</p>
                                     </div>
                                     <div className="total">
                                         <p>Total</p>
-                                        <p>{priceFormatter.format(([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])
-                                            + (([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1)).slice(0, 1)])) * (.05)
+                                        <p>{priceFormatter.format(([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1), { unit: 'day' }).slice(0, 2)])
+                                            + (([listing.price]) * ([formatDistanceStrict(new Date([booking.checkIn]), addDays(new Date([booking.checkOut]), 1), { unit: 'day' }).slice(0, 2)])) * (.05)
                                             + (57))}</p>
                                     </div>
                                 </div>

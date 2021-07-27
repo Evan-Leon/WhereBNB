@@ -150,8 +150,8 @@ class BookingForm extends React.Component {
                             </div>
                             <div className="cost">
                                 <div className="night-cost">
-                                    <p>${this.props.listing.price} x {formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1))}</p>
-                                    <p>${([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)])}</p>
+                                    <p>${this.props.listing.price} x {formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1), { unit: 'day' })}</p>
+                                    <p>${([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1), { unit: 'day' }).slice(0,2)])}</p>
                                 </div>
                                 <div className="services">
                                     <p>Service Fee</p>
@@ -159,12 +159,12 @@ class BookingForm extends React.Component {
                                 </div>
                                 <div className="taxes">
                                     <p>Occupancy taxes and fees</p>
-                                    <p>{priceFormatter.format((([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)]))*(.05))}</p>
+                                    <p>{priceFormatter.format((([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1), { unit: 'day' }).slice(0,2)]))*(.05))}</p>
                                 </div>
                                 <div className="total">
                                     <p>Total</p>
-                                    <p>{priceFormatter.format(([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)])
-                                        + (([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1)).slice(0,1)]))*(.05)
+                                    <p>{priceFormatter.format(([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1), { unit: 'day' }).slice(0,2)])
+                                        + (([this.props.listing.price]) * ([formatDistanceStrict(this.state.checkIn, addDays(this.state.checkOut, 1), { unit: 'day' }).slice(0,2)]))*(.05)
                                         + (57))}</p>
                                 </div>
                             </div>

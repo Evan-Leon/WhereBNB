@@ -4,11 +4,15 @@ import BookingShow from './booking_show';
 import { openModal } from '../../actions/modal_actions';
 import { updateFilter } from '../../actions/filter_actions';
 
-const mSTP = state => ({
-    currentUser: state.session.id,
-    bookings: Object.values(state.entities.bookings),
-    userName: state.entities.users[state.session.id]
-})
+const mSTP = state => {
+    
+    return ({
+        currentUser: state.session.id,
+        bookings: Object.values(state.entities.bookings),
+        userName: state.entities.users[state.session.id],
+        filter: state.ui.filters
+    })
+}
 
 const mDTP = dispatch => ({
     fetchBookings: userId => dispatch(fetchBookings(userId)),

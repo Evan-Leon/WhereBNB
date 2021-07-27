@@ -8,7 +8,8 @@ class BookingShow extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            bookings: ''
+            bookings: '',
+            deleted: false
         }
         this.handleDelete = this.handleDelete.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
@@ -24,12 +25,11 @@ class BookingShow extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         
-
-        if (prevState.bookings.length !== this.state.bookings.length) {
-            this.setState({
-                bookings: this.state.bookings
-            })
-        } else if (prevProps.bookings.length !== this.props.bookings.length) {
+        debugger
+        if (prevProps.filter !== this.props.filter) {
+            this.props.fetchBookings(this.props.currentUser)
+                .then(bookings => this.setState({ bookings }))
+        } else if (prevState.bookings.length !== this.state.bookings.length) {
             this.props.fetchBookings(this.props.currentUser)
                 .then(bookings => this.setState({ bookings }))
         }
@@ -40,9 +40,10 @@ class BookingShow extends React.Component {
 
     handleDelete(e) {
         e.preventDefault()
-
-        this.props.deleteBooking(e.target.value)
+        debugger
+        this.props.deleteBooking(Number(e.target.value))
             .then(() => this.props.fetchBookings(this.props.currentUser))
+            .then(bookings => this.setState({bookings}))
     }
 
     handleEdit(e) {
@@ -55,7 +56,7 @@ class BookingShow extends React.Component {
     render() {
 
         let { bookings } = this.state.bookings;
-
+        debugger
         if (!bookings) return null;
         
         return (
@@ -94,7 +95,7 @@ class BookingShow extends React.Component {
                                 {/* <li className="rev-date">{format(new Date(rev.createdAt), 'MMMM yyyy')}</li> */}
                                 <div className="edit-delete-btns-container-booking">
                                     <button className="edit-delete-btns-book" value={booking.id} onClick={this.handleDelete}>Delete </button>
-                                    <button className="edit-delete-btns-book" value={bookings.indexOf(booking)} onClick={this.handleEdit}>Edit </button>
+                                    <button className="edit-delete-btns-book" value={booking.id} onClick={this.handleEdit}>Edit </button>
                                 </div>
                             </div>
 
