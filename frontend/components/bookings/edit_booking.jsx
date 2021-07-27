@@ -53,6 +53,7 @@ class EditBooking extends React.Component {
 
         this.props.updateBooking(booking)
             // .then(() => this.props.deleteBooking(booking.id))
+            .then(this.props.fetchBookings())
             .then(this.props.closeModal())
             .then(this.props.removeFilter())
             

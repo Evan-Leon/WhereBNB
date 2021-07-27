@@ -4,9 +4,10 @@ const BookingsReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_BOOKINGS:
-            
+            debugger
             return Object.assign({}, state, action.bookings)
         case RECEIVE_BOOKING:
+            
             return Object.assign({}, state, {[action.booking.id]: action.booking})
         case REMOVE_BOOKING:
             let nextState = Object.assign({}, state)

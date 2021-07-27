@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateBooking, fetchBooking, deleteBooking } from '../../actions/booking_actions';
+import { updateBooking, fetchBookings, deleteBooking } from '../../actions/booking_actions';
 import EditBooking from './edit_booking';
 import { closeModal } from '../../actions/modal_actions';
 import { removeFilter } from '../../actions/filter_actions';
@@ -15,7 +15,7 @@ const mSTP = state => {
 const mDTP = dispatch => ({
     updateBooking: booking => dispatch(updateBooking(booking)),
     closeModal: () => dispatch(closeModal()),
-    fetchBooking: bookingId => dispatch(fetchBooking(bookingId)),
+    fetchBookings: () => dispatch(fetchBookings()),
     removeFilter: () => dispatch(removeFilter()),
     deleteBooking: bookingId => dispatch(deleteBooking(bookingId))
 })

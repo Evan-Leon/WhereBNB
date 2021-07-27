@@ -18,21 +18,29 @@ class BookingShow extends React.Component {
 
     componentDidMount() {
 
-        this.props.fetchBookings(this.props.currentUser)
+        this.props.fetchBookings()
             .then(bookings => this.setState({bookings}))
+            
 
     }
 
     componentDidUpdate(prevProps, prevState) {
         
-        
-        if (prevProps.filter !== this.props.filter) {
-            this.props.fetchBookings(this.props.currentUser)
-                .then(bookings => this.setState({ bookings }))
-        } else if (prevState.bookings.length !== this.state.bookings.length) {
-            this.props.fetchBookings(this.props.currentUser)
+        if (prevState.bookings.length !== this.state.bookings.length) {
+            this.props.fetchBookings()
                 .then(bookings => this.setState({ bookings }))
         }
+        if (prevProps.filter !== this.props.filter) {
+            debugger
+            this.props.fetchBookings()
+                // .then(bookings => this.setState({ bookings }))
+                .then(bookings => this.setState({ bookings }))
+                
+        }
+        // } else if (prevState.bookings.length !== this.state.bookings.length) {
+        //     this.props.fetchBookings(this.props.currentUser)
+        //         .then(bookings => this.setState({ bookings }))
+        // }
     }
 
    
@@ -42,7 +50,7 @@ class BookingShow extends React.Component {
         e.preventDefault()
         
         this.props.deleteBooking(Number(e.target.value))
-            .then(() => this.props.fetchBookings(this.props.currentUser))
+            .then(() => this.props.fetchBookings())
             .then(bookings => this.setState({bookings}))
     }
 
