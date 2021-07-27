@@ -43,12 +43,12 @@ class BookingConfirm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+        
         if (!this.props.currentUser){
             this.setState({errors: "Please login to create booking"})
         }
         else{
-            debugger
+            
             const booking = {
                 check_in: this.state.booking.checkIn,
                 check_out: new Date(addDays(new Date([this.state.booking.checkOut]), 1)),
@@ -108,7 +108,7 @@ class BookingConfirm extends React.Component {
         let { booking } = this.state;
         let {listing} = this.props;
         if (!listing) return null;
-        debugger
+        
         let selectionRange = {
             startDate: new Date([booking.checkIn]),
             endDate: new Date([booking.checkOut]),

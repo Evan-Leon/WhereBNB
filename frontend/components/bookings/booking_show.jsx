@@ -25,7 +25,7 @@ class BookingShow extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         
-        debugger
+        
         if (prevProps.filter !== this.props.filter) {
             this.props.fetchBookings(this.props.currentUser)
                 .then(bookings => this.setState({ bookings }))
@@ -40,7 +40,7 @@ class BookingShow extends React.Component {
 
     handleDelete(e) {
         e.preventDefault()
-        debugger
+        
         this.props.deleteBooking(Number(e.target.value))
             .then(() => this.props.fetchBookings(this.props.currentUser))
             .then(bookings => this.setState({bookings}))
@@ -56,7 +56,7 @@ class BookingShow extends React.Component {
     render() {
 
         let { bookings } = this.state.bookings;
-        debugger
+        
         if (!bookings) return null;
         
         return (
