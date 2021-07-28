@@ -196,7 +196,7 @@ class BookingConfirm extends React.Component {
                                     </div>
                                 </div>
 
-                                <button className="booking-sub" type="submit" >Check availability</button>
+                                <button className="booking-sub" type="submit" >Book</button>
 
 
                             </div>
@@ -280,7 +280,7 @@ class BookingConfirm extends React.Component {
                                         </div>
                                     </div>
                                     <p className="errors">{this.state.errors}</p>
-                                    <button className="booking-sub" type="submit" >Check availability</button>
+                                    <button className="booking-sub" type="submit" >Book</button>
 
 
                                 </div>

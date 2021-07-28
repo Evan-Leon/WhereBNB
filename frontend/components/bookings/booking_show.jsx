@@ -31,7 +31,6 @@ class BookingShow extends React.Component {
                 .then(bookings => this.setState({ bookings }))
         }
         if (prevProps.filter !== this.props.filter) {
-            debugger
             this.props.fetchBookings()
                 // .then(bookings => this.setState({ bookings }))
                 .then(bookings => this.setState({ bookings }))

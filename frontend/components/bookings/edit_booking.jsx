@@ -189,7 +189,7 @@ class EditBooking extends React.Component {
                                     </div>
                                 </div>
 
-                                <button className="booking-sub" type="submit" >Check availability</button>
+                                <button className="booking-sub" type="submit" >Edit Booking</button>
                                 
 
                             </div>
