@@ -76,7 +76,7 @@ Much akin to Airbnb, WhereBNB utilizes many modals to aid in user experience. Wh
 
 
 ### Modals Code Snippet
-Code that checks to see which modal is active, then display that modal. If no modal is active, no modal will display.
+Code that uses a JS switch statement to see which modal is active, then display that React component in modal form. If no modal is active, no modal will display.
 ```js
   function Modal({modal, closeModal, removeFilter}) {
     if (!modal){
