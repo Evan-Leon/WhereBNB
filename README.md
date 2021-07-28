@@ -26,7 +26,7 @@ When logged in, a user can review their favorite listings directly on the listin
 
 ### Reviews Code Snippet
 Code that maps through all reviews for a listing, then does a check to see if the current user is the author of the review, will activate edit/delete buttons accordingly.
-```
+```js
 <div className='actual-reviews'>
                         { 
                             Object.values(reviews).map((review, i) => (
