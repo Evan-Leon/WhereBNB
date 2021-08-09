@@ -53,7 +53,6 @@ Code that maps through all reviews for a listing, then does a check to see if th
   ```
 
 
-
 ### Search Feature
 Users can search all listings, from any page, at any time and receive all listing titles or locations that match the search. All listings are indexed and pins applied to the map. This was done by creating a custom search route, first in React, then sending the text of the search, via Ajax request to the custom search Rails route. The text is parsed and an Active Record request is made to search all listings, then these results are returned to the front end.
 
