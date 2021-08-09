@@ -106,3 +106,4 @@ Code that uses a JS switch statement to see which modal is active, then display 
     }
 ```
 
+
