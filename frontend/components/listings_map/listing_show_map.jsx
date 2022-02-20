@@ -32,8 +32,6 @@ class ListingShowMap extends React.Component {
     componentDidUpdate() {
         if (this.props.singleListing) {
             
-            // const targetListingKey = Object.keys(this.props.listings)[0];
-            // const targetListing = this.props.listings[targetListingKey];
             const mapLoc = {
                 lat: this.props.listing.latitude,
                 lng: this.props.listing.longitude
@@ -59,12 +57,7 @@ class ListingShowMap extends React.Component {
             this.props.updateFilter('bounds', bounds);
         });
     }
-    // google.maps.event.addListener(this.map, 'click', (e) => {
-    //     const coords = getCoordsObj(e.latLng);
-    //     this.handleClick(coords);
-    // });
-
-    // }
+   
 
     handleMarkerClick(listing) {
         this.props.history.push(`listings/${listing.id}`);

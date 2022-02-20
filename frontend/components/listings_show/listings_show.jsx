@@ -1,7 +1,4 @@
 import React, {useState} from 'react';
-// import MyCalendar from './calendar';
-import Calendar from 'react-calendar';
-import MyDateRange from './date_range';
 import {DateRange} from 'react-date-range'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faHome, faUsers, faClipboardList, faHandSparkles, faStar, 

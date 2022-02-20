@@ -2,7 +2,7 @@ import React from 'react';
 import ListingIndexItem from './listing_index_item';
 import ListingMap from '../listings_map/listing_map';
 import {Link} from 'react-router-dom'
-import { fetchListing } from '../../actions/listing_actions';
+
 
 class ListingsIndex extends React.Component {
     constructor(props){

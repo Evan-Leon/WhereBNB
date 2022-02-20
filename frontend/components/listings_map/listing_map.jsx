@@ -54,7 +54,7 @@ class ListingMap extends React.Component {
             this.MarkerManager.updateMarkers(this.props.listings)
         }
 
-            // this.MarkerManager.updateMarkers(this.props.listings)
+            
             
     }
 
@@ -67,12 +67,7 @@ class ListingMap extends React.Component {
             this.props.updateFilter('bounds', bounds);
         });
     }
-            // google.maps.event.addListener(this.map, 'click', (e) => {
-            //     const coords = getCoordsObj(e.latLng);
-            //     this.handleClick(coords);
-            // });
         
-    // }
 
     handleMarkerClick(listing) {
 
