@@ -23,7 +23,12 @@ class ReviewDisplay extends React.Component {
 
     componentDidUpdate(prevProps, prevState){
         
-       
+       debugger
+       if (prevProps.reviews !== this.props.reviews){
+           this.setState({
+               reviews: this.state.reviews
+           })
+       }
         if (prevState.reviews.length !== this.state.reviews.length){
             this.setState({
                 reviews: this.state.reviews
@@ -53,7 +58,7 @@ class ReviewDisplay extends React.Component {
 
     render(){
         
-        
+        debugger
         let { reviews } = this.state.reviews;
         
         if (!reviews) return null;

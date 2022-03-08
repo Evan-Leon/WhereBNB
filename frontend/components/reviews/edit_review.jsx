@@ -18,13 +18,13 @@ class EditReview extends React.Component {
     componentDidMount(){
         
         let index = this.props.reviewId.length
-        this.setState({ review: this.props.reviews[Number(this.props.reviewId[index-1])] })
+        this.setState({ review: this.props.review })
             
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        
+        debugger
         const review = {
             id: this.state.review.id,
             rating: this.state.review.rating,
@@ -33,10 +33,9 @@ class EditReview extends React.Component {
             guest_id: this.state.review.guest.id,
         }
         this.props.updateReview(review)
-            .then(() => this.props.deleteReview(review.id))
             .then(this.props.closeModal())
             .then(this.props.removeFilter())
-            .then(this.props.history.push(`/listings/${this.state.review.listing.id}`))
+            // .then(this.props.history.push(`/listings/${this.state.review.listing.id}`))
         
     }
 

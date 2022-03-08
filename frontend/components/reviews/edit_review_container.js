@@ -8,10 +8,11 @@ const mSTP = state =>
 {
 
     
+    const reviewId = Object.keys(state.ui.filters)[0];
     return({
     currentUser: state.session.id,
-    reviewId: Object.keys(state.ui.filters),
-    reviews: Object.values(state.entities.reviews)
+    reviewId: reviewId,
+    review: state.entities.reviews[reviewId]
     })
 }
 
@@ -20,7 +21,7 @@ const mDTP = dispatch => ({
     closeModal: () => dispatch(closeModal()),
     fetchSingleReview: reviewId => dispatch(fetchSingleReview(reviewId)),
     removeFilter: () => dispatch(removeFilter()),
-    deleteReview: reviewId => dispatch(deleteReview)
+    deleteReview: reviewId => dispatch(deleteReview(reviewId))
 })
 
 export default connect(mSTP, mDTP)(EditReview);
