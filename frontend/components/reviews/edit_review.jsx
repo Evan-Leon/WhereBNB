@@ -24,7 +24,7 @@ class EditReview extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+       
         const review = {
             id: this.state.review.id,
             rating: this.state.review.rating,
@@ -35,7 +35,6 @@ class EditReview extends React.Component {
         this.props.updateReview(review)
             .then(this.props.closeModal())
             .then(this.props.removeFilter())
-            // .then(this.props.history.push(`/listings/${this.state.review.listing.id}`))
         
     }
 

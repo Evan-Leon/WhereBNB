@@ -23,7 +23,7 @@ class ReviewDisplay extends React.Component {
 
     componentDidUpdate(prevProps, prevState){
         
-       debugger
+       
        if (prevProps.reviews !== this.props.reviews){
            this.setState({
                reviews: this.state.reviews
@@ -43,8 +43,7 @@ class ReviewDisplay extends React.Component {
         e.preventDefault()
 
         this.props.deleteReview(e.target.value)
-            // .then(this.props.fetchListingReviews(this.props.listingId))
-            // .then(reviews => this.setState({ reviews }))
+            
     }
 
     handleEdit(e) {
@@ -58,7 +57,7 @@ class ReviewDisplay extends React.Component {
 
     render(){
         
-        debugger
+        
         let { reviews } = this.state.reviews;
         
         if (!reviews) return null;

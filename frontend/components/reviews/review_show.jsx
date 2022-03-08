@@ -2,6 +2,7 @@ import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faCity, faCalendarAlt, faClipboard, faHandSparkles, faStar, faMedal, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { format, formatDistanceStrict, addDays } from 'date-fns';
+import {Link} from 'react-router-dom';
 
 class ReviewShow extends React.Component {
     constructor(props){
@@ -53,7 +54,7 @@ class ReviewShow extends React.Component {
     render(){
         
         let {reviews} = this.props;
-        debugger
+        
         if (!reviews) return null;
         
 ;        return(
@@ -65,7 +66,7 @@ class ReviewShow extends React.Component {
                     {Object.values(reviews).map((rev, i) =>(
                         <div key={i} className="review-show-box">
                             <div className="user-title-container">
-                                <li className="listing-title-rev">{rev.listing.title}</li>
+                                <Link className="link-rev-show" to={`/listings/${rev.listing.id}`} ><li className="listing-title-rev">{rev.listing.title}</li></Link> 
                                 <div className="rev-title-show">
                                     <li><FontAwesomeIcon className="city-icon" icon={faCity} /> </li>
                                     <li>{rev.listing.city}</li>
